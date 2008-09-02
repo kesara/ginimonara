@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Basic Metadata Specification
+Usage: images/videos
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="metaData" type="metaDataType" />
+  <!-- metaDataType defintion -->
+  <xs:complexType name="metaDataType">
+    <xs:sequence>
+      <xs:element name="tag" type="tagType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <!-- tagType definition -->
+  <xs:complexType name="tagType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="category" type="xs:string" use="required" />
+        <xs:attribute name="x" type="xs:int" use="optional" />
+        <xs:attribute name="y" type="xs:int" use="optional" />
+        <xs:attribute name="p" type="xs:int" use="optional" />
+        <xs:attribute name="q" type="xs:int" use="optional" />
+        <xs:attribute name="st" type="xs:int" use="optional" />
+        <xs:attribute name="et" type="xs:int" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
