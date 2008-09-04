@@ -43,6 +43,9 @@ namespace GiniMonara
         private Point pointSelectionStart;
         private Point pointSelectionEnd;
         private ArrayList hotSpots;
+        private string zoom;
+        private int zoomFactor;
+        private int zoomStep;
         #endregion
 
         public MainForm()
@@ -82,6 +85,7 @@ namespace GiniMonara
                     hotSpots.Add(panelHotSpot);
                 }
             }
+            panelImage.Refresh();
         }
 
         private void comboBoxTagName_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,8 +106,13 @@ namespace GiniMonara
                 signature = Signature.getSignature(fileName);
                 panelImage.Visible = false;
                 panelImage.Visible = true;
+                zoom = "actual";
+                zoomFactor = 10;
+                zoomStep = 25;
                 loadMetaData();
             }
+
+            panelSelection.Visible = false;
 
         }
 
@@ -182,22 +191,44 @@ namespace GiniMonara
 
         private void ribbonButtonImageActual_Click(object sender, EventArgs e)
         {
-            //canvasImage.LoadImage(fileName);
+            if (fileName != null)
+            {
+                zoom = "actual";
+                panelImage.Refresh();
+            }
         }
 
         private void ribbonButtonImageBestFit_Click(object sender, EventArgs e)
         {
-            //canvasImage.fitToWidget();
+            if (fileName != null)
+            {
+                zoom = "bestfit";
+                panelImage.Refresh();
+            }
         }
 
         private void ribbonButtonImageZoomIn_Click(object sender, EventArgs e)
         {
-            //canvasImage.ZoomIn();
+            if (fileName != null)
+            {
+                zoom = "zoom";
+                zoomFactor += zoomStep;
+                panelImage.Refresh();
+            }
         }
 
         private void ribbonButtonImageZoomOut_Click(object sender, EventArgs e)
         {
-            //canvasImage.ZoomOut();
+            if (fileName != null)
+            {
+                zoom = "zoom";
+                zoomFactor -= zoomStep;
+                if (zoomFactor < 10)
+                {
+                    zoomFactor = 10;
+                }
+                panelImage.Refresh();
+            }
         }
 
         private void ribbonButtonImageFlickr_Click(object sender, EventArgs e)
@@ -223,9 +254,31 @@ namespace GiniMonara
         {
             if (fileName != null)
             {
-                Bitmap bitmap = new Bitmap(fileName);
-                //panelImage.Size = bitmap.Size;
-                e.Graphics.DrawImage(bitmap, new Point(0, 0));
+                if (zoom == "actual")
+                {
+                    Bitmap bitmap = new Bitmap(fileName);
+                    e.Graphics.DrawImage(bitmap, new Point(0, 0));
+                }
+                else if (zoom == "bestfit")
+                {
+                    Bitmap bitmap = new Bitmap(fileName);
+                    Bitmap zBitmap = new Bitmap(panelImage.Width, panelImage.Height);
+                    Graphics g = Graphics.FromImage((Image)zBitmap);
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    g.DrawImage(bitmap, 0, 0, panelImage.Width, panelImage.Height);
+                    g.Dispose();
+                    e.Graphics.DrawImage(zBitmap, new Point(0, 0));
+                }
+                else if (zoom == "zoom")
+                {
+                    Bitmap bitmap = new Bitmap(fileName);
+                    Bitmap zBitmap = new Bitmap(bitmap.Width + zoomFactor, bitmap.Height + zoomFactor);
+                    Graphics g = Graphics.FromImage((Image)zBitmap);
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    g.DrawImage(bitmap, 0, 0, bitmap.Width + zoomFactor, bitmap.Height + zoomFactor);
+                    g.Dispose();
+                    e.Graphics.DrawImage(zBitmap, new Point(0, 0));
+                }
             }
         }
 
@@ -354,6 +407,11 @@ namespace GiniMonara
             {
                 panel.Visible = false;
             }
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            panelImage.Refresh();
         }
     }
 }
