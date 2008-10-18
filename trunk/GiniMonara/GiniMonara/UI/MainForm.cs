@@ -202,9 +202,9 @@ namespace GiniMonara.UI
                 #endregion
 
                 #region Update Photo Info
-                GiniMeta gMeta = new GiniMeta();
+                /*GiniMeta gMeta = new GiniMeta();
                 pEntry.Title.Text = gMeta.getTagValue(signature, "Title");
-                pEntry.Summary.Text = gMeta.getTagValue(signature, "Description");
+                pEntry.Summary.Text = gMeta.getTagValue(signature, "Description");*/
                 PicasaEntry updatedEntry = (PicasaEntry)pEntry.Update();
                 #endregion
 
@@ -437,17 +437,23 @@ namespace GiniMonara.UI
 
         private void showHotSpots()
         {
-            foreach (Panel panel in hotSpots)
+            if (hotSpots.Count > 0)
             {
-                panel.Visible = true;
+                foreach (Panel panel in hotSpots)
+                {
+                    panel.Visible = true;
+                }
             }
         }
 
         private void hideHotSpots()
         {
-            foreach (Panel panel in hotSpots)
+            if (hotSpots.Count > 0)
             {
-                panel.Visible = false;
+                foreach (Panel panel in hotSpots)
+                {
+                    panel.Visible = false;
+                }
             }
         }
 
