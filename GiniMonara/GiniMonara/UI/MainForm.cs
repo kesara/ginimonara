@@ -1,4 +1,6 @@
 ﻿using FlickrNet;
+using GiniMonara.MetaData;
+using GiniMonara.Utilities;
 using Google.GData.Client;
 using Google.GData.Extensions;
 using Google.GData.Photos;
@@ -7,36 +9,39 @@ using System.Collections;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Linq;
 using System.Windows.Forms;
 
 /*
- * MainForm - Gini Monara Main User Interface
+ * MainForm - GiniMonara Main User Interface
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
- * Copyright (C) 2008 Gini Monara Team
+ * Copyright (C) 2008 GiniMonara Team
  * 
- * This file is part of Gini Monara.
+ * This file is part of GiniMonara.
  * 
- * Gini Monara is free software: you can redistribute it and/or modify
+ * GiniMonara is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License.
  * 
- * Calculator.NET is distributed in the hope that it will be useful,
+ * GiniMonara is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- * along with Calculator.NET.  If not, see <http://www.gnu.org/licenses/>.
+ * along with GiniMonara.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
 
-namespace GiniMonara
+namespace GiniMonara.UI
 {
     public partial class MainForm : Form
     {
         #region Variable
         private string signature;
         private string fileName;
+        private string metaDataFileName;
+        private TagList tagList;
         private Boolean mouseCaptured;
         private Point pointStart;
         private Point pointEnd;
@@ -55,21 +60,29 @@ namespace GiniMonara
 
         private void loadMetaData()
         {
-            GiniMeta giniMeta = new GiniMeta();
-            textBoxTitle.Text = giniMeta.getTagValue(signature, "title");
-            textBoxDescription.Text = giniMeta.getTagValue(signature, "description");
-            comboBoxTagName.SelectedIndex = 0;
-            textBoxData.Text = giniMeta.getTagValue(signature, comboBoxTagName.SelectedItem.ToString());
-            ArrayList selectionMetaData = giniMeta.getTagSelectionValues(signature, "selection");
-            hotSpots = new ArrayList();
-            if (selectionMetaData != null)
+            tagList = new TagList();
+            if (MetaDataUtility.checkMetaDataExsists(metaDataFileName))
             {
-                foreach (MetaDatum selectionData in selectionMetaData)
+                tagList.load(metaDataFileName);
+                textBoxTitle.Text = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").Select(t => t.data).FirstOrDefault();
+                textBoxDescription.Text = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Description").Select(t => t.data).FirstOrDefault();
+                if (comboBoxTagName.Items.Count > 0)
+                {
+                    textBoxData.Text = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).Select(t => t.data).FirstOrDefault();
+                }
+                var selectionMetaData = from t in tagList
+                                        from c in ApplicationUtility.categories
+                                        where c.type == "area"
+                                        where c.category == t.category
+                                        where c.tag == t.name
+                                        select t;
+                hotSpots = new ArrayList();
+                foreach (gTag tag in selectionMetaData)
                 {
                     Panel panelHotSpot = new Panel();
-                    panelHotSpot.Location = new Point(selectionData.x, selectionData.y);
-                    panelHotSpot.Width = selectionData.p - selectionData.x;
-                    panelHotSpot.Height = selectionData.q - selectionData.y;
+                    panelHotSpot.Location = new Point(tag.x, tag.y);
+                    panelHotSpot.Width = tag.p - tag.x;
+                    panelHotSpot.Height = tag.q - tag.y;
                     panelHotSpot.BackColor = Color.Transparent;
                     panelHotSpot.ForeColor = Color.Black;
                     panelHotSpot.MouseHover += new System.EventHandler(panelSelectionDataMouseHover);
@@ -81,17 +94,37 @@ namespace GiniMonara
                     toolTip.IsBalloon = true;
                     toolTip.ReshowDelay = 0;
                     toolTip.ShowAlways = true;
-                    toolTip.SetToolTip(panelHotSpot, selectionData.data);
+                    toolTip.SetToolTip(panelHotSpot, tag.data);
                     hotSpots.Add(panelHotSpot);
                 }
+            }
+            else
+            {
+                gTag fileNameTag = new gTag("fileName", "hidden", fileName);
+                tagList.Add(fileNameTag);
+                tagList.save(metaDataFileName);
             }
             panelImage.Refresh();
         }
 
-        private void comboBoxTagName_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxCategoryName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GiniMeta giniMeta = new GiniMeta();
-            textBoxData.Text = giniMeta.getTagValue(signature, comboBoxTagName.SelectedItem.ToString());
+            comboBoxTagName.Items.Clear();
+            var tags = ApplicationUtility.categories.Where(c => c.category == comboBoxCategoryName.SelectedItem.ToString()).Where(ty => ty.type == "default").Select(t => t.tag).Distinct();
+            foreach (string tag in tags)
+            {
+                if (tag != "E0T")
+                {
+                    if (!(comboBoxCategoryName.SelectedItem.ToString() == "DublinCore" && (tag == "Title" || tag == "Description")))
+                    {
+                        comboBoxTagName.Items.Add(tag);
+                    }
+                }
+            }
+            if (comboBoxTagName.Items.Count > 0)
+            {
+                comboBoxTagName.SelectedIndex = 0;
+            }
         }
 
         private void ribbonButtonImageOpenFile_Click(object sender, EventArgs e)
@@ -104,6 +137,7 @@ namespace GiniMonara
             {
                 fileName = dialog.FileName;
                 signature = Signature.getSignature(fileName);
+                metaDataFileName = ApplicationUtility.metaDataDirectory + @"\" + signature + @".xml";
                 panelImage.Visible = false;
                 panelImage.Visible = true;
                 zoom = "actual";
@@ -120,6 +154,7 @@ namespace GiniMonara
         {
             panelImage.Visible = false;
             fileName = null;
+            tagList = null;
             textBoxTitle.Clear();
             textBoxDescription.Clear();
             textBoxData.Clear();
@@ -129,33 +164,25 @@ namespace GiniMonara
         {
             if (fileName != null)
             {
-                GiniMeta giniMeta = new GiniMeta();
-                if (giniMeta.getTagValue(signature, "title") == "")
-                {
-                    giniMeta.insertTag(signature, "title", textBoxTitle.Text);
-                }
-                else
-                {
-                    giniMeta.editTag(signature, "title", textBoxTitle.Text);
-                }
+                gTag newTag;
+                gTag oldTag;
 
-                if (giniMeta.getTagValue(signature, "description") == "")
-                {
-                    giniMeta.insertTag(signature, "description", textBoxDescription.Text);
-                }
-                else
-                {
-                    giniMeta.editTag(signature, "description", textBoxDescription.Text);
-                }
+                newTag = new gTag("Title", "DublinCore", textBoxTitle.Text);
+                oldTag = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").SingleOrDefault();
+                tagList.Remove(oldTag);
+                tagList.Add(newTag);
 
-                if (giniMeta.getTagValue(signature, comboBoxTagName.SelectedItem.ToString()) == "")
-                {
-                    giniMeta.insertTag(signature, comboBoxTagName.SelectedItem.ToString(), textBoxData.Text);
-                }
-                else
-                {
-                    giniMeta.editTag(signature, comboBoxTagName.SelectedItem.ToString(), textBoxData.Text);
-                }
+                newTag = new gTag("Description", "DublinCore", textBoxDescription.Text);
+                oldTag = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Description").SingleOrDefault();
+                tagList.Remove(oldTag);
+                tagList.Add(newTag);
+
+                newTag = new gTag(comboBoxTagName.SelectedItem.ToString(), comboBoxCategoryName.SelectedItem.ToString(), textBoxData.Text);
+                oldTag = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).SingleOrDefault();
+                tagList.Remove(oldTag);
+                tagList.Add(newTag);
+
+                tagList.save(metaDataFileName);
             }
         }
 
@@ -164,7 +191,7 @@ namespace GiniMonara
             try
             {
                 #region Google API Credidentials
-                PicasaService pService = new PicasaService("Gini Monara");
+                PicasaService pService = new PicasaService("GiniMonara");
                 pService.setUserCredentials(textBoxUserName.Text, textBoxPassword.Text);
                 #endregion
 
@@ -176,16 +203,16 @@ namespace GiniMonara
 
                 #region Update Photo Info
                 GiniMeta gMeta = new GiniMeta();
-                pEntry.Title.Text = gMeta.getTagValue(signature, "title");
-                pEntry.Summary.Text = gMeta.getTagValue(signature, "description");
+                pEntry.Title.Text = gMeta.getTagValue(signature, "Title");
+                pEntry.Summary.Text = gMeta.getTagValue(signature, "Description");
                 PicasaEntry updatedEntry = (PicasaEntry)pEntry.Update();
                 #endregion
 
-                MessageBox.Show("Image uploaded succesfully", "Gini Monara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Image uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch
             {
-                MessageBox.Show("Image upload failed.", "Gini Monara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Image upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -242,11 +269,11 @@ namespace GiniMonara
                 System.Diagnostics.Process.Start(flickrUrl);
                 flickr.AuthToken = auth.Token;
                 flickr.UploadPicture(fileName, textBoxTitle.Text, textBoxDescription.Text, "testtag,testtag2");
-                MessageBox.Show("Image uploaded succesfully", "Gini Monara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Image uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch
             {
-                MessageBox.Show("Image upload failed.", "Gini Monara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Image upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -369,8 +396,13 @@ namespace GiniMonara
 
         private void ribbonButtonSelectionTagOk_Click(object sender, EventArgs e)
         {
+            gTag tag = new gTag(comboBoxSelectionTag.SelectedItem.ToString(), comboBoxSelectionCategory.SelectedItem.ToString(), textBoxSelectionData.Text, pointSelectionStart.X, pointSelectionStart.Y, pointSelectionEnd.X, pointSelectionEnd.Y);
+            tagList.Add(tag);
+            tagList.save(metaDataFileName);
+            /*
             GiniMeta giniMeta = new GiniMeta();
             giniMeta.insertTag(signature, "selection", textBoxSelectionData.Text, pointSelectionStart.X, pointSelectionStart.Y, pointSelectionEnd.X, pointSelectionEnd.Y);
+             */
             panelSelection.Visible = false;
             showHotSpots();
         }
@@ -412,6 +444,48 @@ namespace GiniMonara
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
             panelImage.Refresh();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            loadCategories(comboBoxCategoryName);
+            loadCategories(comboBoxSelectionCategory);
+        }
+
+        private void loadCategories(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            var categories = ApplicationUtility.categories.Select(c => c.category).Distinct();
+            foreach (string category in categories)
+            {
+                comboBox.Items.Add(category);
+            }
+            comboBox.SelectedIndex = 0;
+        }
+
+        private void comboBoxTagName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tagList != null)
+            {
+                textBoxData.Text = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).Select(t => t.data).FirstOrDefault();
+            }
+        }
+
+        private void comboBoxSelectionCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxSelectionTag.Items.Clear();
+            var tags = ApplicationUtility.categories.Where(c => c.category == comboBoxSelectionCategory.SelectedItem.ToString()).Where(ty => ty.type == "area").Select(t => t.tag).Distinct();
+            foreach (string tag in tags)
+            {
+                if (tag != "E0T")
+                {
+                    comboBoxSelectionTag.Items.Add(tag);
+                }
+            }
+            if (comboBoxSelectionTag.Items.Count > 0)
+            {
+                comboBoxSelectionTag.SelectedIndex = 0;
+            }
         }
     }
 }

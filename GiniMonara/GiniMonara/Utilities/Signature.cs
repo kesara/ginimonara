@@ -1,10 +1,9 @@
-﻿using GiniMonara.UI;
-using GiniMonara.Utilities;
-using System;
-using System.Windows.Forms;
+﻿using System;
+using System.IO;
+using System.Security.Cryptography;
 
 /*
- * Program - GiniMonara Main Program
+ * Signature - GiniMonara Media File Signature
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
  * Copyright (C) 2008 GiniMonara Team
  * 
@@ -24,23 +23,24 @@ using System.Windows.Forms;
  * 
  */
 
-namespace GiniMonara
+namespace GiniMonara.Utilities
 {
-    static class Program
+    class Signature
     {
-
-        [STAThread]
-        static void Main()
+        public static string getSignature(string fileName)
         {
-            #region Application Initiation
-            ApplicationUtility.applicationStart();
-            #endregion
+            string signature = "";
+            byte[] hash;
+            MD5CryptoServiceProvider md5Hash = new MD5CryptoServiceProvider();
+            FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
 
-            #region DisplayForm
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-            #endregion
+            hash = md5Hash.ComputeHash(fileStream);
+            fileStream.Close();
+
+            signature = BitConverter.ToString(hash);
+            signature = signature.Replace("-", "");
+
+            return signature;
         }
     }
 }

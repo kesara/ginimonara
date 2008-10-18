@@ -1,10 +1,14 @@
-﻿using GiniMonara.UI;
-using GiniMonara.Utilities;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 /*
- * Program - GiniMonara Main Program
+ * OptionsForm - GiniMonara Options User Interface
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
  * Copyright (C) 2008 GiniMonara Team
  * 
@@ -26,21 +30,11 @@ using System.Windows.Forms;
 
 namespace GiniMonara
 {
-    static class Program
+    public partial class OptionsForm : Form
     {
-
-        [STAThread]
-        static void Main()
+        public OptionsForm()
         {
-            #region Application Initiation
-            ApplicationUtility.applicationStart();
-            #endregion
-
-            #region DisplayForm
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-            #endregion
+            InitializeComponent();
         }
     }
 }

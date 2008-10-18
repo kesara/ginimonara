@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GiniMonara.Utilities;
+using System;
 using System.Collections;
 using System.Text;
 using System.Xml;
@@ -6,21 +7,21 @@ using System.Xml;
 /*
  * GiniMeta - Metadata Access Class
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
- * Copyright (C) 2008 Gini Monara Team
+ * Copyright (C) 2008 GiniMonara Team
  * 
- * This file is part of Gini Monara.
+ * This file is part of GiniMonara.
  * 
- * Gini Monara is free software: you can redistribute it and/or modify
+ * GiniMonara is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License.
  * 
- * Calculator.NET is distributed in the hope that it will be useful,
+ * GiniMonara is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- * along with Calculator.NET.  If not, see <http://www.gnu.org/licenses/>.
+ * along with GiniMonara.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
 

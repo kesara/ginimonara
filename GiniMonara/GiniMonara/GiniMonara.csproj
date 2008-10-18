@@ -53,34 +53,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationUtilities.cs" />
-    <Compile Include="MetaDataUtility.cs" />
+    <Compile Include="MetaData\Tag.cs" />
+    <Compile Include="MetaData\TagList.cs" />
+    <Compile Include="Utilities\ApplicationUtilities.cs" />
+    <Compile Include="Categories\Category.cs" />
+    <Compile Include="Categories\CategoryList.cs" />
+    <Compile Include="Utilities\MetaDataUtility.cs" />
     <Compile Include="GiniMeta.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="UI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsForm.cs">
+    <Compile Include="UI\OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OptionsForm.Designer.cs">
+    <Compile Include="UI\OptionsForm.Designer.cs">
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="OptionsForm.resx">
+    <EmbeddedResource Include="UI\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CategoriesForm.resx">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -100,7 +108,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MetaDatum.cs" />
-    <Compile Include="Signature.cs" />
+    <Compile Include="Utilities\Signature.cs" />
+    <Compile Include="UI\CategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CategoriesForm.Designer.cs">
+      <DependentUpon>CategoriesForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="dll\FlickrNet.dll" />
@@ -108,6 +122,10 @@
     <Content Include="dll\Google.GData.Extensions.dll" />
     <Content Include="dll\Google.GData.Photos.dll" />
     <Content Include="dll\mRibbon.dll" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\reset.png" />
+    <Content Include="xml\Category.xml" />
+    <None Include="xsd\Categories.xsd" />
     <None Include="Resources\editdelete.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\ok.png" />

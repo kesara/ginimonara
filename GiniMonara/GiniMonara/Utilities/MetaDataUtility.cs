@@ -1,10 +1,8 @@
-﻿using GiniMonara.UI;
-using GiniMonara.Utilities;
-using System;
-using System.Windows.Forms;
+﻿using System;
+using System.IO;
 
 /*
- * Program - GiniMonara Main Program
+ * MetaDataUtility - GiniMonara MetaData Utilities
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
  * Copyright (C) 2008 GiniMonara Team
  * 
@@ -24,23 +22,20 @@ using System.Windows.Forms;
  * 
  */
 
-namespace GiniMonara
+namespace GiniMonara.Utilities
 {
-    static class Program
+    class MetaDataUtility
     {
-
-        [STAThread]
-        static void Main()
+        public static bool checkMetaDataExsists(string fileName)
         {
-            #region Application Initiation
-            ApplicationUtility.applicationStart();
-            #endregion
-
-            #region DisplayForm
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-            #endregion
+            if (File.Exists(fileName))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
