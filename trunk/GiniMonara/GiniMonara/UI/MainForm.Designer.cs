@@ -37,24 +37,22 @@
             this.ribbonButtonImageBestFit = new mRibbon.RibbonButton();
             this.ribbonButtonImageActual = new mRibbon.RibbonButton();
             this.ribbonGroup3 = new mRibbon.RibbonGroup();
-            this.ribbonButton3 = new mRibbon.RibbonButton();
             this.ribbonButtonImageFlickr = new mRibbon.RibbonButton();
             this.ribbonButtonImagePicasa = new mRibbon.RibbonButton();
             this.ribbonGroup2 = new mRibbon.RibbonGroup();
-            this.ribbonButton4 = new mRibbon.RibbonButton();
-            this.ribbonButton1 = new mRibbon.RibbonButton();
+            this.ribbonButtonReloadMetaData = new mRibbon.RibbonButton();
+            this.ribbonButtonImageDeleteMetaData = new mRibbon.RibbonButton();
             this.ribbonButtonImageSave = new mRibbon.RibbonButton();
             this.ribbonGroup1 = new mRibbon.RibbonGroup();
             this.ribbonButtonImageCloseFile = new mRibbon.RibbonButton();
             this.ribbonButtonImageOpenFile = new mRibbon.RibbonButton();
             this.tabPageVideo = new System.Windows.Forms.TabPage();
+            this.tabPageTools = new System.Windows.Forms.TabPage();
+            this.ribbonGroup5 = new mRibbon.RibbonGroup();
+            this.ribbonButtonCategoryAnalyzer = new mRibbon.RibbonButton();
+            this.ribbonButtonCategoryEditor = new mRibbon.RibbonButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBoxTagName = new System.Windows.Forms.ComboBox();
             this.textBoxData = new System.Windows.Forms.TextBox();
@@ -80,13 +78,11 @@
             this.ribbonGroup3.SuspendLayout();
             this.ribbonGroup2.SuspendLayout();
             this.ribbonGroup1.SuspendLayout();
+            this.tabPageTools.SuspendLayout();
+            this.ribbonGroup5.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxTitle.SuspendLayout();
@@ -104,19 +100,20 @@
             this.ribbonControlMain.Controls.Add(this.tabPageMain);
             this.ribbonControlMain.Controls.Add(this.tabPageImage);
             this.ribbonControlMain.Controls.Add(this.tabPageVideo);
+            this.ribbonControlMain.Controls.Add(this.tabPageTools);
             this.ribbonControlMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
             this.ribbonControlMain.Margin = new System.Windows.Forms.Padding(0);
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.SelectedIndex = 0;
-            this.ribbonControlMain.Size = new System.Drawing.Size(818, 116);
+            this.ribbonControlMain.Size = new System.Drawing.Size(818, 130);
             this.ribbonControlMain.TabIndex = 0;
             // 
             // tabPageMain
             // 
             this.tabPageMain.Location = new System.Drawing.Point(4, 25);
             this.tabPageMain.Name = "tabPageMain";
-            this.tabPageMain.Size = new System.Drawing.Size(810, 87);
+            this.tabPageMain.Size = new System.Drawing.Size(810, 101);
             this.tabPageMain.TabIndex = 4;
             this.tabPageMain.Text = "GiniMonara";
             this.tabPageMain.UseVisualStyleBackColor = true;
@@ -130,7 +127,7 @@
             this.tabPageImage.Location = new System.Drawing.Point(4, 25);
             this.tabPageImage.Name = "tabPageImage";
             this.tabPageImage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImage.Size = new System.Drawing.Size(810, 87);
+            this.tabPageImage.Size = new System.Drawing.Size(810, 101);
             this.tabPageImage.TabIndex = 1;
             this.tabPageImage.Text = "Image";
             this.tabPageImage.UseVisualStyleBackColor = true;
@@ -143,10 +140,10 @@
             this.ribbonGroup4.Controls.Add(this.ribbonButtonImageBestFit);
             this.ribbonGroup4.Controls.Add(this.ribbonButtonImageActual);
             this.ribbonGroup4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonGroup4.Location = new System.Drawing.Point(503, 3);
+            this.ribbonGroup4.Location = new System.Drawing.Point(443, 3);
             this.ribbonGroup4.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup4.Name = "ribbonGroup4";
-            this.ribbonGroup4.Size = new System.Drawing.Size(246, 81);
+            this.ribbonGroup4.Size = new System.Drawing.Size(246, 95);
             this.ribbonGroup4.TabIndex = 3;
             this.ribbonGroup4.TabStop = false;
             this.ribbonGroup4.Text = "Zooming";
@@ -222,33 +219,16 @@
             // ribbonGroup3
             // 
             this.ribbonGroup3.AutoSize = true;
-            this.ribbonGroup3.Controls.Add(this.ribbonButton3);
             this.ribbonGroup3.Controls.Add(this.ribbonButtonImageFlickr);
             this.ribbonGroup3.Controls.Add(this.ribbonButtonImagePicasa);
             this.ribbonGroup3.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonGroup3.Location = new System.Drawing.Point(317, 3);
             this.ribbonGroup3.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup3.Name = "ribbonGroup3";
-            this.ribbonGroup3.Size = new System.Drawing.Size(186, 81);
+            this.ribbonGroup3.Size = new System.Drawing.Size(126, 95);
             this.ribbonGroup3.TabIndex = 2;
             this.ribbonGroup3.TabStop = false;
             this.ribbonGroup3.Text = "Share Image";
-            // 
-            // ribbonButton3
-            // 
-            this.ribbonButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButton3.Image = global::GiniMonara.Properties.Resources.mail_send;
-            this.ribbonButton3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButton3.IsFlat = true;
-            this.ribbonButton3.IsPressed = false;
-            this.ribbonButton3.Location = new System.Drawing.Point(123, 0);
-            this.ribbonButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButton3.Name = "ribbonButton3";
-            this.ribbonButton3.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButton3.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButton3.TabIndex = 5;
-            this.ribbonButton3.Text = "Email";
-            this.ribbonButton3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // ribbonButtonImageFlickr
             // 
@@ -287,49 +267,50 @@
             // ribbonGroup2
             // 
             this.ribbonGroup2.AutoSize = true;
-            this.ribbonGroup2.Controls.Add(this.ribbonButton4);
-            this.ribbonGroup2.Controls.Add(this.ribbonButton1);
+            this.ribbonGroup2.Controls.Add(this.ribbonButtonReloadMetaData);
+            this.ribbonGroup2.Controls.Add(this.ribbonButtonImageDeleteMetaData);
             this.ribbonGroup2.Controls.Add(this.ribbonButtonImageSave);
             this.ribbonGroup2.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonGroup2.Location = new System.Drawing.Point(131, 3);
             this.ribbonGroup2.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup2.Name = "ribbonGroup2";
-            this.ribbonGroup2.Size = new System.Drawing.Size(186, 81);
+            this.ribbonGroup2.Size = new System.Drawing.Size(186, 95);
             this.ribbonGroup2.TabIndex = 1;
             this.ribbonGroup2.TabStop = false;
             this.ribbonGroup2.Text = "Tags";
             // 
-            // ribbonButton4
+            // ribbonButtonReloadMetaData
             // 
-            this.ribbonButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButton4.Image = global::GiniMonara.Properties.Resources.reload;
-            this.ribbonButton4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButton4.IsFlat = true;
-            this.ribbonButton4.IsPressed = false;
-            this.ribbonButton4.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButton4.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButton4.Name = "ribbonButton4";
-            this.ribbonButton4.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButton4.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButton4.TabIndex = 4;
-            this.ribbonButton4.Text = "&Reload";
-            this.ribbonButton4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonReloadMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonReloadMetaData.Image = global::GiniMonara.Properties.Resources.reload;
+            this.ribbonButtonReloadMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonReloadMetaData.IsFlat = true;
+            this.ribbonButtonReloadMetaData.IsPressed = false;
+            this.ribbonButtonReloadMetaData.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonReloadMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonReloadMetaData.Name = "ribbonButtonReloadMetaData";
+            this.ribbonButtonReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonReloadMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonReloadMetaData.TabIndex = 4;
+            this.ribbonButtonReloadMetaData.Text = "&Reload";
+            this.ribbonButtonReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonReloadMetaData.Click += new System.EventHandler(this.ribbonButtonReloadMetaData_Click);
             // 
-            // ribbonButton1
+            // ribbonButtonImageDeleteMetaData
             // 
-            this.ribbonButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButton1.Image = global::GiniMonara.Properties.Resources.mail_delete;
-            this.ribbonButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButton1.IsFlat = true;
-            this.ribbonButton1.IsPressed = false;
-            this.ribbonButton1.Location = new System.Drawing.Point(123, 0);
-            this.ribbonButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButton1.Name = "ribbonButton1";
-            this.ribbonButton1.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButton1.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButton1.TabIndex = 3;
-            this.ribbonButton1.Text = "&Delete";
-            this.ribbonButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageDeleteMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageDeleteMetaData.Image = global::GiniMonara.Properties.Resources.mail_delete;
+            this.ribbonButtonImageDeleteMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageDeleteMetaData.IsFlat = true;
+            this.ribbonButtonImageDeleteMetaData.IsPressed = false;
+            this.ribbonButtonImageDeleteMetaData.Location = new System.Drawing.Point(123, 0);
+            this.ribbonButtonImageDeleteMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageDeleteMetaData.Name = "ribbonButtonImageDeleteMetaData";
+            this.ribbonButtonImageDeleteMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageDeleteMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageDeleteMetaData.TabIndex = 3;
+            this.ribbonButtonImageDeleteMetaData.Text = "&Delete";
+            this.ribbonButtonImageDeleteMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // ribbonButtonImageSave
             // 
@@ -357,7 +338,7 @@
             this.ribbonGroup1.Location = new System.Drawing.Point(3, 3);
             this.ribbonGroup1.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup1.Name = "ribbonGroup1";
-            this.ribbonGroup1.Size = new System.Drawing.Size(128, 81);
+            this.ribbonGroup1.Size = new System.Drawing.Size(128, 95);
             this.ribbonGroup1.TabIndex = 0;
             this.ribbonGroup1.TabStop = false;
             this.ribbonGroup1.Text = "File";
@@ -401,10 +382,67 @@
             this.tabPageVideo.Location = new System.Drawing.Point(4, 25);
             this.tabPageVideo.Name = "tabPageVideo";
             this.tabPageVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVideo.Size = new System.Drawing.Size(810, 87);
+            this.tabPageVideo.Size = new System.Drawing.Size(810, 101);
             this.tabPageVideo.TabIndex = 3;
             this.tabPageVideo.Text = "Video";
             this.tabPageVideo.UseVisualStyleBackColor = true;
+            // 
+            // tabPageTools
+            // 
+            this.tabPageTools.Controls.Add(this.ribbonGroup5);
+            this.tabPageTools.Location = new System.Drawing.Point(4, 25);
+            this.tabPageTools.Name = "tabPageTools";
+            this.tabPageTools.Size = new System.Drawing.Size(810, 101);
+            this.tabPageTools.TabIndex = 5;
+            this.tabPageTools.Text = "Tools";
+            this.tabPageTools.UseVisualStyleBackColor = true;
+            // 
+            // ribbonGroup5
+            // 
+            this.ribbonGroup5.AutoSize = true;
+            this.ribbonGroup5.Controls.Add(this.ribbonButtonCategoryAnalyzer);
+            this.ribbonGroup5.Controls.Add(this.ribbonButtonCategoryEditor);
+            this.ribbonGroup5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup5.Location = new System.Drawing.Point(0, 0);
+            this.ribbonGroup5.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup5.Name = "ribbonGroup5";
+            this.ribbonGroup5.Size = new System.Drawing.Size(128, 101);
+            this.ribbonGroup5.TabIndex = 1;
+            this.ribbonGroup5.TabStop = false;
+            this.ribbonGroup5.Text = "Categories";
+            // 
+            // ribbonButtonCategoryAnalyzer
+            // 
+            this.ribbonButtonCategoryAnalyzer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonCategoryAnalyzer.Image = global::GiniMonara.Properties.Resources.viewmag;
+            this.ribbonButtonCategoryAnalyzer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonCategoryAnalyzer.IsFlat = true;
+            this.ribbonButtonCategoryAnalyzer.IsPressed = false;
+            this.ribbonButtonCategoryAnalyzer.Location = new System.Drawing.Point(65, 0);
+            this.ribbonButtonCategoryAnalyzer.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonCategoryAnalyzer.Name = "ribbonButtonCategoryAnalyzer";
+            this.ribbonButtonCategoryAnalyzer.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonCategoryAnalyzer.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonCategoryAnalyzer.TabIndex = 1;
+            this.ribbonButtonCategoryAnalyzer.Text = "&Analyzer";
+            this.ribbonButtonCategoryAnalyzer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // ribbonButtonCategoryEditor
+            // 
+            this.ribbonButtonCategoryEditor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonCategoryEditor.Image = global::GiniMonara.Properties.Resources.category_editor;
+            this.ribbonButtonCategoryEditor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonCategoryEditor.IsFlat = true;
+            this.ribbonButtonCategoryEditor.IsPressed = false;
+            this.ribbonButtonCategoryEditor.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonCategoryEditor.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonCategoryEditor.Name = "ribbonButtonCategoryEditor";
+            this.ribbonButtonCategoryEditor.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonCategoryEditor.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonCategoryEditor.TabIndex = 0;
+            this.ribbonButtonCategoryEditor.Text = "&Editor";
+            this.ribbonButtonCategoryEditor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonCategoryEditor.Click += new System.EventHandler(this.ribbonButtonCategoryEditor_Click);
             // 
             // splitContainer1
             // 
@@ -430,63 +468,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 245);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(271, 173);
             this.panel1.TabIndex = 4;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.groupBox5);
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(271, 124);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Google Account";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.textBoxPassword);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(3, 65);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(265, 49);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Password";
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxPassword.Location = new System.Drawing.Point(3, 16);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(259, 20);
-            this.textBoxPassword.TabIndex = 1;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBoxUserName);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.Location = new System.Drawing.Point(3, 16);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(265, 49);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "User Name";
-            // 
-            // textBoxUserName
-            // 
-            this.textBoxUserName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxUserName.Location = new System.Drawing.Point(3, 16);
-            this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(259, 20);
-            this.textBoxUserName.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -737,16 +723,13 @@
             this.ribbonGroup3.ResumeLayout(false);
             this.ribbonGroup2.ResumeLayout(false);
             this.ribbonGroup1.ResumeLayout(false);
+            this.tabPageTools.ResumeLayout(false);
+            this.tabPageTools.PerformLayout();
+            this.ribbonGroup5.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             this.splitContainer1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -786,9 +769,8 @@
         private mRibbon.RibbonGroup ribbonGroup3;
         private mRibbon.RibbonButton ribbonButtonImagePicasa;
         private mRibbon.RibbonButton ribbonButtonImageFlickr;
-        private mRibbon.RibbonButton ribbonButton3;
-        private mRibbon.RibbonButton ribbonButton1;
-        private mRibbon.RibbonButton ribbonButton4;
+        private mRibbon.RibbonButton ribbonButtonImageDeleteMetaData;
+        private mRibbon.RibbonButton ribbonButtonReloadMetaData;
         private mRibbon.RibbonGroup ribbonGroup4;
         private mRibbon.RibbonButton ribbonButtonImageZoomOut;
         private mRibbon.RibbonButton ribbonButtonImageZoomIn;
@@ -796,11 +778,6 @@
         private mRibbon.RibbonButton ribbonButtonImageActual;
         private System.Windows.Forms.TabPage tabPageVideo;
         private System.Windows.Forms.TabPage tabPageMain;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Panel panelImage;
         private System.Windows.Forms.Panel panelSelection;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -813,5 +790,9 @@
         private System.Windows.Forms.TextBox textBoxSelectionData;
         private System.Windows.Forms.ComboBox comboBoxTagName;
         private System.Windows.Forms.ComboBox comboBoxCategoryName;
+        private System.Windows.Forms.TabPage tabPageTools;
+        private mRibbon.RibbonGroup ribbonGroup5;
+        private mRibbon.RibbonButton ribbonButtonCategoryAnalyzer;
+        private mRibbon.RibbonButton ribbonButtonCategoryEditor;
     }
 }

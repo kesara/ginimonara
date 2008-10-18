@@ -31,25 +31,24 @@
             this.ribbonControl1 = new mRibbon.RibbonControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
             this.tabPageTags = new System.Windows.Forms.TabPage();
+            this.groupBoxTag = new System.Windows.Forms.GroupBox();
+            this.textBoxTag = new System.Windows.Forms.TextBox();
+            this.ribbonButtonTagAdd = new mRibbon.RibbonButton();
             this.groupBoxType = new System.Windows.Forms.GroupBox();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.groupBoxCategory = new System.Windows.Forms.GroupBox();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.ribbonButtonReset = new mRibbon.RibbonButton();
-            this.ribbonButtonCancel = new mRibbon.RibbonButton();
-            this.ribbonButtonOk = new mRibbon.RibbonButton();
-            this.ribbonButtonTagAdd = new mRibbon.RibbonButton();
-            this.groupBoxTag = new System.Windows.Forms.GroupBox();
-            this.textBoxTag = new System.Windows.Forms.TextBox();
             this.tabPageCategory = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBoxCategory = new System.Windows.Forms.TextBox();
             this.ribbonButtonCategoryAdd = new mRibbon.RibbonButton();
+            this.ribbonButtonReset = new mRibbon.RibbonButton();
+            this.ribbonButtonOk = new mRibbon.RibbonButton();
             this.ribbonControl1.SuspendLayout();
             this.tabPageTags.SuspendLayout();
+            this.groupBoxTag.SuspendLayout();
             this.groupBoxType.SuspendLayout();
             this.groupBoxCategory.SuspendLayout();
-            this.groupBoxTag.SuspendLayout();
             this.tabPageCategory.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +88,41 @@
             this.tabPageTags.TabIndex = 2;
             this.tabPageTags.Text = "Tags";
             this.tabPageTags.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxTag
+            // 
+            this.groupBoxTag.Controls.Add(this.textBoxTag);
+            this.groupBoxTag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxTag.Location = new System.Drawing.Point(3, 95);
+            this.groupBoxTag.Name = "groupBoxTag";
+            this.groupBoxTag.Size = new System.Drawing.Size(358, 50);
+            this.groupBoxTag.TabIndex = 2;
+            this.groupBoxTag.TabStop = false;
+            this.groupBoxTag.Text = "Tag";
+            // 
+            // textBoxTag
+            // 
+            this.textBoxTag.Location = new System.Drawing.Point(7, 20);
+            this.textBoxTag.Name = "textBoxTag";
+            this.textBoxTag.Size = new System.Drawing.Size(345, 20);
+            this.textBoxTag.TabIndex = 0;
+            // 
+            // ribbonButtonTagAdd
+            // 
+            this.ribbonButtonTagAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonTagAdd.Image = global::GiniMonara.Properties.Resources.add;
+            this.ribbonButtonTagAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonTagAdd.IsFlat = true;
+            this.ribbonButtonTagAdd.IsPressed = false;
+            this.ribbonButtonTagAdd.Location = new System.Drawing.Point(301, 148);
+            this.ribbonButtonTagAdd.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonTagAdd.Name = "ribbonButtonTagAdd";
+            this.ribbonButtonTagAdd.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonTagAdd.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonTagAdd.TabIndex = 3;
+            this.ribbonButtonTagAdd.Text = "&Add";
+            this.ribbonButtonTagAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonTagAdd.Click += new System.EventHandler(this.ribbonButtonTagAdd_Click);
             // 
             // groupBoxType
             // 
@@ -131,90 +165,6 @@
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(352, 21);
             this.comboBoxCategory.TabIndex = 0;
-            // 
-            // ribbonButtonReset
-            // 
-            this.ribbonButtonReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonReset.Image = global::GiniMonara.Properties.Resources.reset;
-            this.ribbonButtonReset.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonReset.IsFlat = true;
-            this.ribbonButtonReset.IsPressed = false;
-            this.ribbonButtonReset.Location = new System.Drawing.Point(188, 250);
-            this.ribbonButtonReset.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonReset.Name = "ribbonButtonReset";
-            this.ribbonButtonReset.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonReset.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonReset.TabIndex = 6;
-            this.ribbonButtonReset.Text = "&Reset";
-            this.ribbonButtonReset.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonReset.Click += new System.EventHandler(this.ribbonButtonReset_Click);
-            // 
-            // ribbonButtonCancel
-            // 
-            this.ribbonButtonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonCancel.Image = global::GiniMonara.Properties.Resources.cancel;
-            this.ribbonButtonCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonCancel.IsFlat = true;
-            this.ribbonButtonCancel.IsPressed = false;
-            this.ribbonButtonCancel.Location = new System.Drawing.Point(248, 250);
-            this.ribbonButtonCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonCancel.Name = "ribbonButtonCancel";
-            this.ribbonButtonCancel.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonCancel.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonCancel.TabIndex = 5;
-            this.ribbonButtonCancel.Text = "&Cancel";
-            this.ribbonButtonCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ribbonButtonOk
-            // 
-            this.ribbonButtonOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonOk.Image = global::GiniMonara.Properties.Resources.ok;
-            this.ribbonButtonOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonOk.IsFlat = true;
-            this.ribbonButtonOk.IsPressed = false;
-            this.ribbonButtonOk.Location = new System.Drawing.Point(308, 250);
-            this.ribbonButtonOk.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonOk.Name = "ribbonButtonOk";
-            this.ribbonButtonOk.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonOk.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonOk.TabIndex = 4;
-            this.ribbonButtonOk.Text = "&Ok";
-            this.ribbonButtonOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ribbonButtonTagAdd
-            // 
-            this.ribbonButtonTagAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonTagAdd.Image = global::GiniMonara.Properties.Resources.add;
-            this.ribbonButtonTagAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonTagAdd.IsFlat = true;
-            this.ribbonButtonTagAdd.IsPressed = false;
-            this.ribbonButtonTagAdd.Location = new System.Drawing.Point(301, 148);
-            this.ribbonButtonTagAdd.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonTagAdd.Name = "ribbonButtonTagAdd";
-            this.ribbonButtonTagAdd.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonTagAdd.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonTagAdd.TabIndex = 3;
-            this.ribbonButtonTagAdd.Text = "&Add";
-            this.ribbonButtonTagAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonTagAdd.Click += new System.EventHandler(this.ribbonButtonTagAdd_Click);
-            // 
-            // groupBoxTag
-            // 
-            this.groupBoxTag.Controls.Add(this.textBoxTag);
-            this.groupBoxTag.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxTag.Location = new System.Drawing.Point(3, 95);
-            this.groupBoxTag.Name = "groupBoxTag";
-            this.groupBoxTag.Size = new System.Drawing.Size(358, 50);
-            this.groupBoxTag.TabIndex = 2;
-            this.groupBoxTag.TabStop = false;
-            this.groupBoxTag.Text = "Tag";
-            // 
-            // textBoxTag
-            // 
-            this.textBoxTag.Location = new System.Drawing.Point(7, 20);
-            this.textBoxTag.Name = "textBoxTag";
-            this.textBoxTag.Size = new System.Drawing.Size(345, 20);
-            this.textBoxTag.TabIndex = 0;
             // 
             // tabPageCategory
             // 
@@ -262,13 +212,46 @@
             this.ribbonButtonCategoryAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonCategoryAdd.Click += new System.EventHandler(this.ribbonButtonCategoryAdd_Click);
             // 
+            // ribbonButtonReset
+            // 
+            this.ribbonButtonReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonReset.Image = global::GiniMonara.Properties.Resources.reset;
+            this.ribbonButtonReset.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonReset.IsFlat = true;
+            this.ribbonButtonReset.IsPressed = false;
+            this.ribbonButtonReset.Location = new System.Drawing.Point(248, 250);
+            this.ribbonButtonReset.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonReset.Name = "ribbonButtonReset";
+            this.ribbonButtonReset.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonReset.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonReset.TabIndex = 6;
+            this.ribbonButtonReset.Text = "&Reset";
+            this.ribbonButtonReset.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonReset.Click += new System.EventHandler(this.ribbonButtonReset_Click);
+            // 
+            // ribbonButtonOk
+            // 
+            this.ribbonButtonOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonOk.Image = global::GiniMonara.Properties.Resources.ok;
+            this.ribbonButtonOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonOk.IsFlat = true;
+            this.ribbonButtonOk.IsPressed = false;
+            this.ribbonButtonOk.Location = new System.Drawing.Point(308, 250);
+            this.ribbonButtonOk.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonOk.Name = "ribbonButtonOk";
+            this.ribbonButtonOk.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonOk.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonOk.TabIndex = 4;
+            this.ribbonButtonOk.Text = "&Ok";
+            this.ribbonButtonOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonOk.Click += new System.EventHandler(this.ribbonButtonOk_Click);
+            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 318);
             this.Controls.Add(this.ribbonButtonReset);
-            this.Controls.Add(this.ribbonButtonCancel);
             this.Controls.Add(this.ribbonButtonOk);
             this.Controls.Add(this.ribbonControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -277,10 +260,10 @@
             this.Load += new System.EventHandler(this.CategoriesForm_Load);
             this.ribbonControl1.ResumeLayout(false);
             this.tabPageTags.ResumeLayout(false);
-            this.groupBoxType.ResumeLayout(false);
-            this.groupBoxCategory.ResumeLayout(false);
             this.groupBoxTag.ResumeLayout(false);
             this.groupBoxTag.PerformLayout();
+            this.groupBoxType.ResumeLayout(false);
+            this.groupBoxCategory.ResumeLayout(false);
             this.tabPageCategory.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -297,7 +280,6 @@
         private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.GroupBox groupBoxType;
         private System.Windows.Forms.ComboBox comboBoxType;
-        private mRibbon.RibbonButton ribbonButtonCancel;
         private mRibbon.RibbonButton ribbonButtonOk;
         private mRibbon.RibbonButton ribbonButtonTagAdd;
         private mRibbon.RibbonButton ribbonButtonReset;

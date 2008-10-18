@@ -55,6 +55,14 @@
   <ItemGroup>
     <Compile Include="MetaData\Tag.cs" />
     <Compile Include="MetaData\TagList.cs" />
+    <Compile Include="UI\GoogleAccountDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GoogleAccountDetailsForm.Designer.cs">
+      <DependentUpon>GoogleAccountDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSecrets\FlickrSecrets.cs" />
+    <Compile Include="UserSecrets\GoogleSecrets.cs" />
     <Compile Include="Utilities\ApplicationUtilities.cs" />
     <Compile Include="Categories\Category.cs" />
     <Compile Include="Categories\CategoryList.cs" />
@@ -65,20 +73,14 @@
     <Compile Include="UI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\OptionsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\OptionsForm.Designer.cs">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UI\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\GoogleAccountDetailsForm.resx">
+      <DependentUpon>GoogleAccountDetailsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\OptionsForm.resx">
-      <DependentUpon>OptionsForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -121,6 +123,8 @@
     <Content Include="dll\mRibbon.dll" />
     <None Include="Resources\add.png" />
     <None Include="Resources\reset.png" />
+    <None Include="Resources\category_editor.png" />
+    <None Include="Resources\viewmag.png" />
     <Content Include="xml\Category.xml" />
     <None Include="xsd\Categories.xsd" />
     <None Include="Resources\editdelete.png" />
