@@ -74,6 +74,13 @@ namespace GiniMonara.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap category_editor {
+            get {
+                object obj = ResourceManager.GetObject("category_editor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap editdelete {
             get {
                 object obj = ResourceManager.GetObject("editdelete", resourceCulture);
@@ -147,6 +154,13 @@ namespace GiniMonara.Properties {
         internal static System.Drawing.Bitmap save_all {
             get {
                 object obj = ResourceManager.GetObject("save_all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap viewmag {
+            get {
+                object obj = ResourceManager.GetObject("viewmag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

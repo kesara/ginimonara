@@ -1,4 +1,5 @@
 ﻿using GiniMonara.Categories;
+using GiniMonara.UserSecrets;
 using System;
 using System.IO;
 
@@ -32,6 +33,8 @@ namespace GiniMonara.Utilities
         public static string metaDataDirectory { get; set; }
         public static string catogoriesFile { get; set; }
         public static CategoryList categories { get; set; }
+        public static GoogleSecrets googleSecrets { get; set; }
+        public static FlickrSecrets flickrSecrets { get; set; }
         #endregion
 
         public static void applicationStart()
@@ -92,6 +95,16 @@ namespace GiniMonara.Utilities
         {
             copyOriginalCategoryFile();
             loadCategories();
+        }
+
+        public static void setGoogleSecrets(string username, string password)
+        {
+            googleSecrets = new GoogleSecrets(username, password);
+        }
+
+        public static void setFlickrSecrets(string frob)
+        {
+            flickrSecrets = new FlickrSecrets(frob);
         }
     }
 }

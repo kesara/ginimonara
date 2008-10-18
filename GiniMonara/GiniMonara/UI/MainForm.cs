@@ -1,5 +1,6 @@
 ﻿using FlickrNet;
 using GiniMonara.MetaData;
+using GiniMonara.UI;
 using GiniMonara.Utilities;
 using Google.GData.Client;
 using Google.GData.Extensions;
@@ -11,6 +12,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 /*
  * MainForm - GiniMonara Main User Interface
@@ -188,31 +190,18 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImagePicasa_Click(object sender, EventArgs e)
         {
-            try
+            if (fileName != null)
             {
-                #region Google API Credidentials
-                PicasaService pService = new PicasaService("GiniMonara");
-                pService.setUserCredentials(textBoxUserName.Text, textBoxPassword.Text);
-                #endregion
-
-                #region Upload Photo
-                System.IO.FileInfo fileInfo = new System.IO.FileInfo(fileName);
-                System.IO.FileStream fileStream = fileInfo.OpenRead();
-                PicasaEntry pEntry = (PicasaEntry)pService.Insert(new Uri("http://picasaweb.google.com/data/feed/api/user/default/albumid/default"), fileStream, "image/jpeg", fileName);
-                #endregion
-
-                #region Update Photo Info
-                /*GiniMeta gMeta = new GiniMeta();
-                pEntry.Title.Text = gMeta.getTagValue(signature, "Title");
-                pEntry.Summary.Text = gMeta.getTagValue(signature, "Description");*/
-                PicasaEntry updatedEntry = (PicasaEntry)pEntry.Update();
-                #endregion
-
-                MessageBox.Show("Image uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch
-            {
-                MessageBox.Show("Image upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ApplicationUtility.googleSecrets == null)
+                {
+                    GoogleAccountDetailsForm googleAccountDetailsForm = new GoogleAccountDetailsForm(this);
+                    googleAccountDetailsForm.Show();
+                    this.Enabled = false;
+                }
+                else
+                {
+                    sendToPicasa();
+                }
             }
         }
 
@@ -264,20 +253,51 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageFlickr_Click(object sender, EventArgs e)
         {
-            try
+            if (fileName != null)
             {
-                Flickr flickr = new Flickr("984be4fc9f6888a86bd7360dcd3e6f30", "c6d74f5993f765e1");
-                string frob = flickr.AuthGetFrob();
-                string flickrUrl = flickr.AuthCalcUrl(frob, AuthLevel.Write);
-                Auth auth = flickr.AuthGetToken(frob);
-                System.Diagnostics.Process.Start(flickrUrl);
-                flickr.AuthToken = auth.Token;
-                flickr.UploadPicture(fileName, textBoxTitle.Text, textBoxDescription.Text, "testtag,testtag2");
-                MessageBox.Show("Image uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            catch
-            {
-                MessageBox.Show("Image upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    Flickr flickr = new Flickr("984be4fc9f6888a86bd7360dcd3e6f30", "c6d74f5993f765e1");
+                    string frob;
+                    if (ApplicationUtility.flickrSecrets == null)
+                    {
+                        frob = flickr.AuthGetFrob();
+                        ApplicationUtility.setFlickrSecrets(frob);
+                    }
+                    else
+                    {
+                        frob = ApplicationUtility.flickrSecrets.frob;
+                    }
+                    Auth auth = flickr.AuthGetToken(frob);
+
+                    flickr.AuthToken = auth.Token;
+                    flickr.UploadPicture(fileName, tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").Select(t => t.data).FirstOrDefault(), tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").Select(t => t.data).FirstOrDefault(), getCommaSeperatedTags());
+                    MessageBox.Show("Image uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                catch (FlickrApiException fe)
+                {
+                    if (fe.Code == 108)
+                    {
+                        MessageBox.Show("Please give authoriztion to GiniMonara to use your Flickr account and resubmit the image.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Flickr flickr = new Flickr("984be4fc9f6888a86bd7360dcd3e6f30", "c6d74f5993f765e1");
+                        string frob;
+                        if (ApplicationUtility.flickrSecrets == null)
+                        {
+                            frob = flickr.AuthGetFrob();
+                            ApplicationUtility.setFlickrSecrets(frob);
+                        }
+                        else
+                        {
+                            frob = ApplicationUtility.flickrSecrets.frob;
+                        }
+                        string flickrUrl = flickr.AuthCalcUrl(frob, AuthLevel.Write);
+                        System.Diagnostics.Process.Start(flickrUrl);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Image upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -317,7 +337,7 @@ namespace GiniMonara.UI
         {
             if (fileName != null && zoom == "actual")
             {
-                hideHotSpots();
+                disposeHotSpots();
                 mouseCaptured = true;
                 pointStart.X = e.X;
                 pointStart.Y = e.Y;
@@ -437,7 +457,7 @@ namespace GiniMonara.UI
 
         private void showHotSpots()
         {
-            if (hotSpots.Count > 0)
+            if (hotSpots != null)
             {
                 foreach (Panel panel in hotSpots)
                 {
@@ -448,11 +468,22 @@ namespace GiniMonara.UI
 
         private void hideHotSpots()
         {
-            if (hotSpots.Count > 0)
+            if (hotSpots != null)
             {
                 foreach (Panel panel in hotSpots)
                 {
                     panel.Visible = false;
+                }
+            }
+        }
+
+        private void disposeHotSpots()
+        {
+            if (hotSpots != null)
+            {
+                foreach (Panel panel in hotSpots)
+                {
+                    panel.Dispose();
                 }
             }
         }
@@ -463,6 +494,12 @@ namespace GiniMonara.UI
         }
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+            loadCategories(comboBoxCategoryName);
+            loadCategories(comboBoxSelectionCategory);
+        }
+
+        public void reloadCategories()
         {
             loadCategories(comboBoxCategoryName);
             loadCategories(comboBoxSelectionCategory);
@@ -502,6 +539,77 @@ namespace GiniMonara.UI
             {
                 comboBoxSelectionTag.SelectedIndex = 0;
             }
+        }
+
+        private void ribbonButtonCategoryEditor_Click(object sender, EventArgs e)
+        {
+            CategoriesForm categoriesForm = new CategoriesForm(this);
+            categoriesForm.Show();
+            this.Enabled = false;
+        }
+
+        public void sendToPicasa()
+        {
+            try
+            {
+                #region Google API Credidentials
+                PicasaService pService = new PicasaService("GiniMonara");
+                pService.setUserCredentials(ApplicationUtility.googleSecrets.username, ApplicationUtility.googleSecrets.password);
+                #endregion
+
+                #region Upload Photo
+                System.IO.FileInfo fileInfo = new System.IO.FileInfo(fileName);
+                System.IO.FileStream fileStream = fileInfo.OpenRead();
+                PicasaEntry pEntry = (PicasaEntry)pService.Insert(new Uri("http://picasaweb.google.com/data/feed/api/user/default/albumid/default"), fileStream, "image/jpeg", fileName);
+                #endregion
+
+                #region Update Photo Info
+                pEntry.Title.Text = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").Select(t => t.data).FirstOrDefault();
+                pEntry.Summary.Text = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Description").Select(t => t.data).FirstOrDefault();
+
+                PicasaEntry updatedEntry = (PicasaEntry)pEntry.Update();
+                #endregion
+
+                MessageBox.Show("Image uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+            catch
+            {
+                MessageBox.Show("Image upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ApplicationUtility.googleSecrets = null;
+            }
+        }
+
+        private void ribbonButtonReloadMetaData_Click(object sender, EventArgs e)
+        {
+            if (fileName != null)
+            {
+                disposeHotSpots();
+                loadMetaData();
+            }
+        }
+
+        private string getCommaSeperatedTags()
+        {
+            string tags = "";
+            if (tagList != null)
+            {
+                foreach (gTag tag in tagList)
+                {
+                    if (tag.category != "hidden")
+                    {
+                        if (tags == "")
+                        {
+                            tags = tag.data;
+                        }
+                        else
+                        {
+                            tags = tags + "," + tag.data;
+                        }
+                    }
+                }
+            }
+            return tags;
         }
     }
 }

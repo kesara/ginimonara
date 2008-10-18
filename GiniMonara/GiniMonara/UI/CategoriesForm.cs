@@ -34,8 +34,11 @@ namespace GiniMonara.UI
 {
     public partial class CategoriesForm : Form
     {
-        public CategoriesForm()
+        private MainForm parentUI;
+
+        public CategoriesForm(MainForm caller)
         {
+            parentUI = caller;
             InitializeComponent();
         }
 
@@ -105,6 +108,13 @@ namespace GiniMonara.UI
                 comboBoxCategory.Items.Add(category);
             }
             comboBoxCategory.SelectedIndex = 0;
+        }
+
+        private void ribbonButtonOk_Click(object sender, EventArgs e)
+        {
+            parentUI.reloadCategories();
+            parentUI.Enabled = true;
+            this.Dispose();
         }
     }
 }
