@@ -221,6 +221,7 @@ namespace GiniMonara.UI
             if (fileName != null)
             {
                 zoom = "actual";
+                showHotSpots();
                 panelImage.Refresh();
             }
         }
@@ -230,6 +231,7 @@ namespace GiniMonara.UI
             if (fileName != null)
             {
                 zoom = "bestfit";
+                hideHotSpots();
                 panelImage.Refresh();
             }
         }
@@ -240,6 +242,7 @@ namespace GiniMonara.UI
             {
                 zoom = "zoom";
                 zoomFactor += zoomStep;
+                hideHotSpots();
                 panelImage.Refresh();
             }
         }
@@ -254,6 +257,7 @@ namespace GiniMonara.UI
                 {
                     zoomFactor = 10;
                 }
+                hideHotSpots();
                 panelImage.Refresh();
             }
         }
@@ -311,54 +315,63 @@ namespace GiniMonara.UI
 
         private void panelImage_MouseDown(object sender, MouseEventArgs e)
         {
-            hideHotSpots();
-            mouseCaptured = true;
-            pointStart.X = e.X;
-            pointStart.Y = e.Y;
-            pointEnd.X = -1;
-            pointEnd.Y = -1;
+            if (fileName != null && zoom == "actual")
+            {
+                hideHotSpots();
+                mouseCaptured = true;
+                pointStart.X = e.X;
+                pointStart.Y = e.Y;
+                pointEnd.X = -1;
+                pointEnd.Y = -1;
+            }
         }
 
         private void panelImage_MouseMove(object sender, MouseEventArgs e)
         {
-            Point currentPoint = new Point(e.X, e.Y);
-
-            if (mouseCaptured)
+            if (fileName != null && zoom == "actual")
             {
-                if (pointEnd.X != -1)
+                Point currentPoint = new Point(e.X, e.Y);
+
+                if (mouseCaptured)
                 {
+                    if (pointEnd.X != -1)
+                    {
+                        drawSelectionRectangle(pointStart, pointEnd);
+                    }
+
+                    pointEnd = currentPoint;
                     drawSelectionRectangle(pointStart, pointEnd);
                 }
-
-                pointEnd = currentPoint;
-                drawSelectionRectangle(pointStart, pointEnd);
             }
         }
 
         private void panelImage_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseCaptured = false;
-
-            if (pointEnd.X != -1)
+            if (fileName != null && zoom == "actual")
             {
-                Point currentPoint = new Point(e.X, e.Y);
-                drawSelectionRectangle(pointStart, pointEnd);
+                mouseCaptured = false;
 
-                pointSelectionStart = pointStart;
-                pointSelectionEnd = pointEnd;
-                panelSelection.Location = pointStart;
-                panelSelection.Visible = true;
+                if (pointEnd.X != -1)
+                {
+                    Point currentPoint = new Point(e.X, e.Y);
+                    drawSelectionRectangle(pointStart, pointEnd);
+
+                    pointSelectionStart = pointStart;
+                    pointSelectionEnd = pointEnd;
+                    panelSelection.Location = pointStart;
+                    panelSelection.Visible = true;
+                }
+
+                pointEnd.X = -1;
+                pointEnd.Y = -1;
+                pointStart.X = -1;
+                pointStart.Y = -1;
             }
-
-            pointEnd.X = -1;
-            pointEnd.Y = -1;
-            pointStart.X = -1;
-            pointStart.Y = -1;
         }
 
         private void drawSelectionRectangle(Point a, Point b)
         {
-            if (fileName != null)
+            if (fileName != null && zoom == "actual")
             {
                 Rectangle selectionReactangle = new Rectangle();
                 a.X = splitContainer1.SplitterDistance + a.X;
@@ -399,11 +412,8 @@ namespace GiniMonara.UI
             gTag tag = new gTag(comboBoxSelectionTag.SelectedItem.ToString(), comboBoxSelectionCategory.SelectedItem.ToString(), textBoxSelectionData.Text, pointSelectionStart.X, pointSelectionStart.Y, pointSelectionEnd.X, pointSelectionEnd.Y);
             tagList.Add(tag);
             tagList.save(metaDataFileName);
-            /*
-            GiniMeta giniMeta = new GiniMeta();
-            giniMeta.insertTag(signature, "selection", textBoxSelectionData.Text, pointSelectionStart.X, pointSelectionStart.Y, pointSelectionEnd.X, pointSelectionEnd.Y);
-             */
             panelSelection.Visible = false;
+            loadMetaData();
             showHotSpots();
         }
 
