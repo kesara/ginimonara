@@ -1,10 +1,10 @@
-﻿using GiniMonara.UI;
-using GiniMonara.Utilities;
-using System;
-using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 
 /*
- * Program - GiniMonara Main Program
+ * CategoryList - GiniMonara Category collection class
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
  * Copyright (C) 2008 GiniMonara Team
  * 
@@ -24,23 +24,27 @@ using System.Windows.Forms;
  * 
  */
 
-namespace GiniMonara
+namespace GiniMonara.Categories
 {
-    static class Program
+    class CategoryList : List<Category>
     {
-
-        [STAThread]
-        static void Main()
+        public void load(string xmlFile)
         {
-            #region Application Initiation
-            ApplicationUtility.applicationStart();
-            #endregion
+            XDocument xmlDocument = XDocument.Load(xmlFile);
 
-            #region DisplayForm
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-            #endregion
+            var query = from xmlElement in xmlDocument.Descendants("category")
+                        select new Category(xmlElement);
+            this.Clear();
+            AddRange(query);
+        }
+
+        public void save(string xmlFile)
+        {
+            XElement xmlElement = new XElement("categories",
+                                  from c in this
+                                  select c.XElement);
+
+            xmlElement.Save(xmlFile);
         }
     }
 }

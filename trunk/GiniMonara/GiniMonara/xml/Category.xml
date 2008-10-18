@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ginimonara.sourceforge.net/Categories.xsd">
+  <category name="DublinCore" type="default">Title</category>
+  <category name="DublinCore" type="default">Creator</category>
+  <category name="DublinCore" type="default">Subject</category>
+  <category name="DublinCore" type="default">Description</category>
+  <category name="DublinCore" type="default">Publisher</category>
+  <category name="DublinCore" type="default">Contributor</category>
+  <category name="DublinCore" type="default">Date</category>
+  <category name="DublinCore" type="default">Type</category>
+  <category name="DublinCore" type="default">Format</category>
+  <category name="DublinCore" type="default">Identifier</category>
+  <category name="DublinCore" type="default">Source</category>
+  <category name="DublinCore" type="default">Language</category>
+  <category name="DublinCore" type="default">Relation</category>
+  <category name="DublinCore" type="default">Coverage</category>
+  <category name="DublinCore" type="default">Rights</category>
+  <category name="Common" type="default">Tag</category>
+  <category name="Common" type="area">Selected Area</category>
+  <category name="Video" type="timeframe">Scene</category>
+  <category name="Video" type="cube">Selected Scene</category>
+</categories>
