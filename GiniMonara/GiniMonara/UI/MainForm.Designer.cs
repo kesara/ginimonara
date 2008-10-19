@@ -41,18 +41,38 @@
             this.ribbonButtonImagePicasa = new mRibbon.RibbonButton();
             this.ribbonGroup2 = new mRibbon.RibbonGroup();
             this.ribbonButtonReloadMetaData = new mRibbon.RibbonButton();
-            this.ribbonButtonImageDeleteMetaData = new mRibbon.RibbonButton();
             this.ribbonButtonImageSave = new mRibbon.RibbonButton();
             this.ribbonGroup1 = new mRibbon.RibbonGroup();
             this.ribbonButtonImageCloseFile = new mRibbon.RibbonButton();
             this.ribbonButtonImageOpenFile = new mRibbon.RibbonButton();
             this.tabPageVideo = new System.Windows.Forms.TabPage();
+            this.ribbonGroup10 = new mRibbon.RibbonGroup();
+            this.ribbonButtonVideoMark = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoTag = new mRibbon.RibbonButton();
+            this.ribbonGroup7 = new mRibbon.RibbonGroup();
+            this.ribbonButtonVideoForward = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoStop = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoPause = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoPlay = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoRewind = new mRibbon.RibbonButton();
+            this.ribbonGroup8 = new mRibbon.RibbonGroup();
+            this.ribbonButtonVideoYouTube = new mRibbon.RibbonButton();
+            this.ribbonGroup9 = new mRibbon.RibbonGroup();
+            this.ribbonButtonVideoReloadMetaData = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoSaveMetaData = new mRibbon.RibbonButton();
+            this.ribbonGroup6 = new mRibbon.RibbonGroup();
+            this.ribbonButtonVideoClose = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoOpen = new mRibbon.RibbonButton();
             this.tabPageTools = new System.Windows.Forms.TabPage();
             this.ribbonGroup5 = new mRibbon.RibbonGroup();
             this.ribbonButtonCategoryAnalyzer = new mRibbon.RibbonButton();
             this.ribbonButtonCategoryEditor = new mRibbon.RibbonButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBoxFrameData = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBoxTimedTags = new System.Windows.Forms.GroupBox();
+            this.listBoxTimedTags = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBoxTagName = new System.Windows.Forms.ComboBox();
             this.textBoxData = new System.Windows.Forms.TextBox();
@@ -71,6 +91,15 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.comboBoxSelectionCategory = new System.Windows.Forms.ComboBox();
             this.panelImage = new System.Windows.Forms.Panel();
+            this.panelTimedTags = new System.Windows.Forms.Panel();
+            this.ribbonButtonTimedCancel = new mRibbon.RibbonButton();
+            this.ribbonButtonTimedOk = new mRibbon.RibbonButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxTimedData = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBoxTimedTag = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.comboBoxTimeCategory = new System.Windows.Forms.ComboBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.ribbonControlMain.SuspendLayout();
             this.tabPageImage.SuspendLayout();
@@ -78,11 +107,20 @@
             this.ribbonGroup3.SuspendLayout();
             this.ribbonGroup2.SuspendLayout();
             this.ribbonGroup1.SuspendLayout();
+            this.tabPageVideo.SuspendLayout();
+            this.ribbonGroup10.SuspendLayout();
+            this.ribbonGroup7.SuspendLayout();
+            this.ribbonGroup8.SuspendLayout();
+            this.ribbonGroup9.SuspendLayout();
+            this.ribbonGroup6.SuspendLayout();
             this.tabPageTools.SuspendLayout();
             this.ribbonGroup5.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBoxFrameData.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBoxTimedTags.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxTitle.SuspendLayout();
@@ -90,6 +128,11 @@
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.panelImage.SuspendLayout();
+            this.panelTimedTags.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -127,7 +170,7 @@
             this.tabPageImage.Location = new System.Drawing.Point(4, 25);
             this.tabPageImage.Name = "tabPageImage";
             this.tabPageImage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImage.Size = new System.Drawing.Size(810, 101);
+            this.tabPageImage.Size = new System.Drawing.Size(810, 0);
             this.tabPageImage.TabIndex = 1;
             this.tabPageImage.Text = "Image";
             this.tabPageImage.UseVisualStyleBackColor = true;
@@ -140,10 +183,10 @@
             this.ribbonGroup4.Controls.Add(this.ribbonButtonImageBestFit);
             this.ribbonGroup4.Controls.Add(this.ribbonButtonImageActual);
             this.ribbonGroup4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonGroup4.Location = new System.Drawing.Point(443, 3);
+            this.ribbonGroup4.Location = new System.Drawing.Point(383, 3);
             this.ribbonGroup4.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup4.Name = "ribbonGroup4";
-            this.ribbonGroup4.Size = new System.Drawing.Size(246, 95);
+            this.ribbonGroup4.Size = new System.Drawing.Size(246, 0);
             this.ribbonGroup4.TabIndex = 3;
             this.ribbonGroup4.TabStop = false;
             this.ribbonGroup4.Text = "Zooming";
@@ -178,7 +221,7 @@
             this.ribbonButtonImageZoomIn.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageZoomIn.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageZoomIn.TabIndex = 8;
-            this.ribbonButtonImageZoomIn.Text = "Zoom &In";
+            this.ribbonButtonImageZoomIn.Text = "Zoom In";
             this.ribbonButtonImageZoomIn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageZoomIn.Click += new System.EventHandler(this.ribbonButtonImageZoomIn_Click);
             // 
@@ -195,7 +238,7 @@
             this.ribbonButtonImageBestFit.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageBestFit.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageBestFit.TabIndex = 7;
-            this.ribbonButtonImageBestFit.Text = "&Best Fit";
+            this.ribbonButtonImageBestFit.Text = "Best Fit";
             this.ribbonButtonImageBestFit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageBestFit.Click += new System.EventHandler(this.ribbonButtonImageBestFit_Click);
             // 
@@ -212,7 +255,7 @@
             this.ribbonButtonImageActual.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageActual.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageActual.TabIndex = 6;
-            this.ribbonButtonImageActual.Text = "&Actual";
+            this.ribbonButtonImageActual.Text = "Actual";
             this.ribbonButtonImageActual.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageActual.Click += new System.EventHandler(this.ribbonButtonImageActual_Click);
             // 
@@ -222,10 +265,10 @@
             this.ribbonGroup3.Controls.Add(this.ribbonButtonImageFlickr);
             this.ribbonGroup3.Controls.Add(this.ribbonButtonImagePicasa);
             this.ribbonGroup3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonGroup3.Location = new System.Drawing.Point(317, 3);
+            this.ribbonGroup3.Location = new System.Drawing.Point(257, 3);
             this.ribbonGroup3.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup3.Name = "ribbonGroup3";
-            this.ribbonGroup3.Size = new System.Drawing.Size(126, 95);
+            this.ribbonGroup3.Size = new System.Drawing.Size(126, 0);
             this.ribbonGroup3.TabIndex = 2;
             this.ribbonGroup3.TabStop = false;
             this.ribbonGroup3.Text = "Share Image";
@@ -243,7 +286,7 @@
             this.ribbonButtonImageFlickr.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageFlickr.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageFlickr.TabIndex = 4;
-            this.ribbonButtonImageFlickr.Text = "F&lickr";
+            this.ribbonButtonImageFlickr.Text = "Flickr";
             this.ribbonButtonImageFlickr.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageFlickr.Click += new System.EventHandler(this.ribbonButtonImageFlickr_Click);
             // 
@@ -260,7 +303,7 @@
             this.ribbonButtonImagePicasa.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImagePicasa.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImagePicasa.TabIndex = 3;
-            this.ribbonButtonImagePicasa.Text = "&Picasa";
+            this.ribbonButtonImagePicasa.Text = "Picasa";
             this.ribbonButtonImagePicasa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImagePicasa.Click += new System.EventHandler(this.ribbonButtonImagePicasa_Click);
             // 
@@ -268,13 +311,12 @@
             // 
             this.ribbonGroup2.AutoSize = true;
             this.ribbonGroup2.Controls.Add(this.ribbonButtonReloadMetaData);
-            this.ribbonGroup2.Controls.Add(this.ribbonButtonImageDeleteMetaData);
             this.ribbonGroup2.Controls.Add(this.ribbonButtonImageSave);
             this.ribbonGroup2.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonGroup2.Location = new System.Drawing.Point(131, 3);
             this.ribbonGroup2.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup2.Name = "ribbonGroup2";
-            this.ribbonGroup2.Size = new System.Drawing.Size(186, 95);
+            this.ribbonGroup2.Size = new System.Drawing.Size(126, 0);
             this.ribbonGroup2.TabIndex = 1;
             this.ribbonGroup2.TabStop = false;
             this.ribbonGroup2.Text = "Tags";
@@ -292,25 +334,9 @@
             this.ribbonButtonReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonReloadMetaData.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonReloadMetaData.TabIndex = 4;
-            this.ribbonButtonReloadMetaData.Text = "&Reload";
+            this.ribbonButtonReloadMetaData.Text = "Reload";
             this.ribbonButtonReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonReloadMetaData.Click += new System.EventHandler(this.ribbonButtonReloadMetaData_Click);
-            // 
-            // ribbonButtonImageDeleteMetaData
-            // 
-            this.ribbonButtonImageDeleteMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageDeleteMetaData.Image = global::GiniMonara.Properties.Resources.mail_delete;
-            this.ribbonButtonImageDeleteMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageDeleteMetaData.IsFlat = true;
-            this.ribbonButtonImageDeleteMetaData.IsPressed = false;
-            this.ribbonButtonImageDeleteMetaData.Location = new System.Drawing.Point(123, 0);
-            this.ribbonButtonImageDeleteMetaData.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageDeleteMetaData.Name = "ribbonButtonImageDeleteMetaData";
-            this.ribbonButtonImageDeleteMetaData.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageDeleteMetaData.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageDeleteMetaData.TabIndex = 3;
-            this.ribbonButtonImageDeleteMetaData.Text = "&Delete";
-            this.ribbonButtonImageDeleteMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // ribbonButtonImageSave
             // 
@@ -325,7 +351,7 @@
             this.ribbonButtonImageSave.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageSave.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageSave.TabIndex = 2;
-            this.ribbonButtonImageSave.Text = "&Save";
+            this.ribbonButtonImageSave.Text = "Save";
             this.ribbonButtonImageSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageSave.Click += new System.EventHandler(this.ribbonButtonImageSave_Click);
             // 
@@ -338,7 +364,7 @@
             this.ribbonGroup1.Location = new System.Drawing.Point(3, 3);
             this.ribbonGroup1.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup1.Name = "ribbonGroup1";
-            this.ribbonGroup1.Size = new System.Drawing.Size(128, 95);
+            this.ribbonGroup1.Size = new System.Drawing.Size(128, 0);
             this.ribbonGroup1.TabIndex = 0;
             this.ribbonGroup1.TabStop = false;
             this.ribbonGroup1.Text = "File";
@@ -356,7 +382,7 @@
             this.ribbonButtonImageCloseFile.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageCloseFile.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageCloseFile.TabIndex = 1;
-            this.ribbonButtonImageCloseFile.Text = "&Close File";
+            this.ribbonButtonImageCloseFile.Text = "Close File";
             this.ribbonButtonImageCloseFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageCloseFile.Click += new System.EventHandler(this.ribbonButtonImageCloseFile_Click);
             // 
@@ -373,12 +399,17 @@
             this.ribbonButtonImageOpenFile.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonImageOpenFile.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonImageOpenFile.TabIndex = 0;
-            this.ribbonButtonImageOpenFile.Text = "&Open File";
+            this.ribbonButtonImageOpenFile.Text = "Open File";
             this.ribbonButtonImageOpenFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonImageOpenFile.Click += new System.EventHandler(this.ribbonButtonImageOpenFile_Click);
             // 
             // tabPageVideo
             // 
+            this.tabPageVideo.Controls.Add(this.ribbonGroup10);
+            this.tabPageVideo.Controls.Add(this.ribbonGroup7);
+            this.tabPageVideo.Controls.Add(this.ribbonGroup8);
+            this.tabPageVideo.Controls.Add(this.ribbonGroup9);
+            this.tabPageVideo.Controls.Add(this.ribbonGroup6);
             this.tabPageVideo.Location = new System.Drawing.Point(4, 25);
             this.tabPageVideo.Name = "tabPageVideo";
             this.tabPageVideo.Padding = new System.Windows.Forms.Padding(3);
@@ -386,6 +417,282 @@
             this.tabPageVideo.TabIndex = 3;
             this.tabPageVideo.Text = "Video";
             this.tabPageVideo.UseVisualStyleBackColor = true;
+            // 
+            // ribbonGroup10
+            // 
+            this.ribbonGroup10.AutoSize = true;
+            this.ribbonGroup10.Controls.Add(this.ribbonButtonVideoMark);
+            this.ribbonGroup10.Controls.Add(this.ribbonButtonVideoTag);
+            this.ribbonGroup10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup10.Location = new System.Drawing.Point(629, 3);
+            this.ribbonGroup10.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup10.Name = "ribbonGroup10";
+            this.ribbonGroup10.Size = new System.Drawing.Size(126, 95);
+            this.ribbonGroup10.TabIndex = 7;
+            this.ribbonGroup10.TabStop = false;
+            this.ribbonGroup10.Text = "Taging";
+            // 
+            // ribbonButtonVideoMark
+            // 
+            this.ribbonButtonVideoMark.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoMark.Image = global::GiniMonara.Properties.Resources.mark;
+            this.ribbonButtonVideoMark.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoMark.IsFlat = true;
+            this.ribbonButtonVideoMark.IsPressed = false;
+            this.ribbonButtonVideoMark.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonVideoMark.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoMark.Name = "ribbonButtonVideoMark";
+            this.ribbonButtonVideoMark.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoMark.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoMark.TabIndex = 4;
+            this.ribbonButtonVideoMark.Text = "Mark";
+            this.ribbonButtonVideoMark.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoMark.Click += new System.EventHandler(this.ribbonButtonVideoMark_Click);
+            // 
+            // ribbonButtonVideoTag
+            // 
+            this.ribbonButtonVideoTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoTag.Image = global::GiniMonara.Properties.Resources.add;
+            this.ribbonButtonVideoTag.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoTag.IsFlat = true;
+            this.ribbonButtonVideoTag.IsPressed = false;
+            this.ribbonButtonVideoTag.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoTag.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoTag.Name = "ribbonButtonVideoTag";
+            this.ribbonButtonVideoTag.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoTag.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoTag.TabIndex = 2;
+            this.ribbonButtonVideoTag.Text = "Tag";
+            this.ribbonButtonVideoTag.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoTag.Click += new System.EventHandler(this.ribbonButtonVideoTag_Click);
+            // 
+            // ribbonGroup7
+            // 
+            this.ribbonGroup7.AutoSize = true;
+            this.ribbonGroup7.Controls.Add(this.ribbonButtonVideoForward);
+            this.ribbonGroup7.Controls.Add(this.ribbonButtonVideoStop);
+            this.ribbonGroup7.Controls.Add(this.ribbonButtonVideoPause);
+            this.ribbonGroup7.Controls.Add(this.ribbonButtonVideoPlay);
+            this.ribbonGroup7.Controls.Add(this.ribbonButtonVideoRewind);
+            this.ribbonGroup7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup7.Location = new System.Drawing.Point(323, 3);
+            this.ribbonGroup7.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup7.Name = "ribbonGroup7";
+            this.ribbonGroup7.Size = new System.Drawing.Size(306, 95);
+            this.ribbonGroup7.TabIndex = 6;
+            this.ribbonGroup7.TabStop = false;
+            this.ribbonGroup7.Text = "Movie Control";
+            // 
+            // ribbonButtonVideoForward
+            // 
+            this.ribbonButtonVideoForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoForward.Image = global::GiniMonara.Properties.Resources.player_fwd;
+            this.ribbonButtonVideoForward.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoForward.IsFlat = true;
+            this.ribbonButtonVideoForward.IsPressed = false;
+            this.ribbonButtonVideoForward.Location = new System.Drawing.Point(243, 0);
+            this.ribbonButtonVideoForward.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoForward.Name = "ribbonButtonVideoForward";
+            this.ribbonButtonVideoForward.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoForward.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoForward.TabIndex = 10;
+            this.ribbonButtonVideoForward.Text = "Forward";
+            this.ribbonButtonVideoForward.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoForward.Click += new System.EventHandler(this.ribbonButtonVideoForward_Click);
+            // 
+            // ribbonButtonVideoStop
+            // 
+            this.ribbonButtonVideoStop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoStop.Image = global::GiniMonara.Properties.Resources.player_stop;
+            this.ribbonButtonVideoStop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoStop.IsFlat = true;
+            this.ribbonButtonVideoStop.IsPressed = false;
+            this.ribbonButtonVideoStop.Location = new System.Drawing.Point(183, 0);
+            this.ribbonButtonVideoStop.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoStop.Name = "ribbonButtonVideoStop";
+            this.ribbonButtonVideoStop.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoStop.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoStop.TabIndex = 9;
+            this.ribbonButtonVideoStop.Text = "Stop";
+            this.ribbonButtonVideoStop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoStop.Click += new System.EventHandler(this.ribbonButtonVideoStop_Click);
+            // 
+            // ribbonButtonVideoPause
+            // 
+            this.ribbonButtonVideoPause.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoPause.Image = global::GiniMonara.Properties.Resources.player_pause;
+            this.ribbonButtonVideoPause.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoPause.IsFlat = true;
+            this.ribbonButtonVideoPause.IsPressed = false;
+            this.ribbonButtonVideoPause.Location = new System.Drawing.Point(123, 0);
+            this.ribbonButtonVideoPause.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoPause.Name = "ribbonButtonVideoPause";
+            this.ribbonButtonVideoPause.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoPause.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoPause.TabIndex = 8;
+            this.ribbonButtonVideoPause.Text = "Pause";
+            this.ribbonButtonVideoPause.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoPause.Click += new System.EventHandler(this.ribbonButtonVideoPause_Click);
+            // 
+            // ribbonButtonVideoPlay
+            // 
+            this.ribbonButtonVideoPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoPlay.Image = global::GiniMonara.Properties.Resources.player_play;
+            this.ribbonButtonVideoPlay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoPlay.IsFlat = true;
+            this.ribbonButtonVideoPlay.IsPressed = false;
+            this.ribbonButtonVideoPlay.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonVideoPlay.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoPlay.Name = "ribbonButtonVideoPlay";
+            this.ribbonButtonVideoPlay.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoPlay.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoPlay.TabIndex = 7;
+            this.ribbonButtonVideoPlay.Text = "Play";
+            this.ribbonButtonVideoPlay.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoPlay.Click += new System.EventHandler(this.ribbonButtonVideoPlay_Click);
+            // 
+            // ribbonButtonVideoRewind
+            // 
+            this.ribbonButtonVideoRewind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoRewind.Image = global::GiniMonara.Properties.Resources.player_rew;
+            this.ribbonButtonVideoRewind.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoRewind.IsFlat = true;
+            this.ribbonButtonVideoRewind.IsPressed = false;
+            this.ribbonButtonVideoRewind.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoRewind.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoRewind.Name = "ribbonButtonVideoRewind";
+            this.ribbonButtonVideoRewind.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoRewind.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoRewind.TabIndex = 6;
+            this.ribbonButtonVideoRewind.Text = "Rewind";
+            this.ribbonButtonVideoRewind.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoRewind.Click += new System.EventHandler(this.ribbonButtonVideoRewind_Click);
+            // 
+            // ribbonGroup8
+            // 
+            this.ribbonGroup8.AutoSize = true;
+            this.ribbonGroup8.Controls.Add(this.ribbonButtonVideoYouTube);
+            this.ribbonGroup8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup8.Location = new System.Drawing.Point(257, 3);
+            this.ribbonGroup8.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup8.Name = "ribbonGroup8";
+            this.ribbonGroup8.Size = new System.Drawing.Size(66, 95);
+            this.ribbonGroup8.TabIndex = 5;
+            this.ribbonGroup8.TabStop = false;
+            this.ribbonGroup8.Text = "Share";
+            // 
+            // ribbonButtonVideoYouTube
+            // 
+            this.ribbonButtonVideoYouTube.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoYouTube.Image = global::GiniMonara.Properties.Resources.youtube;
+            this.ribbonButtonVideoYouTube.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoYouTube.IsFlat = true;
+            this.ribbonButtonVideoYouTube.IsPressed = false;
+            this.ribbonButtonVideoYouTube.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoYouTube.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoYouTube.Name = "ribbonButtonVideoYouTube";
+            this.ribbonButtonVideoYouTube.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoYouTube.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoYouTube.TabIndex = 3;
+            this.ribbonButtonVideoYouTube.Text = "YouTube";
+            this.ribbonButtonVideoYouTube.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoYouTube.Click += new System.EventHandler(this.ribbonButtonVideoYouTube_Click);
+            // 
+            // ribbonGroup9
+            // 
+            this.ribbonGroup9.AutoSize = true;
+            this.ribbonGroup9.Controls.Add(this.ribbonButtonVideoReloadMetaData);
+            this.ribbonGroup9.Controls.Add(this.ribbonButtonVideoSaveMetaData);
+            this.ribbonGroup9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup9.Location = new System.Drawing.Point(131, 3);
+            this.ribbonGroup9.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup9.Name = "ribbonGroup9";
+            this.ribbonGroup9.Size = new System.Drawing.Size(126, 95);
+            this.ribbonGroup9.TabIndex = 4;
+            this.ribbonGroup9.TabStop = false;
+            this.ribbonGroup9.Text = "Tags";
+            // 
+            // ribbonButtonVideoReloadMetaData
+            // 
+            this.ribbonButtonVideoReloadMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoReloadMetaData.Image = global::GiniMonara.Properties.Resources.reload;
+            this.ribbonButtonVideoReloadMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoReloadMetaData.IsFlat = true;
+            this.ribbonButtonVideoReloadMetaData.IsPressed = false;
+            this.ribbonButtonVideoReloadMetaData.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonVideoReloadMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoReloadMetaData.Name = "ribbonButtonVideoReloadMetaData";
+            this.ribbonButtonVideoReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoReloadMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoReloadMetaData.TabIndex = 4;
+            this.ribbonButtonVideoReloadMetaData.Text = "Reload";
+            this.ribbonButtonVideoReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoReloadMetaData.Click += new System.EventHandler(this.ribbonButtonVideoReloadMetaData_Click);
+            // 
+            // ribbonButtonVideoSaveMetaData
+            // 
+            this.ribbonButtonVideoSaveMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoSaveMetaData.Image = global::GiniMonara.Properties.Resources.save_all;
+            this.ribbonButtonVideoSaveMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoSaveMetaData.IsFlat = true;
+            this.ribbonButtonVideoSaveMetaData.IsPressed = false;
+            this.ribbonButtonVideoSaveMetaData.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoSaveMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoSaveMetaData.Name = "ribbonButtonVideoSaveMetaData";
+            this.ribbonButtonVideoSaveMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoSaveMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoSaveMetaData.TabIndex = 2;
+            this.ribbonButtonVideoSaveMetaData.Text = "Save";
+            this.ribbonButtonVideoSaveMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoSaveMetaData.Click += new System.EventHandler(this.ribbonButtonVideoSaveMetaData_Click);
+            // 
+            // ribbonGroup6
+            // 
+            this.ribbonGroup6.AutoSize = true;
+            this.ribbonGroup6.Controls.Add(this.ribbonButtonVideoClose);
+            this.ribbonGroup6.Controls.Add(this.ribbonButtonVideoOpen);
+            this.ribbonGroup6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup6.Location = new System.Drawing.Point(3, 3);
+            this.ribbonGroup6.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup6.Name = "ribbonGroup6";
+            this.ribbonGroup6.Size = new System.Drawing.Size(128, 95);
+            this.ribbonGroup6.TabIndex = 1;
+            this.ribbonGroup6.TabStop = false;
+            this.ribbonGroup6.Text = "File";
+            // 
+            // ribbonButtonVideoClose
+            // 
+            this.ribbonButtonVideoClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoClose.Image = global::GiniMonara.Properties.Resources.fileclose;
+            this.ribbonButtonVideoClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoClose.IsFlat = true;
+            this.ribbonButtonVideoClose.IsPressed = false;
+            this.ribbonButtonVideoClose.Location = new System.Drawing.Point(65, 0);
+            this.ribbonButtonVideoClose.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoClose.Name = "ribbonButtonVideoClose";
+            this.ribbonButtonVideoClose.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoClose.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoClose.TabIndex = 1;
+            this.ribbonButtonVideoClose.Text = "Close File";
+            this.ribbonButtonVideoClose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoClose.Click += new System.EventHandler(this.ribbonButtonVideoClose_Click);
+            // 
+            // ribbonButtonVideoOpen
+            // 
+            this.ribbonButtonVideoOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoOpen.Image = global::GiniMonara.Properties.Resources.fileopen;
+            this.ribbonButtonVideoOpen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoOpen.IsFlat = true;
+            this.ribbonButtonVideoOpen.IsPressed = false;
+            this.ribbonButtonVideoOpen.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoOpen.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoOpen.Name = "ribbonButtonVideoOpen";
+            this.ribbonButtonVideoOpen.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoOpen.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoOpen.TabIndex = 0;
+            this.ribbonButtonVideoOpen.Text = "Open File";
+            this.ribbonButtonVideoOpen.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoOpen.Click += new System.EventHandler(this.ribbonButtonVideoOpen_Click);
             // 
             // tabPageTools
             // 
@@ -424,7 +731,7 @@
             this.ribbonButtonCategoryAnalyzer.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonCategoryAnalyzer.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonCategoryAnalyzer.TabIndex = 1;
-            this.ribbonButtonCategoryAnalyzer.Text = "&Analyzer";
+            this.ribbonButtonCategoryAnalyzer.Text = "Analyzer";
             this.ribbonButtonCategoryAnalyzer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // ribbonButtonCategoryEditor
@@ -440,7 +747,7 @@
             this.ribbonButtonCategoryEditor.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonCategoryEditor.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonCategoryEditor.TabIndex = 0;
-            this.ribbonButtonCategoryEditor.Text = "&Editor";
+            this.ribbonButtonCategoryEditor.Text = "Editor";
             this.ribbonButtonCategoryEditor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonCategoryEditor.Click += new System.EventHandler(this.ribbonButtonCategoryEditor_Click);
             // 
@@ -452,6 +759,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBoxFrameData);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
@@ -466,13 +774,53 @@
             this.splitContainer1.SplitterDistance = 271;
             this.splitContainer1.TabIndex = 2;
             // 
+            // groupBoxFrameData
+            // 
+            this.groupBoxFrameData.Controls.Add(this.label1);
+            this.groupBoxFrameData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxFrameData.Location = new System.Drawing.Point(0, 338);
+            this.groupBoxFrameData.Name = "groupBoxFrameData";
+            this.groupBoxFrameData.Size = new System.Drawing.Size(271, 84);
+            this.groupBoxFrameData.TabIndex = 1;
+            this.groupBoxFrameData.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBoxTimedTags);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 245);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(271, 173);
+            this.panel1.Size = new System.Drawing.Size(271, 93);
             this.panel1.TabIndex = 4;
+            // 
+            // groupBoxTimedTags
+            // 
+            this.groupBoxTimedTags.Controls.Add(this.listBoxTimedTags);
+            this.groupBoxTimedTags.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxTimedTags.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxTimedTags.Name = "groupBoxTimedTags";
+            this.groupBoxTimedTags.Size = new System.Drawing.Size(271, 90);
+            this.groupBoxTimedTags.TabIndex = 0;
+            this.groupBoxTimedTags.TabStop = false;
+            this.groupBoxTimedTags.Text = "Available Tags";
+            // 
+            // listBoxTimedTags
+            // 
+            this.listBoxTimedTags.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxTimedTags.FormattingEnabled = true;
+            this.listBoxTimedTags.Location = new System.Drawing.Point(3, 16);
+            this.listBoxTimedTags.Name = "listBoxTimedTags";
+            this.listBoxTimedTags.Size = new System.Drawing.Size(265, 69);
+            this.listBoxTimedTags.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -672,6 +1020,7 @@
             // 
             this.panelImage.AutoScroll = true;
             this.panelImage.AutoSize = true;
+            this.panelImage.Controls.Add(this.panelTimedTags);
             this.panelImage.Cursor = System.Windows.Forms.Cursors.Cross;
             this.panelImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelImage.Location = new System.Drawing.Point(0, 0);
@@ -683,6 +1032,114 @@
             this.panelImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelImage_MouseMove);
             this.panelImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelImage_MouseDown);
             this.panelImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelImage_MouseUp);
+            // 
+            // panelTimedTags
+            // 
+            this.panelTimedTags.Controls.Add(this.ribbonButtonTimedCancel);
+            this.panelTimedTags.Controls.Add(this.ribbonButtonTimedOk);
+            this.panelTimedTags.Controls.Add(this.groupBox3);
+            this.panelTimedTags.Controls.Add(this.groupBox4);
+            this.panelTimedTags.Controls.Add(this.groupBox5);
+            this.panelTimedTags.Location = new System.Drawing.Point(16, 20);
+            this.panelTimedTags.Name = "panelTimedTags";
+            this.panelTimedTags.Size = new System.Drawing.Size(243, 204);
+            this.panelTimedTags.TabIndex = 1;
+            this.panelTimedTags.Visible = false;
+            // 
+            // ribbonButtonTimedCancel
+            // 
+            this.ribbonButtonTimedCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonTimedCancel.Image = global::GiniMonara.Properties.Resources.cancel;
+            this.ribbonButtonTimedCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonTimedCancel.IsFlat = true;
+            this.ribbonButtonTimedCancel.IsPressed = false;
+            this.ribbonButtonTimedCancel.Location = new System.Drawing.Point(120, 137);
+            this.ribbonButtonTimedCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonTimedCancel.Name = "ribbonButtonTimedCancel";
+            this.ribbonButtonTimedCancel.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonTimedCancel.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonTimedCancel.TabIndex = 7;
+            this.ribbonButtonTimedCancel.Text = "&Cancel";
+            this.ribbonButtonTimedCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // ribbonButtonTimedOk
+            // 
+            this.ribbonButtonTimedOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonTimedOk.Image = global::GiniMonara.Properties.Resources.ok;
+            this.ribbonButtonTimedOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonTimedOk.IsFlat = true;
+            this.ribbonButtonTimedOk.IsPressed = false;
+            this.ribbonButtonTimedOk.Location = new System.Drawing.Point(180, 137);
+            this.ribbonButtonTimedOk.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonTimedOk.Name = "ribbonButtonTimedOk";
+            this.ribbonButtonTimedOk.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonTimedOk.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonTimedOk.TabIndex = 6;
+            this.ribbonButtonTimedOk.Text = "&Ok";
+            this.ribbonButtonTimedOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBoxTimedData);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 88);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(243, 46);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Data";
+            // 
+            // textBoxTimedData
+            // 
+            this.textBoxTimedData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxTimedData.Location = new System.Drawing.Point(3, 16);
+            this.textBoxTimedData.Name = "textBoxTimedData";
+            this.textBoxTimedData.Size = new System.Drawing.Size(237, 20);
+            this.textBoxTimedData.TabIndex = 1;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboBoxTimedTag);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Location = new System.Drawing.Point(0, 44);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(243, 44);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Tag";
+            // 
+            // comboBoxTimedTag
+            // 
+            this.comboBoxTimedTag.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.comboBoxTimedTag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTimedTag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTimedTag.FormattingEnabled = true;
+            this.comboBoxTimedTag.Location = new System.Drawing.Point(3, 16);
+            this.comboBoxTimedTag.Name = "comboBoxTimedTag";
+            this.comboBoxTimedTag.Size = new System.Drawing.Size(237, 21);
+            this.comboBoxTimedTag.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.comboBoxTimeCategory);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(243, 44);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Category";
+            // 
+            // comboBoxTimeCategory
+            // 
+            this.comboBoxTimeCategory.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxTimeCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTimeCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTimeCategory.FormattingEnabled = true;
+            this.comboBoxTimeCategory.Location = new System.Drawing.Point(3, 16);
+            this.comboBoxTimeCategory.Name = "comboBoxTimeCategory";
+            this.comboBoxTimeCategory.Size = new System.Drawing.Size(237, 21);
+            this.comboBoxTimeCategory.TabIndex = 1;
             // 
             // splitContainer2
             // 
@@ -723,6 +1180,13 @@
             this.ribbonGroup3.ResumeLayout(false);
             this.ribbonGroup2.ResumeLayout(false);
             this.ribbonGroup1.ResumeLayout(false);
+            this.tabPageVideo.ResumeLayout(false);
+            this.tabPageVideo.PerformLayout();
+            this.ribbonGroup10.ResumeLayout(false);
+            this.ribbonGroup7.ResumeLayout(false);
+            this.ribbonGroup8.ResumeLayout(false);
+            this.ribbonGroup9.ResumeLayout(false);
+            this.ribbonGroup6.ResumeLayout(false);
             this.tabPageTools.ResumeLayout(false);
             this.tabPageTools.PerformLayout();
             this.ribbonGroup5.ResumeLayout(false);
@@ -730,6 +1194,10 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBoxFrameData.ResumeLayout(false);
+            this.groupBoxFrameData.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBoxTimedTags.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -741,6 +1209,12 @@
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.panelImage.ResumeLayout(false);
+            this.panelTimedTags.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
@@ -769,7 +1243,6 @@
         private mRibbon.RibbonGroup ribbonGroup3;
         private mRibbon.RibbonButton ribbonButtonImagePicasa;
         private mRibbon.RibbonButton ribbonButtonImageFlickr;
-        private mRibbon.RibbonButton ribbonButtonImageDeleteMetaData;
         private mRibbon.RibbonButton ribbonButtonReloadMetaData;
         private mRibbon.RibbonGroup ribbonGroup4;
         private mRibbon.RibbonButton ribbonButtonImageZoomOut;
@@ -794,5 +1267,35 @@
         private mRibbon.RibbonGroup ribbonGroup5;
         private mRibbon.RibbonButton ribbonButtonCategoryAnalyzer;
         private mRibbon.RibbonButton ribbonButtonCategoryEditor;
+        private mRibbon.RibbonGroup ribbonGroup6;
+        private mRibbon.RibbonButton ribbonButtonVideoClose;
+        private mRibbon.RibbonButton ribbonButtonVideoOpen;
+        private mRibbon.RibbonGroup ribbonGroup7;
+        private mRibbon.RibbonButton ribbonButtonVideoStop;
+        private mRibbon.RibbonButton ribbonButtonVideoPause;
+        private mRibbon.RibbonButton ribbonButtonVideoPlay;
+        private mRibbon.RibbonButton ribbonButtonVideoRewind;
+        private mRibbon.RibbonGroup ribbonGroup8;
+        private mRibbon.RibbonButton ribbonButtonVideoYouTube;
+        private mRibbon.RibbonGroup ribbonGroup9;
+        private mRibbon.RibbonButton ribbonButtonVideoReloadMetaData;
+        private mRibbon.RibbonButton ribbonButtonVideoSaveMetaData;
+        private mRibbon.RibbonButton ribbonButtonVideoForward;
+        private System.Windows.Forms.GroupBox groupBoxTimedTags;
+        private System.Windows.Forms.GroupBox groupBoxFrameData;
+        private System.Windows.Forms.ListBox listBoxTimedTags;
+        private System.Windows.Forms.Label label1;
+        private mRibbon.RibbonGroup ribbonGroup10;
+        private mRibbon.RibbonButton ribbonButtonVideoMark;
+        private mRibbon.RibbonButton ribbonButtonVideoTag;
+        private System.Windows.Forms.Panel panelTimedTags;
+        private mRibbon.RibbonButton ribbonButtonTimedCancel;
+        private mRibbon.RibbonButton ribbonButtonTimedOk;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBoxTimedData;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox comboBoxTimedTag;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox comboBoxTimeCategory;
     }
 }

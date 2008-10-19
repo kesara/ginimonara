@@ -1,6 +1,6 @@
 ﻿namespace GiniMonara.UI
 {
-    partial class GoogleAccountDetailsForm
+    partial class YouTubeAccountDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -115,7 +115,7 @@
             this.textBoxUserName.Size = new System.Drawing.Size(286, 20);
             this.textBoxUserName.TabIndex = 1;
             // 
-            // GoogleAccountDetailsForm
+            // YouTubeAccountDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,9 +125,9 @@
             this.Controls.Add(this.ribbonButtonCancel);
             this.Controls.Add(this.ribbonButtonOk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "GoogleAccountDetailsForm";
-            this.Text = "Google Account Details";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GoogleAccountDetailsForm_FormClosed);
+            this.Name = "YouTubeAccountDetailsForm";
+            this.Text = "YouTube Account Details";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.YouTubeAccountDetailsForm_FormClosed);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);

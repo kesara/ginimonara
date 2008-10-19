@@ -4,7 +4,7 @@ using System;
 using System.Windows.Forms;
 
 /*
- * GoogleAccountDetailsForm - GiniMonara Google Account Details User Interface
+ * YouTubeAccountDetailsForm - GiniMonara YouTube Account Details User Interface
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
  * Copyright (C) 2008 GiniMonara Team
  * 
@@ -26,11 +26,11 @@ using System.Windows.Forms;
 
 namespace GiniMonara.UI
 {
-    public partial class GoogleAccountDetailsForm : Form
+    public partial class YouTubeAccountDetailsForm : Form
     {
         MainForm parentUI;
 
-        public GoogleAccountDetailsForm(MainForm parentUI)
+        public YouTubeAccountDetailsForm(MainForm parentUI)
         {
             this.parentUI = parentUI;
             InitializeComponent();
@@ -38,9 +38,9 @@ namespace GiniMonara.UI
 
         private void ribbonButtonOk_Click(object sender, EventArgs e)
         {
-            ApplicationUtility.setGoogleSecrets(textBoxUserName.Text, textBoxPassword.Text);
+            ApplicationUtility.setYouTubeSecrets(textBoxUserName.Text, textBoxPassword.Text);
             parentUI.Enabled = true;
-            parentUI.sendToPicasa();
+            parentUI.sendToYouTube();
             this.Dispose();
         }
 
@@ -50,7 +50,7 @@ namespace GiniMonara.UI
             this.Dispose();
         }
 
-        private void GoogleAccountDetailsForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void YouTubeAccountDetailsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             parentUI.Enabled = true;
         }

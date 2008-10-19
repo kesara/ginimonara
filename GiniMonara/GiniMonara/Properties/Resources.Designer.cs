@@ -123,6 +123,13 @@ namespace GiniMonara.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap mark {
+            get {
+                object obj = ResourceManager.GetObject("mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap ok {
             get {
                 object obj = ResourceManager.GetObject("ok", resourceCulture);
@@ -133,6 +140,41 @@ namespace GiniMonara.Properties {
         internal static System.Drawing.Bitmap picasa {
             get {
                 object obj = ResourceManager.GetObject("picasa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap player_fwd {
+            get {
+                object obj = ResourceManager.GetObject("player_fwd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap player_pause {
+            get {
+                object obj = ResourceManager.GetObject("player_pause", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap player_play {
+            get {
+                object obj = ResourceManager.GetObject("player_play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap player_rew {
+            get {
+                object obj = ResourceManager.GetObject("player_rew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap player_stop {
+            get {
+                object obj = ResourceManager.GetObject("player_stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -189,6 +231,13 @@ namespace GiniMonara.Properties {
         internal static System.Drawing.Bitmap viewmagfit {
             get {
                 object obj = ResourceManager.GetObject("viewmagfit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap youtube {
+            get {
+                object obj = ResourceManager.GetObject("youtube", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
