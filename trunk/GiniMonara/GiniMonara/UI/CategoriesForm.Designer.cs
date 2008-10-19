@@ -258,6 +258,7 @@
             this.Name = "CategoriesForm";
             this.Text = "GiniMonara Categories";
             this.Load += new System.EventHandler(this.CategoriesForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CategoriesForm_FormClosed);
             this.ribbonControl1.ResumeLayout(false);
             this.tabPageTags.ResumeLayout(false);
             this.groupBoxTag.ResumeLayout(false);

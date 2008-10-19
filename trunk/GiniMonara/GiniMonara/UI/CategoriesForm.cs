@@ -116,5 +116,11 @@ namespace GiniMonara.UI
             parentUI.Enabled = true;
             this.Dispose();
         }
+
+        private void CategoriesForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentUI.reloadCategories();
+            parentUI.Enabled = true;
+        }
     }
 }

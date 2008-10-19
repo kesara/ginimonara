@@ -35,6 +35,7 @@ namespace GiniMonara.Utilities
         public static CategoryList categories { get; set; }
         public static GoogleSecrets googleSecrets { get; set; }
         public static FlickrSecrets flickrSecrets { get; set; }
+        public static YouTubeSecrets youTubeSecrets { get; set; }
         #endregion
 
         public static void applicationStart()
@@ -105,6 +106,11 @@ namespace GiniMonara.Utilities
         public static void setFlickrSecrets(string frob)
         {
             flickrSecrets = new FlickrSecrets(frob);
+        }
+
+        public static void setYouTubeSecrets(string username, string password)
+        {
+            youTubeSecrets = new YouTubeSecrets(username, password);
         }
     }
 }

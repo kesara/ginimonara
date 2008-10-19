@@ -35,6 +35,14 @@
     <Reference Include="Google.GData.Client, Version=1.2.1.0, Culture=neutral, PublicKeyToken=04a59ca9b0273830, processorArchitecture=MSIL" />
     <Reference Include="Google.GData.Extensions, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0b4c5df2ebf20876, processorArchitecture=MSIL" />
     <Reference Include="Google.GData.Photos, Version=1.2.1.0, Culture=neutral, PublicKeyToken=a25b50f2e8e3887a, processorArchitecture=MSIL" />
+    <Reference Include="Google.GData.YouTube, Version=1.2.1.0, Culture=neutral, PublicKeyToken=af04a32718ae8833, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Google.GData.YouTube.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.QuartzTypeLib, Version=1.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Interop.QuartzTypeLib.dll</HintPath>
+    </Reference>
     <Reference Include="mRibbon, Version=1.0.2357.36816, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -55,6 +63,12 @@
   <ItemGroup>
     <Compile Include="MetaData\Tag.cs" />
     <Compile Include="MetaData\TagList.cs" />
+    <Compile Include="UI\YouTubeAccountDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\YouTubeAccountDetailsForm.Designer.cs">
+      <DependentUpon>YouTubeAccountDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\GoogleAccountDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +77,7 @@
     </Compile>
     <Compile Include="UserSecrets\FlickrSecrets.cs" />
     <Compile Include="UserSecrets\GoogleSecrets.cs" />
+    <Compile Include="UserSecrets\YouTubeSecrets.cs" />
     <Compile Include="Utilities\ApplicationUtilities.cs" />
     <Compile Include="Categories\Category.cs" />
     <Compile Include="Categories\CategoryList.cs" />
@@ -75,6 +90,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\YouTubeAccountDetailsForm.resx">
+      <DependentUpon>YouTubeAccountDetailsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\GoogleAccountDetailsForm.resx">
       <DependentUpon>GoogleAccountDetailsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -125,6 +144,13 @@
     <None Include="Resources\reset.png" />
     <None Include="Resources\category_editor.png" />
     <None Include="Resources\viewmag.png" />
+    <None Include="Resources\player_rew.png" />
+    <None Include="Resources\player_play.png" />
+    <None Include="Resources\player_pause.png" />
+    <None Include="Resources\player_stop.png" />
+    <None Include="Resources\player_fwd.png" />
+    <None Include="Resources\youtube.png" />
+    <None Include="Resources\mark.png" />
     <Content Include="xml\Category.xml" />
     <None Include="xsd\Categories.xsd" />
     <None Include="Resources\editdelete.png" />

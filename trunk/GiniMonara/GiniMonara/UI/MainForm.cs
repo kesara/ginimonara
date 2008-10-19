@@ -4,7 +4,10 @@ using GiniMonara.UI;
 using GiniMonara.Utilities;
 using Google.GData.Client;
 using Google.GData.Extensions;
+using Google.GData.Extensions.MediaRss;
 using Google.GData.Photos;
+using Google.GData.YouTube;
+using QuartzTypeLib;
 using System;
 using System.Collections;
 using System.Drawing;
@@ -17,6 +20,7 @@ using System.Diagnostics;
 /*
  * MainForm - GiniMonara Main User Interface
  * Developer: Kesara Nanayakkara Rathnayake < kesara@bcs.org >
+ * Parts of video module is based on code by Prathibha Gamage < bgkprathibha@gmail.com >
  * Copyright (C) 2008 GiniMonara Team
  * 
  * This file is part of GiniMonara.
@@ -53,6 +57,27 @@ namespace GiniMonara.UI
         private string zoom;
         private int zoomFactor;
         private int zoomStep;
+        private enum MediaStatus { image, video, none }
+        private MediaStatus mediaStatus = MediaStatus.none;
+
+        /* Video Module Variables */
+        private FilgraphManager filgraphManager;
+        private IBasicAudio iBasicAudio;
+        private IVideoWindow iVideoWindow;
+        private IMediaEvent iMediaEvent;
+        private IMediaEventEx iMediaEventEx;
+        private IMediaPosition iMediaPosition;
+        private IMediaControl iMediaControl;
+
+        private enum VideoStatus { None, Stopped, Paused, Running };
+        private VideoStatus videoStatus = VideoStatus.None;
+        private int markedFrame;
+
+        private const int WM_APP = 0x8000;
+        private const int WM_GRAPHNOTIFY = WM_APP + 1;
+        private const int EC_COMPLETE = 0x01;
+        private const int WS_CHILD = 0x40000000;
+        private const int WS_CLIPCHILDREN = 0x2000000;
         #endregion
 
         public MainForm()
@@ -60,7 +85,7 @@ namespace GiniMonara.UI
             InitializeComponent();
         }
 
-        private void loadMetaData()
+        private void loadImageMetaData()
         {
             tagList = new TagList();
             if (MetaDataUtility.checkMetaDataExsists(metaDataFileName))
@@ -112,6 +137,7 @@ namespace GiniMonara.UI
         private void comboBoxCategoryName_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxTagName.Items.Clear();
+            textBoxData.Text = "";
             var tags = ApplicationUtility.categories.Where(c => c.category == comboBoxCategoryName.SelectedItem.ToString()).Where(ty => ty.type == "default").Select(t => t.tag).Distinct();
             foreach (string tag in tags)
             {
@@ -132,11 +158,13 @@ namespace GiniMonara.UI
         private void ribbonButtonImageOpenFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif|Video Files|*.mpg;*.mpeg";
+            dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif|All Files|*.*";
             dialog.Title = "Open File";
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                closeImage();
+                closeVideo();
                 fileName = dialog.FileName;
                 signature = Signature.getSignature(fileName);
                 metaDataFileName = ApplicationUtility.metaDataDirectory + @"\" + signature + @".xml";
@@ -145,7 +173,8 @@ namespace GiniMonara.UI
                 zoom = "actual";
                 zoomFactor = 10;
                 zoomStep = 25;
-                loadMetaData();
+                mediaStatus = MediaStatus.image;
+                loadImageMetaData();
             }
 
             panelSelection.Visible = false;
@@ -154,17 +183,15 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageCloseFile_Click(object sender, EventArgs e)
         {
-            panelImage.Visible = false;
-            fileName = null;
-            tagList = null;
-            textBoxTitle.Clear();
-            textBoxDescription.Clear();
-            textBoxData.Clear();
+            if (fileName != null && mediaStatus == MediaStatus.image)
+            {
+                closeImage();
+            }
         }
 
         private void ribbonButtonImageSave_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 gTag newTag;
                 gTag oldTag;
@@ -190,7 +217,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImagePicasa_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 if (ApplicationUtility.googleSecrets == null)
                 {
@@ -207,7 +234,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageActual_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 zoom = "actual";
                 showHotSpots();
@@ -217,7 +244,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageBestFit_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 zoom = "bestfit";
                 hideHotSpots();
@@ -227,7 +254,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageZoomIn_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 zoom = "zoom";
                 zoomFactor += zoomStep;
@@ -238,7 +265,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageZoomOut_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 zoom = "zoom";
                 zoomFactor -= zoomStep;
@@ -253,7 +280,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonImageFlickr_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 try
                 {
@@ -303,7 +330,7 @@ namespace GiniMonara.UI
 
         private void panelImage_Paint(object sender, PaintEventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 if (zoom == "actual")
                 {
@@ -335,7 +362,7 @@ namespace GiniMonara.UI
 
         private void panelImage_MouseDown(object sender, MouseEventArgs e)
         {
-            if (fileName != null && zoom == "actual")
+            if (fileName != null && mediaStatus == MediaStatus.image && zoom == "actual")
             {
                 disposeHotSpots();
                 mouseCaptured = true;
@@ -348,7 +375,7 @@ namespace GiniMonara.UI
 
         private void panelImage_MouseMove(object sender, MouseEventArgs e)
         {
-            if (fileName != null && zoom == "actual")
+            if (fileName != null && mediaStatus == MediaStatus.image && zoom == "actual")
             {
                 Point currentPoint = new Point(e.X, e.Y);
 
@@ -367,7 +394,7 @@ namespace GiniMonara.UI
 
         private void panelImage_MouseUp(object sender, MouseEventArgs e)
         {
-            if (fileName != null && zoom == "actual")
+            if (fileName != null && mediaStatus == MediaStatus.image && zoom == "actual")
             {
                 mouseCaptured = false;
 
@@ -391,7 +418,7 @@ namespace GiniMonara.UI
 
         private void drawSelectionRectangle(Point a, Point b)
         {
-            if (fileName != null && zoom == "actual")
+            if (fileName != null && mediaStatus == MediaStatus.image && zoom == "actual")
             {
                 Rectangle selectionReactangle = new Rectangle();
                 a.X = splitContainer1.SplitterDistance + a.X;
@@ -433,7 +460,7 @@ namespace GiniMonara.UI
             tagList.Add(tag);
             tagList.save(metaDataFileName);
             panelSelection.Visible = false;
-            loadMetaData();
+            loadImageMetaData();
             showHotSpots();
         }
 
@@ -518,6 +545,7 @@ namespace GiniMonara.UI
 
         private void comboBoxTagName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBoxData.Text = "";
             if (tagList != null)
             {
                 textBoxData.Text = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).Select(t => t.data).FirstOrDefault();
@@ -582,10 +610,10 @@ namespace GiniMonara.UI
 
         private void ribbonButtonReloadMetaData_Click(object sender, EventArgs e)
         {
-            if (fileName != null)
+            if (fileName != null && mediaStatus == MediaStatus.image)
             {
                 disposeHotSpots();
-                loadMetaData();
+                loadImageMetaData();
             }
         }
 
@@ -610,6 +638,325 @@ namespace GiniMonara.UI
                 }
             }
             return tags;
+        }
+
+        private void closeImage()
+        {
+            panelImage.Visible = false;
+            fileName = null;
+            tagList = null;
+            textBoxTitle.Clear();
+            textBoxDescription.Clear();
+            textBoxData.Clear();
+            mediaStatus = MediaStatus.none;
+        }
+
+        /* Video Module */
+
+        private void ribbonButtonVideoOpen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Video Files|*.mpg;*.avi;*.wmv;*.mov;|All Files|*.*";
+            dialog.Title = "Open File";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                closeImage();
+                closeVideo();
+                fileName = dialog.FileName;
+                signature = Signature.getSignature(fileName);
+                metaDataFileName = ApplicationUtility.metaDataDirectory + @"\" + signature + @".xml";
+
+                filgraphManager = new FilgraphManager();
+                filgraphManager.RenderFile(fileName);
+                iBasicAudio = filgraphManager as IBasicAudio;
+
+                mediaStatus = MediaStatus.video;
+                markedFrame = -1;
+
+                try
+                {
+                    iVideoWindow = filgraphManager as IVideoWindow;
+                    iVideoWindow.Owner = (int)panelImage.Handle;
+                    iVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
+                    iVideoWindow.SetWindowPosition(panelImage.ClientRectangle.Left,
+                        panelImage.ClientRectangle.Top,
+                        panelImage.ClientRectangle.Width,
+                        panelImage.ClientRectangle.Height);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                iMediaEvent = filgraphManager as IMediaEvent;
+                iMediaEventEx = filgraphManager as IMediaEventEx;
+                iMediaEventEx.SetNotifyWindow((int)this.Handle, WM_GRAPHNOTIFY, 0);
+                iMediaPosition = filgraphManager as IMediaPosition;
+                iMediaControl = filgraphManager as IMediaControl;
+
+                iMediaControl.Run();
+                videoStatus = VideoStatus.Running;
+
+                panelImage.Visible = false;
+                panelImage.Visible = true;
+                zoom = "actual";
+                zoomFactor = 10;
+                zoomStep = 25;
+                loadImageMetaData();
+            }
+            loadVideoMetaData();
+            panelSelection.Visible = false;
+        }
+
+        private void ribbonButtonVideoRewind_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                iMediaPosition.CurrentPosition = iMediaPosition.CurrentPosition - 10;
+            }
+        }
+
+        private void ribbonButtonVideoForward_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                iMediaPosition.CurrentPosition = iMediaPosition.CurrentPosition + 10;
+            }
+        }
+
+        private void ribbonButtonVideoPlay_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                iMediaControl.Run();
+                videoStatus = VideoStatus.Running;
+            }
+        }
+
+        private void ribbonButtonVideoPause_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                iMediaControl.Pause();
+                videoStatus = VideoStatus.Paused;
+            }
+        }
+
+        private void ribbonButtonVideoStop_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                iMediaControl.Stop();
+                videoStatus = VideoStatus.Stopped;
+            }
+        }
+
+        private void closeVideo()
+        {
+            panelImage.Visible = false;
+            fileName = null;
+            tagList = null;
+            textBoxTitle.Clear();
+            textBoxDescription.Clear();
+            textBoxData.Clear();
+
+
+            if (iMediaControl != null)
+            {
+                iMediaControl.Stop();
+                videoStatus = VideoStatus.Stopped;
+            }
+
+            if (iMediaEventEx != null)
+            {
+                iMediaEventEx.SetNotifyWindow(0, 0, 0);
+            }
+
+            if (iVideoWindow != null)
+            {
+                iVideoWindow.Visible = 0;
+                iVideoWindow.Owner = 0;
+            }
+
+            filgraphManager = null;
+            iBasicAudio = null;
+            iVideoWindow = null;
+            iMediaEvent = null;
+            iMediaEventEx = null;
+            iMediaPosition = null;
+            iMediaControl = null;
+            videoStatus = VideoStatus.None;
+            markedFrame = -1;
+            mediaStatus = MediaStatus.none;
+        }
+
+        private void ribbonButtonVideoYouTube_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                if (ApplicationUtility.youTubeSecrets == null)
+                {
+                    YouTubeAccountDetailsForm youTubeAccountDetailsForm = new YouTubeAccountDetailsForm(this);
+                    youTubeAccountDetailsForm.Show();
+                    this.Enabled = false;
+                }
+                else
+                {
+                    sendToYouTube();
+                }
+            }
+        }
+
+
+        public void sendToYouTube()
+        {
+            try
+            {
+                #region Google API Credidentials
+                YouTubeService ytService = new YouTubeService("GiniMonara", "ytapi-GiniMonaraTeam-GiniMonara-ua3mb9is-0", "AI39si5LO7KwGwhpGkbY-BZgvp18bKDvaYM9BSf7v793_NQdhIi8sGQBr-aJhMO8IG5dr98-RWZCfwNCcXseGSqM0537hk3QKw");
+                ytService.setUserCredentials(ApplicationUtility.youTubeSecrets.username, ApplicationUtility.youTubeSecrets.password);
+                #endregion
+                
+                YouTubeEntry ytEntry = new YouTubeEntry();
+                
+                #region Update Photo Info
+                ytEntry.Media = new MediaGroup();
+                ytEntry.Media.Categories.Add(new MediaCategory("video", YouTubeNameTable.CategorySchema));
+                ytEntry.Media.Keywords = new MediaKeywords(getCommaSeperatedTags());
+                ytEntry.Media.Description = new MediaDescription(tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Description").Select(t => t.data).FirstOrDefault());
+                ytEntry.Media.Title = new MediaTitle(tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").Select(t => t.data).FirstOrDefault());
+                #endregion
+
+                #region Upload Video
+                ytEntry.MediaSource = new MediaFileSource(fileName, "video/mpeg");
+                YouTubeEntry uploadedEntry = ytService.Upload(ytEntry);
+                #endregion
+                
+                MessageBox.Show("Video uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+            catch
+            {
+                MessageBox.Show("Video upload failed.", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ApplicationUtility.youTubeSecrets = null;
+            }
+        }
+
+        private void loadVideoMetaData()
+        {
+            tagList = new TagList();
+            if (MetaDataUtility.checkMetaDataExsists(metaDataFileName))
+            {
+                tagList.load(metaDataFileName);
+                textBoxTitle.Text = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").Select(t => t.data).FirstOrDefault();
+                textBoxDescription.Text = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Description").Select(t => t.data).FirstOrDefault();
+                if (comboBoxTagName.Items.Count > 0)
+                {
+                    textBoxData.Text = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).Select(t => t.data).FirstOrDefault();
+                }
+                /*
+                var selectionMetaData = from t in tagList
+                                        from c in ApplicationUtility.categories
+                                        where c.type == "area"
+                                        where c.category == t.category
+                                        where c.tag == t.name
+                                        select t;
+                hotSpots = new ArrayList();
+                foreach (gTag tag in selectionMetaData)
+                {
+                    Panel panelHotSpot = new Panel();
+                    panelHotSpot.Location = new Point(tag.x, tag.y);
+                    panelHotSpot.Width = tag.p - tag.x;
+                    panelHotSpot.Height = tag.q - tag.y;
+                    panelHotSpot.BackColor = Color.Transparent;
+                    panelHotSpot.ForeColor = Color.Black;
+                    panelHotSpot.MouseHover += new System.EventHandler(panelSelectionDataMouseHover);
+                    panelHotSpot.MouseLeave += new System.EventHandler(panelSelectionDataMouseLeave);
+                    panelImage.Controls.Add(panelHotSpot);
+                    ToolTip toolTip = new ToolTip();
+                    toolTip.AutomaticDelay = 0;
+                    toolTip.InitialDelay = 0;
+                    toolTip.IsBalloon = true;
+                    toolTip.ReshowDelay = 0;
+                    toolTip.ShowAlways = true;
+                    toolTip.SetToolTip(panelHotSpot, tag.data);
+                    hotSpots.Add(panelHotSpot);
+                }
+                 */
+            }
+            else
+            {
+                gTag fileNameTag = new gTag("fileName", "hidden", fileName);
+                tagList.Add(fileNameTag);
+                tagList.save(metaDataFileName);
+            }
+        }
+
+        private void ribbonButtonVideoSaveMetaData_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                gTag newTag;
+                gTag oldTag;
+
+                newTag = new gTag("Title", "DublinCore", textBoxTitle.Text);
+                oldTag = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Title").SingleOrDefault();
+                tagList.Remove(oldTag);
+                tagList.Add(newTag);
+
+                newTag = new gTag("Description", "DublinCore", textBoxDescription.Text);
+                oldTag = tagList.Where(t => t.category == "DublinCore").Where(t => t.name == "Description").SingleOrDefault();
+                tagList.Remove(oldTag);
+                tagList.Add(newTag);
+
+                newTag = new gTag(comboBoxTagName.SelectedItem.ToString(), comboBoxCategoryName.SelectedItem.ToString(), textBoxData.Text);
+                oldTag = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).SingleOrDefault();
+                tagList.Remove(oldTag);
+                tagList.Add(newTag);
+
+                tagList.save(metaDataFileName);
+            }
+        }
+
+        private void ribbonButtonVideoClose_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                closeVideo();
+            }
+        }
+
+        private void ribbonButtonVideoReloadMetaData_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                //disposeHotSpots();
+                loadVideoMetaData();
+            }
+        }
+
+        private void ribbonButtonVideoMark_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                markedFrame = (int)iMediaPosition.CurrentPosition;
+            }
+        }
+
+        private void ribbonButtonVideoTag_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                if (markedFrame != -1)
+                {
+                    //single time frame
+                }
+                else
+                {
+                    //time frame range
+                }
+            }
         }
     }
 }
