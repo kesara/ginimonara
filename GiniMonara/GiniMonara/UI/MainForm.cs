@@ -129,6 +129,8 @@ namespace GiniMonara.UI
             {
                 gTag fileNameTag = new gTag("fileName", "hidden", fileName);
                 tagList.Add(fileNameTag);
+                gTag mediaTypeTag = new gTag("mediaType", "hidden", "image");
+                tagList.Add(mediaTypeTag);
                 tagList.save(metaDataFileName);
             }
             panelImage.Refresh();
@@ -522,20 +524,20 @@ namespace GiniMonara.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            loadCategories(comboBoxCategoryName);
-            loadCategories(comboBoxSelectionCategory);
+            reloadCategories();
         }
 
         public void reloadCategories()
         {
-            loadCategories(comboBoxCategoryName);
-            loadCategories(comboBoxSelectionCategory);
+            loadCategories(comboBoxCategoryName, "default");
+            loadCategories(comboBoxSelectionCategory, "area");
+            loadCategories(comboBoxTimedCategory, "timeframe");
         }
 
-        private void loadCategories(ComboBox comboBox)
+        private void loadCategories(ComboBox comboBox, string categoryType)
         {
             comboBox.Items.Clear();
-            var categories = ApplicationUtility.categories.Select(c => c.category).Distinct();
+            var categories = ApplicationUtility.categories.Where(c => c.type == categoryType).Select(c => c.category).Distinct();
             foreach (string category in categories)
             {
                 comboBox.Items.Add(category);
@@ -648,6 +650,8 @@ namespace GiniMonara.UI
             textBoxTitle.Clear();
             textBoxDescription.Clear();
             textBoxData.Clear();
+            panelTimedTags.Visible = false;
+            groupBoxTimedTags.Visible = false;
             mediaStatus = MediaStatus.none;
         }
 
@@ -760,7 +764,8 @@ namespace GiniMonara.UI
             textBoxTitle.Clear();
             textBoxDescription.Clear();
             textBoxData.Clear();
-
+            panelTimedTags.Visible = false;
+            groupBoxTimedTags.Visible = false;
 
             if (iMediaControl != null)
             {
@@ -817,9 +822,9 @@ namespace GiniMonara.UI
                 YouTubeService ytService = new YouTubeService("GiniMonara", "ytapi-GiniMonaraTeam-GiniMonara-ua3mb9is-0", "AI39si5LO7KwGwhpGkbY-BZgvp18bKDvaYM9BSf7v793_NQdhIi8sGQBr-aJhMO8IG5dr98-RWZCfwNCcXseGSqM0537hk3QKw");
                 ytService.setUserCredentials(ApplicationUtility.youTubeSecrets.username, ApplicationUtility.youTubeSecrets.password);
                 #endregion
-                
+
                 YouTubeEntry ytEntry = new YouTubeEntry();
-                
+
                 #region Update Photo Info
                 ytEntry.Media = new MediaGroup();
                 ytEntry.Media.Categories.Add(new MediaCategory("video", YouTubeNameTable.CategorySchema));
@@ -832,7 +837,7 @@ namespace GiniMonara.UI
                 ytEntry.MediaSource = new MediaFileSource(fileName, "video/mpeg");
                 YouTubeEntry uploadedEntry = ytService.Upload(ytEntry);
                 #endregion
-                
+
                 MessageBox.Show("Video uploaded succesfully", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
@@ -855,6 +860,21 @@ namespace GiniMonara.UI
                 {
                     textBoxData.Text = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).Select(t => t.data).FirstOrDefault();
                 }
+
+                var timedMetaData = from t in tagList
+                                        from c in ApplicationUtility.categories
+                                        where c.type == "timeframe"
+                                        where c.category == t.category
+                                        where c.tag == t.name
+                                        select t;
+
+                foreach (gTag tag in timedMetaData)
+                {
+                    listBoxTimedTags.Items.Add(tag);
+                }
+                listBoxTimedTags.ValueMember = "data";
+                groupBoxTimedTags.Visible = true;
+
                 /*
                 var selectionMetaData = from t in tagList
                                         from c in ApplicationUtility.categories
@@ -889,6 +909,8 @@ namespace GiniMonara.UI
             {
                 gTag fileNameTag = new gTag("fileName", "hidden", fileName);
                 tagList.Add(fileNameTag);
+                gTag mediaTypeTag = new gTag("mediaType", "hidden", "video");
+                tagList.Add(mediaTypeTag);
                 tagList.save(metaDataFileName);
             }
         }
@@ -948,14 +970,75 @@ namespace GiniMonara.UI
         {
             if (fileName != null && mediaStatus == MediaStatus.video)
             {
+                iMediaControl.Pause();
+                videoStatus = VideoStatus.Paused;
+                panelTimedTags.Visible = true;
+            }
+        }
+
+        private void ribbonButtonTimedOk_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
                 if (markedFrame != -1)
                 {
-                    //single time frame
+                    gTag tag = new gTag(comboBoxTimedTag.SelectedItem.ToString(), comboBoxTimedCategory.SelectedItem.ToString(), textBoxTimedData.Text, markedFrame, (int)iMediaPosition.CurrentPosition);
+                    tagList.Add(tag);
+                    tagList.save(metaDataFileName);
+                    listBoxTimedTags.Items.Add(tag);
                 }
                 else
                 {
-                    //time frame range
+                    gTag tag = new gTag(comboBoxTimedTag.SelectedItem.ToString(), comboBoxTimedCategory.SelectedItem.ToString(), textBoxTimedData.Text, (int)iMediaPosition.CurrentPosition, (int)iMediaPosition.CurrentPosition + 3);
+                    tagList.Add(tag);
+                    tagList.save(metaDataFileName);
+                    listBoxTimedTags.Items.Add(tag);
                 }
+                markedFrame = -1;
+                panelTimedTags.Visible = false;
+                iMediaControl.Run();
+                videoStatus = VideoStatus.Running;
+                textBoxTimedData.Clear();
+            }
+        }
+
+        private void ribbonButtonTimedCancel_Click(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                markedFrame = -1;
+                panelTimedTags.Visible = false;
+                iMediaControl.Run();
+                videoStatus = VideoStatus.Running;
+                textBoxTimedData.Clear();
+            }
+        }
+
+        private void comboBoxTimedCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxTimedTag.Items.Clear();
+            var tags = ApplicationUtility.categories.Where(c => c.category == comboBoxTimedCategory.SelectedItem.ToString()).Where(ty => ty.type == "timeframe").Select(t => t.tag).Distinct();
+            foreach (string tag in tags)
+            {
+                if (tag != "E0T")
+                {
+                    comboBoxTimedTag.Items.Add(tag);
+                }
+            }
+            if (comboBoxTimedTag.Items.Count > 0)
+            {
+                comboBoxTimedTag.SelectedIndex = 0;
+            }
+        }
+
+        private void listBoxTimedTags_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (fileName != null && mediaStatus == MediaStatus.video)
+            {
+                gTag tag = (gTag)listBoxTimedTags.SelectedItem;
+                iMediaPosition.CurrentPosition = tag.st;
+                iMediaControl.Run();
+                videoStatus = VideoStatus.Running;
             }
         }
     }

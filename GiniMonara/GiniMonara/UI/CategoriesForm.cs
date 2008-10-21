@@ -87,7 +87,7 @@ namespace GiniMonara.UI
         {
             if (textBoxCategory.Text != "")
             {
-                Category category = new Category(textBoxCategory.Text, "default", "E0T");
+                Category category = new Category(textBoxCategory.Text, "hidden", "E0T");
                 ApplicationUtility.addCategory(category);
                 textBoxTag.Clear();
                 MessageBox.Show("Category added", "GiniMonara", MessageBoxButtons.OK, MessageBoxIcon.Information);

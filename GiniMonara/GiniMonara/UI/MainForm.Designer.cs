@@ -68,8 +68,6 @@
             this.ribbonButtonCategoryAnalyzer = new mRibbon.RibbonButton();
             this.ribbonButtonCategoryEditor = new mRibbon.RibbonButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBoxFrameData = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxTimedTags = new System.Windows.Forms.GroupBox();
             this.listBoxTimedTags = new System.Windows.Forms.ListBox();
@@ -99,7 +97,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBoxTimedTag = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.comboBoxTimeCategory = new System.Windows.Forms.ComboBox();
+            this.comboBoxTimedCategory = new System.Windows.Forms.ComboBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.ribbonControlMain.SuspendLayout();
             this.tabPageImage.SuspendLayout();
@@ -118,7 +116,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBoxFrameData.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxTimedTags.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -759,7 +756,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBoxFrameData);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
@@ -774,32 +770,13 @@
             this.splitContainer1.SplitterDistance = 271;
             this.splitContainer1.TabIndex = 2;
             // 
-            // groupBoxFrameData
-            // 
-            this.groupBoxFrameData.Controls.Add(this.label1);
-            this.groupBoxFrameData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxFrameData.Location = new System.Drawing.Point(0, 338);
-            this.groupBoxFrameData.Name = "groupBoxFrameData";
-            this.groupBoxFrameData.Size = new System.Drawing.Size(271, 84);
-            this.groupBoxFrameData.TabIndex = 1;
-            this.groupBoxFrameData.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBoxTimedTags);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 245);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(271, 93);
+            this.panel1.Size = new System.Drawing.Size(271, 177);
             this.panel1.TabIndex = 4;
             // 
             // groupBoxTimedTags
@@ -808,10 +785,11 @@
             this.groupBoxTimedTags.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxTimedTags.Location = new System.Drawing.Point(0, 0);
             this.groupBoxTimedTags.Name = "groupBoxTimedTags";
-            this.groupBoxTimedTags.Size = new System.Drawing.Size(271, 90);
+            this.groupBoxTimedTags.Size = new System.Drawing.Size(271, 180);
             this.groupBoxTimedTags.TabIndex = 0;
             this.groupBoxTimedTags.TabStop = false;
             this.groupBoxTimedTags.Text = "Available Tags";
+            this.groupBoxTimedTags.Visible = false;
             // 
             // listBoxTimedTags
             // 
@@ -819,8 +797,9 @@
             this.listBoxTimedTags.FormattingEnabled = true;
             this.listBoxTimedTags.Location = new System.Drawing.Point(3, 16);
             this.listBoxTimedTags.Name = "listBoxTimedTags";
-            this.listBoxTimedTags.Size = new System.Drawing.Size(265, 69);
+            this.listBoxTimedTags.Size = new System.Drawing.Size(265, 160);
             this.listBoxTimedTags.TabIndex = 1;
+            this.listBoxTimedTags.SelectedIndexChanged += new System.EventHandler(this.listBoxTimedTags_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -1061,6 +1040,7 @@
             this.ribbonButtonTimedCancel.TabIndex = 7;
             this.ribbonButtonTimedCancel.Text = "&Cancel";
             this.ribbonButtonTimedCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonTimedCancel.Click += new System.EventHandler(this.ribbonButtonTimedCancel_Click);
             // 
             // ribbonButtonTimedOk
             // 
@@ -1077,6 +1057,7 @@
             this.ribbonButtonTimedOk.TabIndex = 6;
             this.ribbonButtonTimedOk.Text = "&Ok";
             this.ribbonButtonTimedOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonTimedOk.Click += new System.EventHandler(this.ribbonButtonTimedOk_Click);
             // 
             // groupBox3
             // 
@@ -1121,7 +1102,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.comboBoxTimeCategory);
+            this.groupBox5.Controls.Add(this.comboBoxTimedCategory);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
@@ -1130,16 +1111,17 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Category";
             // 
-            // comboBoxTimeCategory
+            // comboBoxTimedCategory
             // 
-            this.comboBoxTimeCategory.Cursor = System.Windows.Forms.Cursors.Default;
-            this.comboBoxTimeCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxTimeCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTimeCategory.FormattingEnabled = true;
-            this.comboBoxTimeCategory.Location = new System.Drawing.Point(3, 16);
-            this.comboBoxTimeCategory.Name = "comboBoxTimeCategory";
-            this.comboBoxTimeCategory.Size = new System.Drawing.Size(237, 21);
-            this.comboBoxTimeCategory.TabIndex = 1;
+            this.comboBoxTimedCategory.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxTimedCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxTimedCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTimedCategory.FormattingEnabled = true;
+            this.comboBoxTimedCategory.Location = new System.Drawing.Point(3, 16);
+            this.comboBoxTimedCategory.Name = "comboBoxTimedCategory";
+            this.comboBoxTimedCategory.Size = new System.Drawing.Size(237, 21);
+            this.comboBoxTimedCategory.TabIndex = 1;
+            this.comboBoxTimedCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxTimedCategory_SelectedIndexChanged);
             // 
             // splitContainer2
             // 
@@ -1194,8 +1176,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBoxFrameData.ResumeLayout(false);
-            this.groupBoxFrameData.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBoxTimedTags.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1282,9 +1262,7 @@
         private mRibbon.RibbonButton ribbonButtonVideoSaveMetaData;
         private mRibbon.RibbonButton ribbonButtonVideoForward;
         private System.Windows.Forms.GroupBox groupBoxTimedTags;
-        private System.Windows.Forms.GroupBox groupBoxFrameData;
         private System.Windows.Forms.ListBox listBoxTimedTags;
-        private System.Windows.Forms.Label label1;
         private mRibbon.RibbonGroup ribbonGroup10;
         private mRibbon.RibbonButton ribbonButtonVideoMark;
         private mRibbon.RibbonButton ribbonButtonVideoTag;
@@ -1296,6 +1274,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox comboBoxTimedTag;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox comboBoxTimeCategory;
+        private System.Windows.Forms.ComboBox comboBoxTimedCategory;
     }
 }
