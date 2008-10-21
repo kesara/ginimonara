@@ -167,7 +167,7 @@
             this.tabPageImage.Location = new System.Drawing.Point(4, 25);
             this.tabPageImage.Name = "tabPageImage";
             this.tabPageImage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImage.Size = new System.Drawing.Size(810, 0);
+            this.tabPageImage.Size = new System.Drawing.Size(810, 101);
             this.tabPageImage.TabIndex = 1;
             this.tabPageImage.Text = "Image";
             this.tabPageImage.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             this.ribbonGroup4.Location = new System.Drawing.Point(383, 3);
             this.ribbonGroup4.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup4.Name = "ribbonGroup4";
-            this.ribbonGroup4.Size = new System.Drawing.Size(246, 0);
+            this.ribbonGroup4.Size = new System.Drawing.Size(246, 95);
             this.ribbonGroup4.TabIndex = 3;
             this.ribbonGroup4.TabStop = false;
             this.ribbonGroup4.Text = "Zooming";
@@ -265,7 +265,7 @@
             this.ribbonGroup3.Location = new System.Drawing.Point(257, 3);
             this.ribbonGroup3.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup3.Name = "ribbonGroup3";
-            this.ribbonGroup3.Size = new System.Drawing.Size(126, 0);
+            this.ribbonGroup3.Size = new System.Drawing.Size(126, 95);
             this.ribbonGroup3.TabIndex = 2;
             this.ribbonGroup3.TabStop = false;
             this.ribbonGroup3.Text = "Share Image";
@@ -313,7 +313,7 @@
             this.ribbonGroup2.Location = new System.Drawing.Point(131, 3);
             this.ribbonGroup2.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup2.Name = "ribbonGroup2";
-            this.ribbonGroup2.Size = new System.Drawing.Size(126, 0);
+            this.ribbonGroup2.Size = new System.Drawing.Size(126, 95);
             this.ribbonGroup2.TabIndex = 1;
             this.ribbonGroup2.TabStop = false;
             this.ribbonGroup2.Text = "Tags";
@@ -361,7 +361,7 @@
             this.ribbonGroup1.Location = new System.Drawing.Point(3, 3);
             this.ribbonGroup1.Margin = new System.Windows.Forms.Padding(1);
             this.ribbonGroup1.Name = "ribbonGroup1";
-            this.ribbonGroup1.Size = new System.Drawing.Size(128, 0);
+            this.ribbonGroup1.Size = new System.Drawing.Size(128, 95);
             this.ribbonGroup1.TabIndex = 0;
             this.ribbonGroup1.TabStop = false;
             this.ribbonGroup1.Text = "File";
@@ -730,6 +730,7 @@
             this.ribbonButtonCategoryAnalyzer.TabIndex = 1;
             this.ribbonButtonCategoryAnalyzer.Text = "Analyzer";
             this.ribbonButtonCategoryAnalyzer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonCategoryAnalyzer.Click += new System.EventHandler(this.ribbonButtonCategoryAnalyzer_Click);
             // 
             // ribbonButtonCategoryEditor
             // 
@@ -782,10 +783,10 @@
             // groupBoxTimedTags
             // 
             this.groupBoxTimedTags.Controls.Add(this.listBoxTimedTags);
-            this.groupBoxTimedTags.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxTimedTags.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxTimedTags.Location = new System.Drawing.Point(0, 0);
             this.groupBoxTimedTags.Name = "groupBoxTimedTags";
-            this.groupBoxTimedTags.Size = new System.Drawing.Size(271, 180);
+            this.groupBoxTimedTags.Size = new System.Drawing.Size(271, 177);
             this.groupBoxTimedTags.TabIndex = 0;
             this.groupBoxTimedTags.TabStop = false;
             this.groupBoxTimedTags.Text = "Available Tags";
@@ -797,7 +798,7 @@
             this.listBoxTimedTags.FormattingEnabled = true;
             this.listBoxTimedTags.Location = new System.Drawing.Point(3, 16);
             this.listBoxTimedTags.Name = "listBoxTimedTags";
-            this.listBoxTimedTags.Size = new System.Drawing.Size(265, 160);
+            this.listBoxTimedTags.Size = new System.Drawing.Size(265, 147);
             this.listBoxTimedTags.TabIndex = 1;
             this.listBoxTimedTags.SelectedIndexChanged += new System.EventHandler(this.listBoxTimedTags_SelectedIndexChanged);
             // 
@@ -910,7 +911,7 @@
             this.ribbonButtonSelectionCancel.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonSelectionCancel.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonSelectionCancel.TabIndex = 7;
-            this.ribbonButtonSelectionCancel.Text = "&Cancel";
+            this.ribbonButtonSelectionCancel.Text = "Cancel";
             this.ribbonButtonSelectionCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonSelectionCancel.Click += new System.EventHandler(this.ribbonButtonSelectionCancel_Click);
             // 
@@ -927,7 +928,7 @@
             this.ribbonButtonSelectionTagOk.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonSelectionTagOk.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonSelectionTagOk.TabIndex = 6;
-            this.ribbonButtonSelectionTagOk.Text = "&Ok";
+            this.ribbonButtonSelectionTagOk.Text = "Ok";
             this.ribbonButtonSelectionTagOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonSelectionTagOk.Click += new System.EventHandler(this.ribbonButtonSelectionTagOk_Click);
             // 
@@ -1038,7 +1039,7 @@
             this.ribbonButtonTimedCancel.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonTimedCancel.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonTimedCancel.TabIndex = 7;
-            this.ribbonButtonTimedCancel.Text = "&Cancel";
+            this.ribbonButtonTimedCancel.Text = "Cancel";
             this.ribbonButtonTimedCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonTimedCancel.Click += new System.EventHandler(this.ribbonButtonTimedCancel_Click);
             // 
@@ -1055,7 +1056,7 @@
             this.ribbonButtonTimedOk.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonTimedOk.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonTimedOk.TabIndex = 6;
-            this.ribbonButtonTimedOk.Text = "&Ok";
+            this.ribbonButtonTimedOk.Text = "Ok";
             this.ribbonButtonTimedOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonTimedOk.Click += new System.EventHandler(this.ribbonButtonTimedOk_Click);
             // 

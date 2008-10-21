@@ -727,6 +727,10 @@ namespace GiniMonara.UI
         {
             if (fileName != null && mediaStatus == MediaStatus.video)
             {
+                if (iMediaPosition.CurrentPosition == iMediaPosition.StopTime)
+                {
+                    iMediaPosition.CurrentPosition = 0.0;
+                }
                 iMediaControl.Run();
                 videoStatus = VideoStatus.Running;
             }
@@ -1036,6 +1040,13 @@ namespace GiniMonara.UI
                 iMediaControl.Run();
                 videoStatus = VideoStatus.Running;
             }
+        }
+
+        private void ribbonButtonCategoryAnalyzer_Click(object sender, EventArgs e)
+        {
+            CategoryAnalyzer categoryAnalyzer = new CategoryAnalyzer(this);
+            categoryAnalyzer.Show();
+            this.Enabled = false;
         }
     }
 }

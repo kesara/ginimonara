@@ -84,7 +84,7 @@
             this.tabPageTags.Location = new System.Drawing.Point(4, 25);
             this.tabPageTags.Name = "tabPageTags";
             this.tabPageTags.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTags.Size = new System.Drawing.Size(364, 218);
+            this.tabPageTags.Size = new System.Drawing.Size(364, 0);
             this.tabPageTags.TabIndex = 2;
             this.tabPageTags.Text = "Tags";
             this.tabPageTags.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.ribbonButtonTagAdd.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonTagAdd.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonTagAdd.TabIndex = 3;
-            this.ribbonButtonTagAdd.Text = "&Add";
+            this.ribbonButtonTagAdd.Text = "Add";
             this.ribbonButtonTagAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonTagAdd.Click += new System.EventHandler(this.ribbonButtonTagAdd_Click);
             // 
@@ -208,7 +208,7 @@
             this.ribbonButtonCategoryAdd.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonCategoryAdd.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonCategoryAdd.TabIndex = 5;
-            this.ribbonButtonCategoryAdd.Text = "&Add";
+            this.ribbonButtonCategoryAdd.Text = "Add";
             this.ribbonButtonCategoryAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonCategoryAdd.Click += new System.EventHandler(this.ribbonButtonCategoryAdd_Click);
             // 
@@ -225,7 +225,7 @@
             this.ribbonButtonReset.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonReset.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonReset.TabIndex = 6;
-            this.ribbonButtonReset.Text = "&Reset";
+            this.ribbonButtonReset.Text = "Reset";
             this.ribbonButtonReset.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonReset.Click += new System.EventHandler(this.ribbonButtonReset_Click);
             // 
@@ -242,7 +242,7 @@
             this.ribbonButtonOk.Padding = new System.Windows.Forms.Padding(2);
             this.ribbonButtonOk.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonOk.TabIndex = 4;
-            this.ribbonButtonOk.Text = "&Ok";
+            this.ribbonButtonOk.Text = "Ok";
             this.ribbonButtonOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonOk.Click += new System.EventHandler(this.ribbonButtonOk_Click);
             // 
