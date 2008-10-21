@@ -15,6 +15,8 @@
   <category name="DublinCore" type="default">Relation</category>
   <category name="DublinCore" type="default">Coverage</category>
   <category name="DublinCore" type="default">Rights</category>
+  <category name="system" type="hidden">fileName</category>
+  <category name="system" type="hidden">mediaType</category>
   <category name="Common" type="default">Tag</category>
   <category name="Common" type="area">Selected Area</category>
   <category name="Video" type="timeframe">Scene</category>
