@@ -39,15 +39,13 @@ namespace GiniMonara.UI
         private void ribbonButtonOk_Click(object sender, EventArgs e)
         {
             ApplicationUtility.setYouTubeSecrets(textBoxUserName.Text, textBoxPassword.Text);
-            parentUI.Enabled = true;
             parentUI.sendToYouTube();
-            this.Dispose();
+            this.Close();
         }
 
         private void ribbonButtonCancel_Click(object sender, EventArgs e)
         {
-            parentUI.Enabled = true;
-            this.Dispose();
+            this.Close();
         }
 
         private void YouTubeAccountDetailsForm_FormClosed(object sender, FormClosedEventArgs e)

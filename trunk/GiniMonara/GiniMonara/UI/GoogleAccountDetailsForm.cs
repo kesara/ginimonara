@@ -39,15 +39,13 @@ namespace GiniMonara.UI
         private void ribbonButtonOk_Click(object sender, EventArgs e)
         {
             ApplicationUtility.setGoogleSecrets(textBoxUserName.Text, textBoxPassword.Text);
-            parentUI.Enabled = true;
             parentUI.sendToPicasa();
-            this.Dispose();
+            this.Close();
         }
 
         private void ribbonButtonCancel_Click(object sender, EventArgs e)
         {
-            parentUI.Enabled = true;
-            this.Dispose();
+            this.Close();
         }
 
         private void GoogleAccountDetailsForm_FormClosed(object sender, FormClosedEventArgs e)

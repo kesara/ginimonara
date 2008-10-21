@@ -1,12 +1,7 @@
 ﻿using GiniMonara.Categories;
 using GiniMonara.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 /*
@@ -47,14 +42,20 @@ namespace GiniMonara.UI
             var categories = ApplicationUtility.categories.Select(c => c.category).Distinct();
             foreach (string category in categories)
             {
-                comboBoxCategory.Items.Add(category);
+                if (category != "system")
+                {
+                    comboBoxCategory.Items.Add(category);
+                }
             }
             comboBoxCategory.SelectedIndex = 0;
 
             var types = ApplicationUtility.categories.Select(t => t.type).Distinct();
             foreach (string type in types)
             {
-                comboBoxType.Items.Add(type);
+                if (type != "hidden")
+                {
+                    comboBoxType.Items.Add(type);
+                }
             }
             comboBoxType.SelectedIndex = 0;
         }
@@ -112,9 +113,7 @@ namespace GiniMonara.UI
 
         private void ribbonButtonOk_Click(object sender, EventArgs e)
         {
-            parentUI.reloadCategories();
-            parentUI.Enabled = true;
-            this.Dispose();
+            this.Close();
         }
 
         private void CategoriesForm_FormClosed(object sender, FormClosedEventArgs e)

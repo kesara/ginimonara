@@ -53,7 +53,7 @@
             this.ribbonButtonCancel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ribbonButtonCancel.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonCancel.TabIndex = 14;
-            this.ribbonButtonCancel.Text = "&Cancel";
+            this.ribbonButtonCancel.Text = "Cancel";
             this.ribbonButtonCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonCancel.Click += new System.EventHandler(this.ribbonButtonCancel_Click);
             // 
@@ -72,7 +72,7 @@
             this.ribbonButtonOk.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ribbonButtonOk.Size = new System.Drawing.Size(60, 60);
             this.ribbonButtonOk.TabIndex = 13;
-            this.ribbonButtonOk.Text = "&Ok";
+            this.ribbonButtonOk.Text = "Ok";
             this.ribbonButtonOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ribbonButtonOk.Click += new System.EventHandler(this.ribbonButtonOk_Click);
             // 

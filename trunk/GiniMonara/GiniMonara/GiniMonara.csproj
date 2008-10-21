@@ -63,6 +63,12 @@
   <ItemGroup>
     <Compile Include="MetaData\Tag.cs" />
     <Compile Include="MetaData\TagList.cs" />
+    <Compile Include="UI\CategoryAnalyzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CategoryAnalyzer.Designer.cs">
+      <DependentUpon>CategoryAnalyzer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\YouTubeAccountDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\CategoryAnalyzer.resx">
+      <DependentUpon>CategoryAnalyzer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\YouTubeAccountDetailsForm.resx">
       <DependentUpon>YouTubeAccountDetailsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
