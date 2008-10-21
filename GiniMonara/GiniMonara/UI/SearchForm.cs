@@ -71,7 +71,6 @@ namespace GiniMonara.UI
 
         private void SearchForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            parentUI.reloadCategories();
             parentUI.Enabled = true;
         }
 
