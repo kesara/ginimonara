@@ -286,7 +286,7 @@ namespace GiniMonara.UI
             {
                 try
                 {
-                    Flickr flickr = new Flickr("984be4fc9f6888a86bd7360dcd3e6f30", "c6d74f5993f765e1");
+                    Flickr flickr = new Flickr("API KEY", "SHARED SECRET");
                     string frob;
                     if (ApplicationUtility.flickrSecrets == null)
                     {
@@ -819,7 +819,7 @@ namespace GiniMonara.UI
             try
             {
                 #region Google API Credidentials
-                YouTubeService ytService = new YouTubeService("GiniMonara", "ytapi-GiniMonaraTeam-GiniMonara-ua3mb9is-0", "AI39si5LO7KwGwhpGkbY-BZgvp18bKDvaYM9BSf7v793_NQdhIi8sGQBr-aJhMO8IG5dr98-RWZCfwNCcXseGSqM0537hk3QKw");
+                YouTubeService ytService = new YouTubeService("GiniMonara", "CLIENT", "DEVELOPER KEY");
                 ytService.setUserCredentials(ApplicationUtility.youTubeSecrets.username, ApplicationUtility.youTubeSecrets.password);
                 #endregion
 
@@ -1131,6 +1131,18 @@ namespace GiniMonara.UI
                     System.IO.File.Copy(metaDataFileName, saveFileDialog.FileName);
                 }
             }
+        }
+
+        private void ribbonButtonAbout_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm(this);
+            aboutForm.Show();
+            this.Enabled = false;
+        }
+
+        private void ribbonButtonHelp_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://ginimonara.sourceforge.net/help/");
         }
     }
 }
