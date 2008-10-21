@@ -702,8 +702,9 @@ namespace GiniMonara.UI
                 iMediaControl.Run();
                 videoStatus = VideoStatus.Running;
                 panelImage.Visible = true;
+                loadVideoMetaData();
             }
-            loadVideoMetaData();
+
             panelSelection.Visible = false;
         }
 
@@ -862,18 +863,17 @@ namespace GiniMonara.UI
 
                 listBoxTimedTags.Items.Clear();
                 var timedMetaData = from t in tagList
-                                        from c in ApplicationUtility.categories
-                                        where c.type == "timeframe"
-                                        where c.category == t.category
-                                        where c.tag == t.name
-                                        select t;
+                                    from c in ApplicationUtility.categories
+                                    where c.type == "timeframe"
+                                    where c.category == t.category
+                                    where c.tag == t.name
+                                    select t;
 
                 foreach (gTag tag in timedMetaData)
                 {
                     listBoxTimedTags.Items.Add(tag);
                 }
                 listBoxTimedTags.ValueMember = "data";
-                groupBoxTimedTags.Visible = true;
 
                 /*
                 var selectionMetaData = from t in tagList
@@ -913,6 +913,8 @@ namespace GiniMonara.UI
                 tagList.Add(mediaTypeTag);
                 tagList.save(metaDataFileName);
             }
+
+            groupBoxTimedTags.Visible = true;
         }
 
         private void ribbonButtonVideoSaveMetaData_Click(object sender, EventArgs e)
@@ -1047,6 +1049,88 @@ namespace GiniMonara.UI
             CategoryAnalyzer categoryAnalyzer = new CategoryAnalyzer(this);
             categoryAnalyzer.Show();
             this.Enabled = false;
+        }
+
+        private void ribbonButtonSearch_Click(object sender, EventArgs e)
+        {
+            SearchForm searchForm = new SearchForm(this);
+            searchForm.Show();
+            this.Enabled = false;
+        }
+
+        public void openImage(string imageFileName)
+        {
+            closeImage();
+            closeVideo();
+            fileName = imageFileName;
+            signature = Signature.getSignature(fileName);
+            metaDataFileName = ApplicationUtility.metaDataDirectory + @"\" + signature + @".xml";
+            panelImage.Visible = false;
+            panelImage.Visible = true;
+            zoom = "actual";
+            zoomFactor = 10;
+            zoomStep = 25;
+            mediaStatus = MediaStatus.image;
+            loadImageMetaData();
+            panelSelection.Visible = false;
+        }
+
+        public void openVideo(string videoFileName)
+        {
+            closeImage();
+            closeVideo();
+            fileName = videoFileName;
+            signature = Signature.getSignature(fileName);
+            metaDataFileName = ApplicationUtility.metaDataDirectory + @"\" + signature + @".xml";
+
+            filgraphManager = new FilgraphManager();
+            filgraphManager.RenderFile(fileName);
+            iBasicAudio = filgraphManager as IBasicAudio;
+
+            mediaStatus = MediaStatus.video;
+            markedFrame = -1;
+
+            try
+            {
+                iVideoWindow = filgraphManager as IVideoWindow;
+                iVideoWindow.Owner = (int)panelImage.Handle;
+                iVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
+                iVideoWindow.SetWindowPosition(panelImage.ClientRectangle.Left,
+                    panelImage.ClientRectangle.Top,
+                    panelImage.ClientRectangle.Width,
+                    panelImage.ClientRectangle.Height);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            iMediaEvent = filgraphManager as IMediaEvent;
+            iMediaEventEx = filgraphManager as IMediaEventEx;
+            iMediaEventEx.SetNotifyWindow((int)this.Handle, WM_GRAPHNOTIFY, 0);
+            iMediaPosition = filgraphManager as IMediaPosition;
+            iMediaControl = filgraphManager as IMediaControl;
+
+            iMediaControl.Run();
+            videoStatus = VideoStatus.Running;
+            panelImage.Visible = true;
+
+            loadVideoMetaData();
+            panelSelection.Visible = false;
+        }
+
+        private void ribbonButtonSaveTags_Click(object sender, EventArgs e)
+        {
+            if (fileName != null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "XML Files|*.xml";
+                saveFileDialog.Title = "Save As";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.File.Copy(metaDataFileName, saveFileDialog.FileName);
+                }
+            }
         }
     }
 }

@@ -109,6 +109,13 @@ namespace GiniMonara.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap gmFile {
+            get {
+                object obj = ResourceManager.GetObject("gmFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap mail_delete {
             get {
                 object obj = ResourceManager.GetObject("mail_delete", resourceCulture);
@@ -196,6 +203,13 @@ namespace GiniMonara.Properties {
         internal static System.Drawing.Bitmap save_all {
             get {
                 object obj = ResourceManager.GetObject("save_all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

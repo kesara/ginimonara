@@ -32,41 +32,17 @@
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.tabPageImage = new System.Windows.Forms.TabPage();
             this.ribbonGroup4 = new mRibbon.RibbonGroup();
-            this.ribbonButtonImageZoomOut = new mRibbon.RibbonButton();
-            this.ribbonButtonImageZoomIn = new mRibbon.RibbonButton();
-            this.ribbonButtonImageBestFit = new mRibbon.RibbonButton();
-            this.ribbonButtonImageActual = new mRibbon.RibbonButton();
             this.ribbonGroup3 = new mRibbon.RibbonGroup();
-            this.ribbonButtonImageFlickr = new mRibbon.RibbonButton();
-            this.ribbonButtonImagePicasa = new mRibbon.RibbonButton();
             this.ribbonGroup2 = new mRibbon.RibbonGroup();
-            this.ribbonButtonReloadMetaData = new mRibbon.RibbonButton();
-            this.ribbonButtonImageSave = new mRibbon.RibbonButton();
             this.ribbonGroup1 = new mRibbon.RibbonGroup();
-            this.ribbonButtonImageCloseFile = new mRibbon.RibbonButton();
-            this.ribbonButtonImageOpenFile = new mRibbon.RibbonButton();
             this.tabPageVideo = new System.Windows.Forms.TabPage();
             this.ribbonGroup10 = new mRibbon.RibbonGroup();
-            this.ribbonButtonVideoMark = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoTag = new mRibbon.RibbonButton();
             this.ribbonGroup7 = new mRibbon.RibbonGroup();
-            this.ribbonButtonVideoForward = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoStop = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoPause = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoPlay = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoRewind = new mRibbon.RibbonButton();
             this.ribbonGroup8 = new mRibbon.RibbonGroup();
-            this.ribbonButtonVideoYouTube = new mRibbon.RibbonButton();
             this.ribbonGroup9 = new mRibbon.RibbonGroup();
-            this.ribbonButtonVideoReloadMetaData = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoSaveMetaData = new mRibbon.RibbonButton();
             this.ribbonGroup6 = new mRibbon.RibbonGroup();
-            this.ribbonButtonVideoClose = new mRibbon.RibbonButton();
-            this.ribbonButtonVideoOpen = new mRibbon.RibbonButton();
             this.tabPageTools = new System.Windows.Forms.TabPage();
             this.ribbonGroup5 = new mRibbon.RibbonGroup();
-            this.ribbonButtonCategoryAnalyzer = new mRibbon.RibbonButton();
-            this.ribbonButtonCategoryEditor = new mRibbon.RibbonButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxTimedTags = new System.Windows.Forms.GroupBox();
@@ -80,8 +56,6 @@
             this.groupBoxTitle = new System.Windows.Forms.GroupBox();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.panelSelection = new System.Windows.Forms.Panel();
-            this.ribbonButtonSelectionCancel = new mRibbon.RibbonButton();
-            this.ribbonButtonSelectionTagOk = new mRibbon.RibbonButton();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.textBoxSelectionData = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -90,8 +64,6 @@
             this.comboBoxSelectionCategory = new System.Windows.Forms.ComboBox();
             this.panelImage = new System.Windows.Forms.Panel();
             this.panelTimedTags = new System.Windows.Forms.Panel();
-            this.ribbonButtonTimedCancel = new mRibbon.RibbonButton();
-            this.ribbonButtonTimedOk = new mRibbon.RibbonButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxTimedData = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -99,6 +71,38 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.comboBoxTimedCategory = new System.Windows.Forms.ComboBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.ribbonGroup11 = new mRibbon.RibbonGroup();
+            this.ribbonGroup12 = new mRibbon.RibbonGroup();
+            this.ribbonButtonImageZoomOut = new mRibbon.RibbonButton();
+            this.ribbonButtonImageZoomIn = new mRibbon.RibbonButton();
+            this.ribbonButtonImageBestFit = new mRibbon.RibbonButton();
+            this.ribbonButtonImageActual = new mRibbon.RibbonButton();
+            this.ribbonButtonImageFlickr = new mRibbon.RibbonButton();
+            this.ribbonButtonImagePicasa = new mRibbon.RibbonButton();
+            this.ribbonButtonReloadMetaData = new mRibbon.RibbonButton();
+            this.ribbonButtonImageSave = new mRibbon.RibbonButton();
+            this.ribbonButtonImageCloseFile = new mRibbon.RibbonButton();
+            this.ribbonButtonImageOpenFile = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoMark = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoTag = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoForward = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoStop = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoPause = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoPlay = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoRewind = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoYouTube = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoReloadMetaData = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoSaveMetaData = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoClose = new mRibbon.RibbonButton();
+            this.ribbonButtonVideoOpen = new mRibbon.RibbonButton();
+            this.ribbonButtonSaveTags = new mRibbon.RibbonButton();
+            this.ribbonButtonSearch = new mRibbon.RibbonButton();
+            this.ribbonButtonCategoryAnalyzer = new mRibbon.RibbonButton();
+            this.ribbonButtonCategoryEditor = new mRibbon.RibbonButton();
+            this.ribbonButtonSelectionCancel = new mRibbon.RibbonButton();
+            this.ribbonButtonSelectionTagOk = new mRibbon.RibbonButton();
+            this.ribbonButtonTimedCancel = new mRibbon.RibbonButton();
+            this.ribbonButtonTimedOk = new mRibbon.RibbonButton();
             this.ribbonControlMain.SuspendLayout();
             this.tabPageImage.SuspendLayout();
             this.ribbonGroup4.SuspendLayout();
@@ -133,6 +137,8 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.ribbonGroup11.SuspendLayout();
+            this.ribbonGroup12.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControlMain
@@ -188,74 +194,6 @@
             this.ribbonGroup4.TabStop = false;
             this.ribbonGroup4.Text = "Zooming";
             // 
-            // ribbonButtonImageZoomOut
-            // 
-            this.ribbonButtonImageZoomOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageZoomOut.Image = global::GiniMonara.Properties.Resources.viewmag_zout;
-            this.ribbonButtonImageZoomOut.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageZoomOut.IsFlat = true;
-            this.ribbonButtonImageZoomOut.IsPressed = false;
-            this.ribbonButtonImageZoomOut.Location = new System.Drawing.Point(183, 0);
-            this.ribbonButtonImageZoomOut.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageZoomOut.Name = "ribbonButtonImageZoomOut";
-            this.ribbonButtonImageZoomOut.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageZoomOut.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageZoomOut.TabIndex = 9;
-            this.ribbonButtonImageZoomOut.Text = "Zoom Out";
-            this.ribbonButtonImageZoomOut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageZoomOut.Click += new System.EventHandler(this.ribbonButtonImageZoomOut_Click);
-            // 
-            // ribbonButtonImageZoomIn
-            // 
-            this.ribbonButtonImageZoomIn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageZoomIn.Image = global::GiniMonara.Properties.Resources.viewmag_zin;
-            this.ribbonButtonImageZoomIn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageZoomIn.IsFlat = true;
-            this.ribbonButtonImageZoomIn.IsPressed = false;
-            this.ribbonButtonImageZoomIn.Location = new System.Drawing.Point(123, 0);
-            this.ribbonButtonImageZoomIn.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageZoomIn.Name = "ribbonButtonImageZoomIn";
-            this.ribbonButtonImageZoomIn.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageZoomIn.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageZoomIn.TabIndex = 8;
-            this.ribbonButtonImageZoomIn.Text = "Zoom In";
-            this.ribbonButtonImageZoomIn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageZoomIn.Click += new System.EventHandler(this.ribbonButtonImageZoomIn_Click);
-            // 
-            // ribbonButtonImageBestFit
-            // 
-            this.ribbonButtonImageBestFit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageBestFit.Image = global::GiniMonara.Properties.Resources.viewmagfit;
-            this.ribbonButtonImageBestFit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageBestFit.IsFlat = true;
-            this.ribbonButtonImageBestFit.IsPressed = false;
-            this.ribbonButtonImageBestFit.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButtonImageBestFit.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageBestFit.Name = "ribbonButtonImageBestFit";
-            this.ribbonButtonImageBestFit.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageBestFit.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageBestFit.TabIndex = 7;
-            this.ribbonButtonImageBestFit.Text = "Best Fit";
-            this.ribbonButtonImageBestFit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageBestFit.Click += new System.EventHandler(this.ribbonButtonImageBestFit_Click);
-            // 
-            // ribbonButtonImageActual
-            // 
-            this.ribbonButtonImageActual.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageActual.Image = global::GiniMonara.Properties.Resources.viewmag1;
-            this.ribbonButtonImageActual.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageActual.IsFlat = true;
-            this.ribbonButtonImageActual.IsPressed = false;
-            this.ribbonButtonImageActual.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonImageActual.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageActual.Name = "ribbonButtonImageActual";
-            this.ribbonButtonImageActual.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageActual.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageActual.TabIndex = 6;
-            this.ribbonButtonImageActual.Text = "Actual";
-            this.ribbonButtonImageActual.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageActual.Click += new System.EventHandler(this.ribbonButtonImageActual_Click);
-            // 
             // ribbonGroup3
             // 
             this.ribbonGroup3.AutoSize = true;
@@ -269,40 +207,6 @@
             this.ribbonGroup3.TabIndex = 2;
             this.ribbonGroup3.TabStop = false;
             this.ribbonGroup3.Text = "Share Image";
-            // 
-            // ribbonButtonImageFlickr
-            // 
-            this.ribbonButtonImageFlickr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageFlickr.Image = global::GiniMonara.Properties.Resources.flickr;
-            this.ribbonButtonImageFlickr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageFlickr.IsFlat = true;
-            this.ribbonButtonImageFlickr.IsPressed = false;
-            this.ribbonButtonImageFlickr.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButtonImageFlickr.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageFlickr.Name = "ribbonButtonImageFlickr";
-            this.ribbonButtonImageFlickr.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageFlickr.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageFlickr.TabIndex = 4;
-            this.ribbonButtonImageFlickr.Text = "Flickr";
-            this.ribbonButtonImageFlickr.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageFlickr.Click += new System.EventHandler(this.ribbonButtonImageFlickr_Click);
-            // 
-            // ribbonButtonImagePicasa
-            // 
-            this.ribbonButtonImagePicasa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImagePicasa.Image = global::GiniMonara.Properties.Resources.picasa;
-            this.ribbonButtonImagePicasa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImagePicasa.IsFlat = true;
-            this.ribbonButtonImagePicasa.IsPressed = false;
-            this.ribbonButtonImagePicasa.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonImagePicasa.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImagePicasa.Name = "ribbonButtonImagePicasa";
-            this.ribbonButtonImagePicasa.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImagePicasa.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImagePicasa.TabIndex = 3;
-            this.ribbonButtonImagePicasa.Text = "Picasa";
-            this.ribbonButtonImagePicasa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImagePicasa.Click += new System.EventHandler(this.ribbonButtonImagePicasa_Click);
             // 
             // ribbonGroup2
             // 
@@ -318,40 +222,6 @@
             this.ribbonGroup2.TabStop = false;
             this.ribbonGroup2.Text = "Tags";
             // 
-            // ribbonButtonReloadMetaData
-            // 
-            this.ribbonButtonReloadMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonReloadMetaData.Image = global::GiniMonara.Properties.Resources.reload;
-            this.ribbonButtonReloadMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonReloadMetaData.IsFlat = true;
-            this.ribbonButtonReloadMetaData.IsPressed = false;
-            this.ribbonButtonReloadMetaData.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButtonReloadMetaData.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonReloadMetaData.Name = "ribbonButtonReloadMetaData";
-            this.ribbonButtonReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonReloadMetaData.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonReloadMetaData.TabIndex = 4;
-            this.ribbonButtonReloadMetaData.Text = "Reload";
-            this.ribbonButtonReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonReloadMetaData.Click += new System.EventHandler(this.ribbonButtonReloadMetaData_Click);
-            // 
-            // ribbonButtonImageSave
-            // 
-            this.ribbonButtonImageSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageSave.Image = global::GiniMonara.Properties.Resources.save_all;
-            this.ribbonButtonImageSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageSave.IsFlat = true;
-            this.ribbonButtonImageSave.IsPressed = false;
-            this.ribbonButtonImageSave.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonImageSave.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageSave.Name = "ribbonButtonImageSave";
-            this.ribbonButtonImageSave.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageSave.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageSave.TabIndex = 2;
-            this.ribbonButtonImageSave.Text = "Save";
-            this.ribbonButtonImageSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageSave.Click += new System.EventHandler(this.ribbonButtonImageSave_Click);
-            // 
             // ribbonGroup1
             // 
             this.ribbonGroup1.AutoSize = true;
@@ -365,40 +235,6 @@
             this.ribbonGroup1.TabIndex = 0;
             this.ribbonGroup1.TabStop = false;
             this.ribbonGroup1.Text = "File";
-            // 
-            // ribbonButtonImageCloseFile
-            // 
-            this.ribbonButtonImageCloseFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageCloseFile.Image = global::GiniMonara.Properties.Resources.fileclose;
-            this.ribbonButtonImageCloseFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageCloseFile.IsFlat = true;
-            this.ribbonButtonImageCloseFile.IsPressed = false;
-            this.ribbonButtonImageCloseFile.Location = new System.Drawing.Point(65, 0);
-            this.ribbonButtonImageCloseFile.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageCloseFile.Name = "ribbonButtonImageCloseFile";
-            this.ribbonButtonImageCloseFile.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageCloseFile.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageCloseFile.TabIndex = 1;
-            this.ribbonButtonImageCloseFile.Text = "Close File";
-            this.ribbonButtonImageCloseFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageCloseFile.Click += new System.EventHandler(this.ribbonButtonImageCloseFile_Click);
-            // 
-            // ribbonButtonImageOpenFile
-            // 
-            this.ribbonButtonImageOpenFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonImageOpenFile.Image = global::GiniMonara.Properties.Resources.fileopen;
-            this.ribbonButtonImageOpenFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonImageOpenFile.IsFlat = true;
-            this.ribbonButtonImageOpenFile.IsPressed = false;
-            this.ribbonButtonImageOpenFile.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonImageOpenFile.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonImageOpenFile.Name = "ribbonButtonImageOpenFile";
-            this.ribbonButtonImageOpenFile.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonImageOpenFile.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonImageOpenFile.TabIndex = 0;
-            this.ribbonButtonImageOpenFile.Text = "Open File";
-            this.ribbonButtonImageOpenFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonImageOpenFile.Click += new System.EventHandler(this.ribbonButtonImageOpenFile_Click);
             // 
             // tabPageVideo
             // 
@@ -429,40 +265,6 @@
             this.ribbonGroup10.TabStop = false;
             this.ribbonGroup10.Text = "Taging";
             // 
-            // ribbonButtonVideoMark
-            // 
-            this.ribbonButtonVideoMark.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoMark.Image = global::GiniMonara.Properties.Resources.mark;
-            this.ribbonButtonVideoMark.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoMark.IsFlat = true;
-            this.ribbonButtonVideoMark.IsPressed = false;
-            this.ribbonButtonVideoMark.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButtonVideoMark.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoMark.Name = "ribbonButtonVideoMark";
-            this.ribbonButtonVideoMark.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoMark.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoMark.TabIndex = 4;
-            this.ribbonButtonVideoMark.Text = "Mark";
-            this.ribbonButtonVideoMark.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoMark.Click += new System.EventHandler(this.ribbonButtonVideoMark_Click);
-            // 
-            // ribbonButtonVideoTag
-            // 
-            this.ribbonButtonVideoTag.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoTag.Image = global::GiniMonara.Properties.Resources.add;
-            this.ribbonButtonVideoTag.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoTag.IsFlat = true;
-            this.ribbonButtonVideoTag.IsPressed = false;
-            this.ribbonButtonVideoTag.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonVideoTag.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoTag.Name = "ribbonButtonVideoTag";
-            this.ribbonButtonVideoTag.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoTag.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoTag.TabIndex = 2;
-            this.ribbonButtonVideoTag.Text = "Tag";
-            this.ribbonButtonVideoTag.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoTag.Click += new System.EventHandler(this.ribbonButtonVideoTag_Click);
-            // 
             // ribbonGroup7
             // 
             this.ribbonGroup7.AutoSize = true;
@@ -480,91 +282,6 @@
             this.ribbonGroup7.TabStop = false;
             this.ribbonGroup7.Text = "Movie Control";
             // 
-            // ribbonButtonVideoForward
-            // 
-            this.ribbonButtonVideoForward.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoForward.Image = global::GiniMonara.Properties.Resources.player_fwd;
-            this.ribbonButtonVideoForward.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoForward.IsFlat = true;
-            this.ribbonButtonVideoForward.IsPressed = false;
-            this.ribbonButtonVideoForward.Location = new System.Drawing.Point(243, 0);
-            this.ribbonButtonVideoForward.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoForward.Name = "ribbonButtonVideoForward";
-            this.ribbonButtonVideoForward.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoForward.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoForward.TabIndex = 10;
-            this.ribbonButtonVideoForward.Text = "Forward";
-            this.ribbonButtonVideoForward.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoForward.Click += new System.EventHandler(this.ribbonButtonVideoForward_Click);
-            // 
-            // ribbonButtonVideoStop
-            // 
-            this.ribbonButtonVideoStop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoStop.Image = global::GiniMonara.Properties.Resources.player_stop;
-            this.ribbonButtonVideoStop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoStop.IsFlat = true;
-            this.ribbonButtonVideoStop.IsPressed = false;
-            this.ribbonButtonVideoStop.Location = new System.Drawing.Point(183, 0);
-            this.ribbonButtonVideoStop.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoStop.Name = "ribbonButtonVideoStop";
-            this.ribbonButtonVideoStop.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoStop.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoStop.TabIndex = 9;
-            this.ribbonButtonVideoStop.Text = "Stop";
-            this.ribbonButtonVideoStop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoStop.Click += new System.EventHandler(this.ribbonButtonVideoStop_Click);
-            // 
-            // ribbonButtonVideoPause
-            // 
-            this.ribbonButtonVideoPause.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoPause.Image = global::GiniMonara.Properties.Resources.player_pause;
-            this.ribbonButtonVideoPause.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoPause.IsFlat = true;
-            this.ribbonButtonVideoPause.IsPressed = false;
-            this.ribbonButtonVideoPause.Location = new System.Drawing.Point(123, 0);
-            this.ribbonButtonVideoPause.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoPause.Name = "ribbonButtonVideoPause";
-            this.ribbonButtonVideoPause.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoPause.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoPause.TabIndex = 8;
-            this.ribbonButtonVideoPause.Text = "Pause";
-            this.ribbonButtonVideoPause.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoPause.Click += new System.EventHandler(this.ribbonButtonVideoPause_Click);
-            // 
-            // ribbonButtonVideoPlay
-            // 
-            this.ribbonButtonVideoPlay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoPlay.Image = global::GiniMonara.Properties.Resources.player_play;
-            this.ribbonButtonVideoPlay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoPlay.IsFlat = true;
-            this.ribbonButtonVideoPlay.IsPressed = false;
-            this.ribbonButtonVideoPlay.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButtonVideoPlay.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoPlay.Name = "ribbonButtonVideoPlay";
-            this.ribbonButtonVideoPlay.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoPlay.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoPlay.TabIndex = 7;
-            this.ribbonButtonVideoPlay.Text = "Play";
-            this.ribbonButtonVideoPlay.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoPlay.Click += new System.EventHandler(this.ribbonButtonVideoPlay_Click);
-            // 
-            // ribbonButtonVideoRewind
-            // 
-            this.ribbonButtonVideoRewind.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoRewind.Image = global::GiniMonara.Properties.Resources.player_rew;
-            this.ribbonButtonVideoRewind.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoRewind.IsFlat = true;
-            this.ribbonButtonVideoRewind.IsPressed = false;
-            this.ribbonButtonVideoRewind.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonVideoRewind.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoRewind.Name = "ribbonButtonVideoRewind";
-            this.ribbonButtonVideoRewind.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoRewind.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoRewind.TabIndex = 6;
-            this.ribbonButtonVideoRewind.Text = "Rewind";
-            this.ribbonButtonVideoRewind.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoRewind.Click += new System.EventHandler(this.ribbonButtonVideoRewind_Click);
-            // 
             // ribbonGroup8
             // 
             this.ribbonGroup8.AutoSize = true;
@@ -577,23 +294,6 @@
             this.ribbonGroup8.TabIndex = 5;
             this.ribbonGroup8.TabStop = false;
             this.ribbonGroup8.Text = "Share";
-            // 
-            // ribbonButtonVideoYouTube
-            // 
-            this.ribbonButtonVideoYouTube.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoYouTube.Image = global::GiniMonara.Properties.Resources.youtube;
-            this.ribbonButtonVideoYouTube.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoYouTube.IsFlat = true;
-            this.ribbonButtonVideoYouTube.IsPressed = false;
-            this.ribbonButtonVideoYouTube.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonVideoYouTube.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoYouTube.Name = "ribbonButtonVideoYouTube";
-            this.ribbonButtonVideoYouTube.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoYouTube.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoYouTube.TabIndex = 3;
-            this.ribbonButtonVideoYouTube.Text = "YouTube";
-            this.ribbonButtonVideoYouTube.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoYouTube.Click += new System.EventHandler(this.ribbonButtonVideoYouTube_Click);
             // 
             // ribbonGroup9
             // 
@@ -609,40 +309,6 @@
             this.ribbonGroup9.TabStop = false;
             this.ribbonGroup9.Text = "Tags";
             // 
-            // ribbonButtonVideoReloadMetaData
-            // 
-            this.ribbonButtonVideoReloadMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoReloadMetaData.Image = global::GiniMonara.Properties.Resources.reload;
-            this.ribbonButtonVideoReloadMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoReloadMetaData.IsFlat = true;
-            this.ribbonButtonVideoReloadMetaData.IsPressed = false;
-            this.ribbonButtonVideoReloadMetaData.Location = new System.Drawing.Point(63, 0);
-            this.ribbonButtonVideoReloadMetaData.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoReloadMetaData.Name = "ribbonButtonVideoReloadMetaData";
-            this.ribbonButtonVideoReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoReloadMetaData.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoReloadMetaData.TabIndex = 4;
-            this.ribbonButtonVideoReloadMetaData.Text = "Reload";
-            this.ribbonButtonVideoReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoReloadMetaData.Click += new System.EventHandler(this.ribbonButtonVideoReloadMetaData_Click);
-            // 
-            // ribbonButtonVideoSaveMetaData
-            // 
-            this.ribbonButtonVideoSaveMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoSaveMetaData.Image = global::GiniMonara.Properties.Resources.save_all;
-            this.ribbonButtonVideoSaveMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoSaveMetaData.IsFlat = true;
-            this.ribbonButtonVideoSaveMetaData.IsPressed = false;
-            this.ribbonButtonVideoSaveMetaData.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonVideoSaveMetaData.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoSaveMetaData.Name = "ribbonButtonVideoSaveMetaData";
-            this.ribbonButtonVideoSaveMetaData.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoSaveMetaData.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoSaveMetaData.TabIndex = 2;
-            this.ribbonButtonVideoSaveMetaData.Text = "Save";
-            this.ribbonButtonVideoSaveMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoSaveMetaData.Click += new System.EventHandler(this.ribbonButtonVideoSaveMetaData_Click);
-            // 
             // ribbonGroup6
             // 
             this.ribbonGroup6.AutoSize = true;
@@ -657,42 +323,10 @@
             this.ribbonGroup6.TabStop = false;
             this.ribbonGroup6.Text = "File";
             // 
-            // ribbonButtonVideoClose
-            // 
-            this.ribbonButtonVideoClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoClose.Image = global::GiniMonara.Properties.Resources.fileclose;
-            this.ribbonButtonVideoClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoClose.IsFlat = true;
-            this.ribbonButtonVideoClose.IsPressed = false;
-            this.ribbonButtonVideoClose.Location = new System.Drawing.Point(65, 0);
-            this.ribbonButtonVideoClose.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoClose.Name = "ribbonButtonVideoClose";
-            this.ribbonButtonVideoClose.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoClose.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoClose.TabIndex = 1;
-            this.ribbonButtonVideoClose.Text = "Close File";
-            this.ribbonButtonVideoClose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoClose.Click += new System.EventHandler(this.ribbonButtonVideoClose_Click);
-            // 
-            // ribbonButtonVideoOpen
-            // 
-            this.ribbonButtonVideoOpen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonVideoOpen.Image = global::GiniMonara.Properties.Resources.fileopen;
-            this.ribbonButtonVideoOpen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonVideoOpen.IsFlat = true;
-            this.ribbonButtonVideoOpen.IsPressed = false;
-            this.ribbonButtonVideoOpen.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonVideoOpen.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonVideoOpen.Name = "ribbonButtonVideoOpen";
-            this.ribbonButtonVideoOpen.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonVideoOpen.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonVideoOpen.TabIndex = 0;
-            this.ribbonButtonVideoOpen.Text = "Open File";
-            this.ribbonButtonVideoOpen.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonVideoOpen.Click += new System.EventHandler(this.ribbonButtonVideoOpen_Click);
-            // 
             // tabPageTools
             // 
+            this.tabPageTools.Controls.Add(this.ribbonGroup12);
+            this.tabPageTools.Controls.Add(this.ribbonGroup11);
             this.tabPageTools.Controls.Add(this.ribbonGroup5);
             this.tabPageTools.Location = new System.Drawing.Point(4, 25);
             this.tabPageTools.Name = "tabPageTools";
@@ -714,40 +348,6 @@
             this.ribbonGroup5.TabIndex = 1;
             this.ribbonGroup5.TabStop = false;
             this.ribbonGroup5.Text = "Categories";
-            // 
-            // ribbonButtonCategoryAnalyzer
-            // 
-            this.ribbonButtonCategoryAnalyzer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonCategoryAnalyzer.Image = global::GiniMonara.Properties.Resources.viewmag;
-            this.ribbonButtonCategoryAnalyzer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonCategoryAnalyzer.IsFlat = true;
-            this.ribbonButtonCategoryAnalyzer.IsPressed = false;
-            this.ribbonButtonCategoryAnalyzer.Location = new System.Drawing.Point(65, 0);
-            this.ribbonButtonCategoryAnalyzer.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonCategoryAnalyzer.Name = "ribbonButtonCategoryAnalyzer";
-            this.ribbonButtonCategoryAnalyzer.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonCategoryAnalyzer.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonCategoryAnalyzer.TabIndex = 1;
-            this.ribbonButtonCategoryAnalyzer.Text = "Analyzer";
-            this.ribbonButtonCategoryAnalyzer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonCategoryAnalyzer.Click += new System.EventHandler(this.ribbonButtonCategoryAnalyzer_Click);
-            // 
-            // ribbonButtonCategoryEditor
-            // 
-            this.ribbonButtonCategoryEditor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonCategoryEditor.Image = global::GiniMonara.Properties.Resources.category_editor;
-            this.ribbonButtonCategoryEditor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonCategoryEditor.IsFlat = true;
-            this.ribbonButtonCategoryEditor.IsPressed = false;
-            this.ribbonButtonCategoryEditor.Location = new System.Drawing.Point(3, 0);
-            this.ribbonButtonCategoryEditor.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonCategoryEditor.Name = "ribbonButtonCategoryEditor";
-            this.ribbonButtonCategoryEditor.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonCategoryEditor.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonCategoryEditor.TabIndex = 0;
-            this.ribbonButtonCategoryEditor.Text = "Editor";
-            this.ribbonButtonCategoryEditor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonCategoryEditor.Click += new System.EventHandler(this.ribbonButtonCategoryEditor_Click);
             // 
             // splitContainer1
             // 
@@ -898,40 +498,6 @@
             this.panelSelection.TabIndex = 0;
             this.panelSelection.Visible = false;
             // 
-            // ribbonButtonSelectionCancel
-            // 
-            this.ribbonButtonSelectionCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonSelectionCancel.Image = global::GiniMonara.Properties.Resources.cancel;
-            this.ribbonButtonSelectionCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonSelectionCancel.IsFlat = true;
-            this.ribbonButtonSelectionCancel.IsPressed = false;
-            this.ribbonButtonSelectionCancel.Location = new System.Drawing.Point(120, 137);
-            this.ribbonButtonSelectionCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonSelectionCancel.Name = "ribbonButtonSelectionCancel";
-            this.ribbonButtonSelectionCancel.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonSelectionCancel.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonSelectionCancel.TabIndex = 7;
-            this.ribbonButtonSelectionCancel.Text = "Cancel";
-            this.ribbonButtonSelectionCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonSelectionCancel.Click += new System.EventHandler(this.ribbonButtonSelectionCancel_Click);
-            // 
-            // ribbonButtonSelectionTagOk
-            // 
-            this.ribbonButtonSelectionTagOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonSelectionTagOk.Image = global::GiniMonara.Properties.Resources.ok;
-            this.ribbonButtonSelectionTagOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonSelectionTagOk.IsFlat = true;
-            this.ribbonButtonSelectionTagOk.IsPressed = false;
-            this.ribbonButtonSelectionTagOk.Location = new System.Drawing.Point(180, 137);
-            this.ribbonButtonSelectionTagOk.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonSelectionTagOk.Name = "ribbonButtonSelectionTagOk";
-            this.ribbonButtonSelectionTagOk.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonSelectionTagOk.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonSelectionTagOk.TabIndex = 6;
-            this.ribbonButtonSelectionTagOk.Text = "Ok";
-            this.ribbonButtonSelectionTagOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonSelectionTagOk.Click += new System.EventHandler(this.ribbonButtonSelectionTagOk_Click);
-            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.textBoxSelectionData);
@@ -1026,40 +592,6 @@
             this.panelTimedTags.TabIndex = 1;
             this.panelTimedTags.Visible = false;
             // 
-            // ribbonButtonTimedCancel
-            // 
-            this.ribbonButtonTimedCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonTimedCancel.Image = global::GiniMonara.Properties.Resources.cancel;
-            this.ribbonButtonTimedCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonTimedCancel.IsFlat = true;
-            this.ribbonButtonTimedCancel.IsPressed = false;
-            this.ribbonButtonTimedCancel.Location = new System.Drawing.Point(120, 137);
-            this.ribbonButtonTimedCancel.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonTimedCancel.Name = "ribbonButtonTimedCancel";
-            this.ribbonButtonTimedCancel.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonTimedCancel.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonTimedCancel.TabIndex = 7;
-            this.ribbonButtonTimedCancel.Text = "Cancel";
-            this.ribbonButtonTimedCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonTimedCancel.Click += new System.EventHandler(this.ribbonButtonTimedCancel_Click);
-            // 
-            // ribbonButtonTimedOk
-            // 
-            this.ribbonButtonTimedOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ribbonButtonTimedOk.Image = global::GiniMonara.Properties.Resources.ok;
-            this.ribbonButtonTimedOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ribbonButtonTimedOk.IsFlat = true;
-            this.ribbonButtonTimedOk.IsPressed = false;
-            this.ribbonButtonTimedOk.Location = new System.Drawing.Point(180, 137);
-            this.ribbonButtonTimedOk.Margin = new System.Windows.Forms.Padding(0);
-            this.ribbonButtonTimedOk.Name = "ribbonButtonTimedOk";
-            this.ribbonButtonTimedOk.Padding = new System.Windows.Forms.Padding(2);
-            this.ribbonButtonTimedOk.Size = new System.Drawing.Size(60, 60);
-            this.ribbonButtonTimedOk.TabIndex = 6;
-            this.ribbonButtonTimedOk.Text = "Ok";
-            this.ribbonButtonTimedOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ribbonButtonTimedOk.Click += new System.EventHandler(this.ribbonButtonTimedOk_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBoxTimedData);
@@ -1145,6 +677,542 @@
             this.splitContainer2.SplitterDistance = 130;
             this.splitContainer2.TabIndex = 3;
             // 
+            // ribbonGroup11
+            // 
+            this.ribbonGroup11.AutoSize = true;
+            this.ribbonGroup11.Controls.Add(this.ribbonButtonSearch);
+            this.ribbonGroup11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup11.Location = new System.Drawing.Point(128, 0);
+            this.ribbonGroup11.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup11.Name = "ribbonGroup11";
+            this.ribbonGroup11.Size = new System.Drawing.Size(66, 101);
+            this.ribbonGroup11.TabIndex = 6;
+            this.ribbonGroup11.TabStop = false;
+            this.ribbonGroup11.Text = "Search";
+            // 
+            // ribbonGroup12
+            // 
+            this.ribbonGroup12.AutoSize = true;
+            this.ribbonGroup12.Controls.Add(this.ribbonButtonSaveTags);
+            this.ribbonGroup12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonGroup12.Location = new System.Drawing.Point(194, 0);
+            this.ribbonGroup12.Margin = new System.Windows.Forms.Padding(1);
+            this.ribbonGroup12.Name = "ribbonGroup12";
+            this.ribbonGroup12.Size = new System.Drawing.Size(66, 101);
+            this.ribbonGroup12.TabIndex = 7;
+            this.ribbonGroup12.TabStop = false;
+            this.ribbonGroup12.Text = "XML";
+            // 
+            // ribbonButtonImageZoomOut
+            // 
+            this.ribbonButtonImageZoomOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageZoomOut.Image = global::GiniMonara.Properties.Resources.viewmag_zout;
+            this.ribbonButtonImageZoomOut.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageZoomOut.IsFlat = true;
+            this.ribbonButtonImageZoomOut.IsPressed = false;
+            this.ribbonButtonImageZoomOut.Location = new System.Drawing.Point(183, 0);
+            this.ribbonButtonImageZoomOut.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageZoomOut.Name = "ribbonButtonImageZoomOut";
+            this.ribbonButtonImageZoomOut.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageZoomOut.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageZoomOut.TabIndex = 9;
+            this.ribbonButtonImageZoomOut.Text = "Zoom Out";
+            this.ribbonButtonImageZoomOut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageZoomOut.Click += new System.EventHandler(this.ribbonButtonImageZoomOut_Click);
+            // 
+            // ribbonButtonImageZoomIn
+            // 
+            this.ribbonButtonImageZoomIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageZoomIn.Image = global::GiniMonara.Properties.Resources.viewmag_zin;
+            this.ribbonButtonImageZoomIn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageZoomIn.IsFlat = true;
+            this.ribbonButtonImageZoomIn.IsPressed = false;
+            this.ribbonButtonImageZoomIn.Location = new System.Drawing.Point(123, 0);
+            this.ribbonButtonImageZoomIn.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageZoomIn.Name = "ribbonButtonImageZoomIn";
+            this.ribbonButtonImageZoomIn.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageZoomIn.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageZoomIn.TabIndex = 8;
+            this.ribbonButtonImageZoomIn.Text = "Zoom In";
+            this.ribbonButtonImageZoomIn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageZoomIn.Click += new System.EventHandler(this.ribbonButtonImageZoomIn_Click);
+            // 
+            // ribbonButtonImageBestFit
+            // 
+            this.ribbonButtonImageBestFit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageBestFit.Image = global::GiniMonara.Properties.Resources.viewmagfit;
+            this.ribbonButtonImageBestFit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageBestFit.IsFlat = true;
+            this.ribbonButtonImageBestFit.IsPressed = false;
+            this.ribbonButtonImageBestFit.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonImageBestFit.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageBestFit.Name = "ribbonButtonImageBestFit";
+            this.ribbonButtonImageBestFit.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageBestFit.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageBestFit.TabIndex = 7;
+            this.ribbonButtonImageBestFit.Text = "Best Fit";
+            this.ribbonButtonImageBestFit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageBestFit.Click += new System.EventHandler(this.ribbonButtonImageBestFit_Click);
+            // 
+            // ribbonButtonImageActual
+            // 
+            this.ribbonButtonImageActual.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageActual.Image = global::GiniMonara.Properties.Resources.viewmag1;
+            this.ribbonButtonImageActual.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageActual.IsFlat = true;
+            this.ribbonButtonImageActual.IsPressed = false;
+            this.ribbonButtonImageActual.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonImageActual.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageActual.Name = "ribbonButtonImageActual";
+            this.ribbonButtonImageActual.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageActual.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageActual.TabIndex = 6;
+            this.ribbonButtonImageActual.Text = "Actual";
+            this.ribbonButtonImageActual.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageActual.Click += new System.EventHandler(this.ribbonButtonImageActual_Click);
+            // 
+            // ribbonButtonImageFlickr
+            // 
+            this.ribbonButtonImageFlickr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageFlickr.Image = global::GiniMonara.Properties.Resources.flickr;
+            this.ribbonButtonImageFlickr.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageFlickr.IsFlat = true;
+            this.ribbonButtonImageFlickr.IsPressed = false;
+            this.ribbonButtonImageFlickr.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonImageFlickr.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageFlickr.Name = "ribbonButtonImageFlickr";
+            this.ribbonButtonImageFlickr.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageFlickr.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageFlickr.TabIndex = 4;
+            this.ribbonButtonImageFlickr.Text = "Flickr";
+            this.ribbonButtonImageFlickr.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageFlickr.Click += new System.EventHandler(this.ribbonButtonImageFlickr_Click);
+            // 
+            // ribbonButtonImagePicasa
+            // 
+            this.ribbonButtonImagePicasa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImagePicasa.Image = global::GiniMonara.Properties.Resources.picasa;
+            this.ribbonButtonImagePicasa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImagePicasa.IsFlat = true;
+            this.ribbonButtonImagePicasa.IsPressed = false;
+            this.ribbonButtonImagePicasa.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonImagePicasa.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImagePicasa.Name = "ribbonButtonImagePicasa";
+            this.ribbonButtonImagePicasa.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImagePicasa.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImagePicasa.TabIndex = 3;
+            this.ribbonButtonImagePicasa.Text = "Picasa";
+            this.ribbonButtonImagePicasa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImagePicasa.Click += new System.EventHandler(this.ribbonButtonImagePicasa_Click);
+            // 
+            // ribbonButtonReloadMetaData
+            // 
+            this.ribbonButtonReloadMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonReloadMetaData.Image = global::GiniMonara.Properties.Resources.reload;
+            this.ribbonButtonReloadMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonReloadMetaData.IsFlat = true;
+            this.ribbonButtonReloadMetaData.IsPressed = false;
+            this.ribbonButtonReloadMetaData.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonReloadMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonReloadMetaData.Name = "ribbonButtonReloadMetaData";
+            this.ribbonButtonReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonReloadMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonReloadMetaData.TabIndex = 4;
+            this.ribbonButtonReloadMetaData.Text = "Reload";
+            this.ribbonButtonReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonReloadMetaData.Click += new System.EventHandler(this.ribbonButtonReloadMetaData_Click);
+            // 
+            // ribbonButtonImageSave
+            // 
+            this.ribbonButtonImageSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageSave.Image = global::GiniMonara.Properties.Resources.save_all;
+            this.ribbonButtonImageSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageSave.IsFlat = true;
+            this.ribbonButtonImageSave.IsPressed = false;
+            this.ribbonButtonImageSave.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonImageSave.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageSave.Name = "ribbonButtonImageSave";
+            this.ribbonButtonImageSave.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageSave.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageSave.TabIndex = 2;
+            this.ribbonButtonImageSave.Text = "Save";
+            this.ribbonButtonImageSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageSave.Click += new System.EventHandler(this.ribbonButtonImageSave_Click);
+            // 
+            // ribbonButtonImageCloseFile
+            // 
+            this.ribbonButtonImageCloseFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageCloseFile.Image = global::GiniMonara.Properties.Resources.fileclose;
+            this.ribbonButtonImageCloseFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageCloseFile.IsFlat = true;
+            this.ribbonButtonImageCloseFile.IsPressed = false;
+            this.ribbonButtonImageCloseFile.Location = new System.Drawing.Point(65, 0);
+            this.ribbonButtonImageCloseFile.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageCloseFile.Name = "ribbonButtonImageCloseFile";
+            this.ribbonButtonImageCloseFile.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageCloseFile.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageCloseFile.TabIndex = 1;
+            this.ribbonButtonImageCloseFile.Text = "Close File";
+            this.ribbonButtonImageCloseFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageCloseFile.Click += new System.EventHandler(this.ribbonButtonImageCloseFile_Click);
+            // 
+            // ribbonButtonImageOpenFile
+            // 
+            this.ribbonButtonImageOpenFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonImageOpenFile.Image = global::GiniMonara.Properties.Resources.fileopen;
+            this.ribbonButtonImageOpenFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonImageOpenFile.IsFlat = true;
+            this.ribbonButtonImageOpenFile.IsPressed = false;
+            this.ribbonButtonImageOpenFile.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonImageOpenFile.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonImageOpenFile.Name = "ribbonButtonImageOpenFile";
+            this.ribbonButtonImageOpenFile.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonImageOpenFile.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonImageOpenFile.TabIndex = 0;
+            this.ribbonButtonImageOpenFile.Text = "Open File";
+            this.ribbonButtonImageOpenFile.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonImageOpenFile.Click += new System.EventHandler(this.ribbonButtonImageOpenFile_Click);
+            // 
+            // ribbonButtonVideoMark
+            // 
+            this.ribbonButtonVideoMark.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoMark.Image = global::GiniMonara.Properties.Resources.mark;
+            this.ribbonButtonVideoMark.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoMark.IsFlat = true;
+            this.ribbonButtonVideoMark.IsPressed = false;
+            this.ribbonButtonVideoMark.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonVideoMark.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoMark.Name = "ribbonButtonVideoMark";
+            this.ribbonButtonVideoMark.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoMark.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoMark.TabIndex = 4;
+            this.ribbonButtonVideoMark.Text = "Mark";
+            this.ribbonButtonVideoMark.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoMark.Click += new System.EventHandler(this.ribbonButtonVideoMark_Click);
+            // 
+            // ribbonButtonVideoTag
+            // 
+            this.ribbonButtonVideoTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoTag.Image = global::GiniMonara.Properties.Resources.add;
+            this.ribbonButtonVideoTag.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoTag.IsFlat = true;
+            this.ribbonButtonVideoTag.IsPressed = false;
+            this.ribbonButtonVideoTag.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoTag.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoTag.Name = "ribbonButtonVideoTag";
+            this.ribbonButtonVideoTag.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoTag.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoTag.TabIndex = 2;
+            this.ribbonButtonVideoTag.Text = "Tag";
+            this.ribbonButtonVideoTag.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoTag.Click += new System.EventHandler(this.ribbonButtonVideoTag_Click);
+            // 
+            // ribbonButtonVideoForward
+            // 
+            this.ribbonButtonVideoForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoForward.Image = global::GiniMonara.Properties.Resources.player_fwd;
+            this.ribbonButtonVideoForward.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoForward.IsFlat = true;
+            this.ribbonButtonVideoForward.IsPressed = false;
+            this.ribbonButtonVideoForward.Location = new System.Drawing.Point(243, 0);
+            this.ribbonButtonVideoForward.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoForward.Name = "ribbonButtonVideoForward";
+            this.ribbonButtonVideoForward.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoForward.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoForward.TabIndex = 10;
+            this.ribbonButtonVideoForward.Text = "Forward";
+            this.ribbonButtonVideoForward.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoForward.Click += new System.EventHandler(this.ribbonButtonVideoForward_Click);
+            // 
+            // ribbonButtonVideoStop
+            // 
+            this.ribbonButtonVideoStop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoStop.Image = global::GiniMonara.Properties.Resources.player_stop;
+            this.ribbonButtonVideoStop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoStop.IsFlat = true;
+            this.ribbonButtonVideoStop.IsPressed = false;
+            this.ribbonButtonVideoStop.Location = new System.Drawing.Point(183, 0);
+            this.ribbonButtonVideoStop.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoStop.Name = "ribbonButtonVideoStop";
+            this.ribbonButtonVideoStop.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoStop.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoStop.TabIndex = 9;
+            this.ribbonButtonVideoStop.Text = "Stop";
+            this.ribbonButtonVideoStop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoStop.Click += new System.EventHandler(this.ribbonButtonVideoStop_Click);
+            // 
+            // ribbonButtonVideoPause
+            // 
+            this.ribbonButtonVideoPause.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoPause.Image = global::GiniMonara.Properties.Resources.player_pause;
+            this.ribbonButtonVideoPause.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoPause.IsFlat = true;
+            this.ribbonButtonVideoPause.IsPressed = false;
+            this.ribbonButtonVideoPause.Location = new System.Drawing.Point(123, 0);
+            this.ribbonButtonVideoPause.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoPause.Name = "ribbonButtonVideoPause";
+            this.ribbonButtonVideoPause.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoPause.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoPause.TabIndex = 8;
+            this.ribbonButtonVideoPause.Text = "Pause";
+            this.ribbonButtonVideoPause.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoPause.Click += new System.EventHandler(this.ribbonButtonVideoPause_Click);
+            // 
+            // ribbonButtonVideoPlay
+            // 
+            this.ribbonButtonVideoPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoPlay.Image = global::GiniMonara.Properties.Resources.player_play;
+            this.ribbonButtonVideoPlay.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoPlay.IsFlat = true;
+            this.ribbonButtonVideoPlay.IsPressed = false;
+            this.ribbonButtonVideoPlay.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonVideoPlay.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoPlay.Name = "ribbonButtonVideoPlay";
+            this.ribbonButtonVideoPlay.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoPlay.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoPlay.TabIndex = 7;
+            this.ribbonButtonVideoPlay.Text = "Play";
+            this.ribbonButtonVideoPlay.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoPlay.Click += new System.EventHandler(this.ribbonButtonVideoPlay_Click);
+            // 
+            // ribbonButtonVideoRewind
+            // 
+            this.ribbonButtonVideoRewind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoRewind.Image = global::GiniMonara.Properties.Resources.player_rew;
+            this.ribbonButtonVideoRewind.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoRewind.IsFlat = true;
+            this.ribbonButtonVideoRewind.IsPressed = false;
+            this.ribbonButtonVideoRewind.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoRewind.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoRewind.Name = "ribbonButtonVideoRewind";
+            this.ribbonButtonVideoRewind.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoRewind.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoRewind.TabIndex = 6;
+            this.ribbonButtonVideoRewind.Text = "Rewind";
+            this.ribbonButtonVideoRewind.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoRewind.Click += new System.EventHandler(this.ribbonButtonVideoRewind_Click);
+            // 
+            // ribbonButtonVideoYouTube
+            // 
+            this.ribbonButtonVideoYouTube.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoYouTube.Image = global::GiniMonara.Properties.Resources.youtube;
+            this.ribbonButtonVideoYouTube.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoYouTube.IsFlat = true;
+            this.ribbonButtonVideoYouTube.IsPressed = false;
+            this.ribbonButtonVideoYouTube.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoYouTube.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoYouTube.Name = "ribbonButtonVideoYouTube";
+            this.ribbonButtonVideoYouTube.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoYouTube.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoYouTube.TabIndex = 3;
+            this.ribbonButtonVideoYouTube.Text = "YouTube";
+            this.ribbonButtonVideoYouTube.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoYouTube.Click += new System.EventHandler(this.ribbonButtonVideoYouTube_Click);
+            // 
+            // ribbonButtonVideoReloadMetaData
+            // 
+            this.ribbonButtonVideoReloadMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoReloadMetaData.Image = global::GiniMonara.Properties.Resources.reload;
+            this.ribbonButtonVideoReloadMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoReloadMetaData.IsFlat = true;
+            this.ribbonButtonVideoReloadMetaData.IsPressed = false;
+            this.ribbonButtonVideoReloadMetaData.Location = new System.Drawing.Point(63, 0);
+            this.ribbonButtonVideoReloadMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoReloadMetaData.Name = "ribbonButtonVideoReloadMetaData";
+            this.ribbonButtonVideoReloadMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoReloadMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoReloadMetaData.TabIndex = 4;
+            this.ribbonButtonVideoReloadMetaData.Text = "Reload";
+            this.ribbonButtonVideoReloadMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoReloadMetaData.Click += new System.EventHandler(this.ribbonButtonVideoReloadMetaData_Click);
+            // 
+            // ribbonButtonVideoSaveMetaData
+            // 
+            this.ribbonButtonVideoSaveMetaData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoSaveMetaData.Image = global::GiniMonara.Properties.Resources.save_all;
+            this.ribbonButtonVideoSaveMetaData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoSaveMetaData.IsFlat = true;
+            this.ribbonButtonVideoSaveMetaData.IsPressed = false;
+            this.ribbonButtonVideoSaveMetaData.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoSaveMetaData.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoSaveMetaData.Name = "ribbonButtonVideoSaveMetaData";
+            this.ribbonButtonVideoSaveMetaData.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoSaveMetaData.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoSaveMetaData.TabIndex = 2;
+            this.ribbonButtonVideoSaveMetaData.Text = "Save";
+            this.ribbonButtonVideoSaveMetaData.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoSaveMetaData.Click += new System.EventHandler(this.ribbonButtonVideoSaveMetaData_Click);
+            // 
+            // ribbonButtonVideoClose
+            // 
+            this.ribbonButtonVideoClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoClose.Image = global::GiniMonara.Properties.Resources.fileclose;
+            this.ribbonButtonVideoClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoClose.IsFlat = true;
+            this.ribbonButtonVideoClose.IsPressed = false;
+            this.ribbonButtonVideoClose.Location = new System.Drawing.Point(65, 0);
+            this.ribbonButtonVideoClose.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoClose.Name = "ribbonButtonVideoClose";
+            this.ribbonButtonVideoClose.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoClose.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoClose.TabIndex = 1;
+            this.ribbonButtonVideoClose.Text = "Close File";
+            this.ribbonButtonVideoClose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoClose.Click += new System.EventHandler(this.ribbonButtonVideoClose_Click);
+            // 
+            // ribbonButtonVideoOpen
+            // 
+            this.ribbonButtonVideoOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonVideoOpen.Image = global::GiniMonara.Properties.Resources.fileopen;
+            this.ribbonButtonVideoOpen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonVideoOpen.IsFlat = true;
+            this.ribbonButtonVideoOpen.IsPressed = false;
+            this.ribbonButtonVideoOpen.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonVideoOpen.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonVideoOpen.Name = "ribbonButtonVideoOpen";
+            this.ribbonButtonVideoOpen.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonVideoOpen.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonVideoOpen.TabIndex = 0;
+            this.ribbonButtonVideoOpen.Text = "Open File";
+            this.ribbonButtonVideoOpen.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonVideoOpen.Click += new System.EventHandler(this.ribbonButtonVideoOpen_Click);
+            // 
+            // ribbonButtonSaveTags
+            // 
+            this.ribbonButtonSaveTags.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonSaveTags.Image = global::GiniMonara.Properties.Resources.gmFile;
+            this.ribbonButtonSaveTags.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonSaveTags.IsFlat = true;
+            this.ribbonButtonSaveTags.IsPressed = false;
+            this.ribbonButtonSaveTags.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonSaveTags.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonSaveTags.Name = "ribbonButtonSaveTags";
+            this.ribbonButtonSaveTags.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonSaveTags.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonSaveTags.TabIndex = 0;
+            this.ribbonButtonSaveTags.Text = "Tags";
+            this.ribbonButtonSaveTags.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonSaveTags.Click += new System.EventHandler(this.ribbonButtonSaveTags_Click);
+            // 
+            // ribbonButtonSearch
+            // 
+            this.ribbonButtonSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonSearch.Image = global::GiniMonara.Properties.Resources.search;
+            this.ribbonButtonSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonSearch.IsFlat = true;
+            this.ribbonButtonSearch.IsPressed = false;
+            this.ribbonButtonSearch.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonSearch.Name = "ribbonButtonSearch";
+            this.ribbonButtonSearch.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonSearch.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonSearch.TabIndex = 3;
+            this.ribbonButtonSearch.Text = "Search";
+            this.ribbonButtonSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonSearch.Click += new System.EventHandler(this.ribbonButtonSearch_Click);
+            // 
+            // ribbonButtonCategoryAnalyzer
+            // 
+            this.ribbonButtonCategoryAnalyzer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonCategoryAnalyzer.Image = global::GiniMonara.Properties.Resources.viewmag;
+            this.ribbonButtonCategoryAnalyzer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonCategoryAnalyzer.IsFlat = true;
+            this.ribbonButtonCategoryAnalyzer.IsPressed = false;
+            this.ribbonButtonCategoryAnalyzer.Location = new System.Drawing.Point(65, 0);
+            this.ribbonButtonCategoryAnalyzer.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonCategoryAnalyzer.Name = "ribbonButtonCategoryAnalyzer";
+            this.ribbonButtonCategoryAnalyzer.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonCategoryAnalyzer.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonCategoryAnalyzer.TabIndex = 1;
+            this.ribbonButtonCategoryAnalyzer.Text = "Analyzer";
+            this.ribbonButtonCategoryAnalyzer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonCategoryAnalyzer.Click += new System.EventHandler(this.ribbonButtonCategoryAnalyzer_Click);
+            // 
+            // ribbonButtonCategoryEditor
+            // 
+            this.ribbonButtonCategoryEditor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonCategoryEditor.Image = global::GiniMonara.Properties.Resources.category_editor;
+            this.ribbonButtonCategoryEditor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonCategoryEditor.IsFlat = true;
+            this.ribbonButtonCategoryEditor.IsPressed = false;
+            this.ribbonButtonCategoryEditor.Location = new System.Drawing.Point(3, 0);
+            this.ribbonButtonCategoryEditor.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonCategoryEditor.Name = "ribbonButtonCategoryEditor";
+            this.ribbonButtonCategoryEditor.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonCategoryEditor.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonCategoryEditor.TabIndex = 0;
+            this.ribbonButtonCategoryEditor.Text = "Editor";
+            this.ribbonButtonCategoryEditor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonCategoryEditor.Click += new System.EventHandler(this.ribbonButtonCategoryEditor_Click);
+            // 
+            // ribbonButtonSelectionCancel
+            // 
+            this.ribbonButtonSelectionCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonSelectionCancel.Image = global::GiniMonara.Properties.Resources.cancel;
+            this.ribbonButtonSelectionCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonSelectionCancel.IsFlat = true;
+            this.ribbonButtonSelectionCancel.IsPressed = false;
+            this.ribbonButtonSelectionCancel.Location = new System.Drawing.Point(120, 137);
+            this.ribbonButtonSelectionCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonSelectionCancel.Name = "ribbonButtonSelectionCancel";
+            this.ribbonButtonSelectionCancel.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonSelectionCancel.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonSelectionCancel.TabIndex = 7;
+            this.ribbonButtonSelectionCancel.Text = "Cancel";
+            this.ribbonButtonSelectionCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonSelectionCancel.Click += new System.EventHandler(this.ribbonButtonSelectionCancel_Click);
+            // 
+            // ribbonButtonSelectionTagOk
+            // 
+            this.ribbonButtonSelectionTagOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonSelectionTagOk.Image = global::GiniMonara.Properties.Resources.ok;
+            this.ribbonButtonSelectionTagOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonSelectionTagOk.IsFlat = true;
+            this.ribbonButtonSelectionTagOk.IsPressed = false;
+            this.ribbonButtonSelectionTagOk.Location = new System.Drawing.Point(180, 137);
+            this.ribbonButtonSelectionTagOk.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonSelectionTagOk.Name = "ribbonButtonSelectionTagOk";
+            this.ribbonButtonSelectionTagOk.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonSelectionTagOk.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonSelectionTagOk.TabIndex = 6;
+            this.ribbonButtonSelectionTagOk.Text = "Ok";
+            this.ribbonButtonSelectionTagOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonSelectionTagOk.Click += new System.EventHandler(this.ribbonButtonSelectionTagOk_Click);
+            // 
+            // ribbonButtonTimedCancel
+            // 
+            this.ribbonButtonTimedCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonTimedCancel.Image = global::GiniMonara.Properties.Resources.cancel;
+            this.ribbonButtonTimedCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonTimedCancel.IsFlat = true;
+            this.ribbonButtonTimedCancel.IsPressed = false;
+            this.ribbonButtonTimedCancel.Location = new System.Drawing.Point(120, 137);
+            this.ribbonButtonTimedCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonTimedCancel.Name = "ribbonButtonTimedCancel";
+            this.ribbonButtonTimedCancel.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonTimedCancel.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonTimedCancel.TabIndex = 7;
+            this.ribbonButtonTimedCancel.Text = "Cancel";
+            this.ribbonButtonTimedCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonTimedCancel.Click += new System.EventHandler(this.ribbonButtonTimedCancel_Click);
+            // 
+            // ribbonButtonTimedOk
+            // 
+            this.ribbonButtonTimedOk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ribbonButtonTimedOk.Image = global::GiniMonara.Properties.Resources.ok;
+            this.ribbonButtonTimedOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ribbonButtonTimedOk.IsFlat = true;
+            this.ribbonButtonTimedOk.IsPressed = false;
+            this.ribbonButtonTimedOk.Location = new System.Drawing.Point(180, 137);
+            this.ribbonButtonTimedOk.Margin = new System.Windows.Forms.Padding(0);
+            this.ribbonButtonTimedOk.Name = "ribbonButtonTimedOk";
+            this.ribbonButtonTimedOk.Padding = new System.Windows.Forms.Padding(2);
+            this.ribbonButtonTimedOk.Size = new System.Drawing.Size(60, 60);
+            this.ribbonButtonTimedOk.TabIndex = 6;
+            this.ribbonButtonTimedOk.Text = "Ok";
+            this.ribbonButtonTimedOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ribbonButtonTimedOk.Click += new System.EventHandler(this.ribbonButtonTimedOk_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1199,6 +1267,8 @@
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
+            this.ribbonGroup11.ResumeLayout(false);
+            this.ribbonGroup12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1276,5 +1346,9 @@
         private System.Windows.Forms.ComboBox comboBoxTimedTag;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox comboBoxTimedCategory;
+        private mRibbon.RibbonGroup ribbonGroup12;
+        private mRibbon.RibbonButton ribbonButtonSaveTags;
+        private mRibbon.RibbonGroup ribbonGroup11;
+        private mRibbon.RibbonButton ribbonButtonSearch;
     }
 }
