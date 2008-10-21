@@ -701,13 +701,7 @@ namespace GiniMonara.UI
 
                 iMediaControl.Run();
                 videoStatus = VideoStatus.Running;
-
-                panelImage.Visible = false;
                 panelImage.Visible = true;
-                zoom = "actual";
-                zoomFactor = 10;
-                zoomStep = 25;
-                loadImageMetaData();
             }
             loadVideoMetaData();
             panelSelection.Visible = false;
@@ -766,6 +760,7 @@ namespace GiniMonara.UI
             textBoxData.Clear();
             panelTimedTags.Visible = false;
             groupBoxTimedTags.Visible = false;
+            listBoxTimedTags.Items.Clear();
 
             if (iMediaControl != null)
             {
@@ -861,6 +856,7 @@ namespace GiniMonara.UI
                     textBoxData.Text = tagList.Where(t => t.category == comboBoxCategoryName.SelectedItem.ToString()).Where(t => t.name == comboBoxTagName.SelectedItem.ToString()).Select(t => t.data).FirstOrDefault();
                 }
 
+                listBoxTimedTags.Items.Clear();
                 var timedMetaData = from t in tagList
                                         from c in ApplicationUtility.categories
                                         where c.type == "timeframe"
